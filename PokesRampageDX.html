@@ -1620,6 +1620,51 @@ body.rdm #lb{display:none!important}body.rdm #hud .tc{display:none}
 .rrdn{text-align:center;font:11px var(--px);color:#c8b8f0;padding:6px}
 .rdres .rew{display:flex;justify-content:center;gap:14px;margin:12px 0;font:12px var(--px)}.rdres .rew span{display:flex;align-items:center;gap:6px;padding:4px 10px;background:#0a0620;box-shadow:0 0 0 2px #3a2a6a}.rdres .rew img{width:22px;height:22px;image-rendering:pixelated}
 @media(max-width:640px){.rdtop{grid-template-columns:1fr;justify-items:center;text-align:center}.rdst{justify-content:center}.rdlad{grid-template-columns:repeat(3,1fr)}.rdlad img{width:54px;height:51px}.rre{flex-direction:column}#rdsb .sbs{min-width:84px;padding:5px 8px}#rdsb .sbt{min-width:60px;font-size:12px}}
+
+/* ===== v32 · Gacha más vistoso: ruleta sin deformarse, foco en el ganador, banner de legendarios limpio ===== */
+.rc.rwin{z-index:2;animation:rcw2 .7s cubic-bezier(.2,1.7,.4,1) both;box-shadow:inset 0 0 0 4px var(--tc),inset 0 0 0 7px #0a0620,inset 0 0 0 9px #fff6c0}
+@keyframes rcw2{0%{transform:scale(1)}40%{transform:scale(1.16)}100%{transform:scale(1.08)}}
+.gcs.shiny .rc.rwin{animation:rcw2 .7s cubic-bezier(.2,1.7,.4,1) both,rsh .6s steps(3) .7s infinite}
+.rc.rwin img{animation:rcimg .8s steps(4) .1s both}
+@keyframes rcimg{30%{transform:translateY(-10px)}60%{transform:translateY(0)}80%{transform:translateY(-3px)}}
+.gcs.done .rc:not(.rwin){filter:brightness(.35) saturate(.5);transition:filter .45s}
+.gcs-rl{z-index:1}
+.rrays{position:absolute;left:50%;top:60px;width:560px;height:560px;margin:-280px 0 0 -280px;pointer-events:none;opacity:0;image-rendering:pixelated;
+ background:repeating-conic-gradient(from 0deg,var(--tc) 0 7deg,#0000 7deg 22.5deg);-webkit-mask:radial-gradient(circle,#000 0 18%,#0008 34%,#0000 62%);mask:radial-gradient(circle,#000 0 18%,#0008 34%,#0000 62%)}
+.gcs.done .rrays{animation:rrin .5s ease-out forwards,rrsp 9s steps(72) infinite}
+@keyframes rrin{to{opacity:.55}}@keyframes rrsp{to{rotate:360deg}}
+.crays{position:absolute;left:50%;top:45%;width:420px;height:420px;margin:-210px 0 0 -210px;opacity:0;pointer-events:none;
+ background:repeating-conic-gradient(var(--rc) 0 8deg,#0000 8deg 24deg);-webkit-mask:radial-gradient(circle,#000 0 15%,#0000 60%);mask:radial-gradient(circle,#000 0 15%,#0000 60%)}
+.gcs.open .crays{animation:crin .8s ease-out both,rrsp 6s steps(48) infinite}@keyframes crin{0%{opacity:0;transform:scale(.3)}30%{opacity:.8}100%{opacity:.45;transform:scale(1)}}
+.gflash{position:absolute;inset:0;background:var(--tc);opacity:0;pointer-events:none}
+.gcs.done .gflash{animation:gfl .8s ease-out}@keyframes gfl{0%{opacity:.28}100%{opacity:0}}
+.gcs.quake .gcs-rl{animation:gqk .4s steps(6)}
+@keyframes gqk{0%,100%{transform:translate(-50%,-50%)}20%{transform:translate(calc(-50% - 6px),calc(-50% + 3px))}40%{transform:translate(calc(-50% + 5px),calc(-50% - 4px))}60%{transform:translate(calc(-50% - 3px),calc(-50% + 2px))}80%{transform:translate(calc(-50% + 2px),-50%)}}
+.gcs.near .rlw{animation:rlnear .6s steps(2) infinite}
+@keyframes rlnear{50%{box-shadow:0 0 0 3px #0a0620,inset 0 0 0 3px #fff6c0,8px 8px 0 #000a}}
+.rlm.hot{animation:rlhot .25s steps(2)}@keyframes rlhot{0%{background:var(--hc);box-shadow:0 0 0 2px #0a0620,0 0 0 5px var(--hc)}}
+.rlt{display:flex!important;justify-content:center;align-items:baseline;gap:12px;flex-wrap:wrap;font-size:18px!important}
+.rlt .rtt{display:inline-block;animation:rtp .55s cubic-bezier(.2,1.8,.4,1) both}.rlt .rtn{display:inline-block;animation:rtp .55s cubic-bezier(.2,1.8,.4,1) .22s both}
+@keyframes rtp{from{transform:scale(2.4);opacity:0}}
+/* result card */
+.gfxr{position:fixed;inset:0;width:100%;height:100%;image-rendering:pixelated;pointer-events:none;z-index:0}
+.ov .box.grc{position:relative;z-index:1;overflow:hidden}
+.grc .gtier{display:flex;align-items:center;gap:8px}
+.gst{display:inline-flex;gap:3px}.gst img{width:21px;height:21px;image-rendering:pixelated;animation:gstp .45s cubic-bezier(.2,1.9,.4,1) both;animation-delay:var(--d)}
+@keyframes gstp{from{transform:scale(0) rotate(-90deg);opacity:0}}
+.grc .ped{animation:gped .7s cubic-bezier(.2,1.6,.4,1) .1s both}@keyframes gped{from{transform:translateY(40px) scale(.6);opacity:0}}
+.grc .nm{animation:rtp .5s cubic-bezier(.2,1.8,.4,1) .35s both}
+.gshine{position:absolute;top:0;bottom:0;left:-40%;width:24%;background:linear-gradient(100deg,#fff0 0 30%,#ffffff30 30% 45%,#fff0 45% 55%,#ffffff20 55% 62%,#fff0 62%);pointer-events:none;animation:gshn 1.1s ease-in-out .5s both}
+@keyframes gshn{to{left:120%}}
+.grc .nw .new{display:inline-block;animation:gstamp .5s cubic-bezier(.3,1.6,.5,1) both;animation-delay:var(--nd,.8s)}
+@keyframes gstamp{from{transform:scale(3) rotate(-12deg);opacity:0}}
+/* banner: the region's legendaries as plain pixel art, big and centred */
+.glegs{position:absolute!important;left:42%;bottom:9%;transform:translateX(-50%);display:flex!important;flex-direction:row!important;align-items:flex-end;gap:clamp(4px,2vw,26px)}
+.glg{display:block;padding:0;background:none!important;box-shadow:none!important;animation:glf 3s steps(6) infinite}
+.glg:nth-child(2){animation-delay:-1s}.glg:nth-child(3){animation-delay:-2s}
+@keyframes glf{50%{transform:translateY(-6px)}}
+.glg .sp{filter:none!important}
+@media (max-width:700px){.glegs{left:38%;bottom:12%}.glegs .glg:nth-child(3){display:none}}
 </style></head><body>
 <canvas id="c"></canvas>
 <div id="hud" hidden>
@@ -6095,7 +6140,7 @@ function gachaR(){if(!GPRE[greg]){GPRE[greg]=1;regList(greg).forEach(s=>{const i
  $("#gban").innerHTML=`<div class="gbn" style="--rbg:url(${regionBG(greg)});--rc:${col}">
   <div class="gbh"><div><h2>Caja de ${r[0]}</h2><small>N° ${r[1]}–${r[2]} · ${own}/${L.length} obtenidos</small><div class="br own"><i style="width:${100*own/L.length}%"></i></div></div>
    <div class="gtr">${SV.pend.length?`<button class="pend" data-pend="1">${ico("pokemon-box-link",22)} Por revisar <b>${SV.pend.length}</b></button>`:""}<div class="pity">${ico("master-ball",22)} Legendario garantizado en <b>${80-SV.pity}</b><i class="pbar"><i style="width:${100*SV.pity/80}%"></i></i></div></div></div>
-  <div class="glegs"><small>Legendarios que pueden salir</small><div>${lg.map(s=>`<span class="glg${SV.u[s.d]?" own":""}" title="${s.n}">${sheetCSS(bform(s.d),84,1)}<b>${s.n}</b></span>`).join("")}</div></div>
+  <div class="glegs">${(lg.length==3?[lg[1],lg[0],lg[2]]:lg).map((s,i,A)=>`<span class="glg" title="${s.n}">${sheetCSS(bform(s.d),A.length==3&&i==1?168:126,1)}</span>`).join("")}</div>
   <div class="gcase" id="gcase"><img class="cbox" src="${cb.box}" alt=""><img class="clid" src="${cb.lid}" alt=""><i class="cglow"></i></div></div>
  <div class="gopen"><div class="gtk">${ico("pass",28)}<b>${SV.tk}</b><small>pases</small></div>
   <button data-p="1" class="gob"${SV.tk<1?" disabled":""}>Abrir ×1<span>${ico("pass",18)}1</span></button><button data-p="10" class="gob ten"${SV.tk<10?" disabled":""}>Abrir ×10<span>${ico("pass",18)}10</span><small>Épico o mejor garantizado</small></button></div>
@@ -6106,33 +6151,61 @@ function slotPull(n){if(GSPIN)return;ainit();const res=doPull(greg,n);
  topbar();GSPIN=1;caseOpen(res)}
 /* ---------- apertura: la caja tiembla, se abre con un destello y empieza la ruleta ---------- */
 const TCOL=["#b0b8c8","#4a9aff","#b45aff","#ffc531"];
-function rouletteCell(d,t,sh){return`<div class="rc t${t}${sh?" sh":""}"><img src="${pkIcon(d,sh)}" alt=""><i style="--c:${sh?"#ff9ae8":TCOL[t]}"></i></div>`}
+function rouletteCell(d,t,sh){return`<div class="rc t${t}${sh?" rshy":""}"><img src="${pkIcon(d,sh)}" alt=""><i style="--c:${sh?"#ff9ae8":TCOL[t]}"></i></div>`}
 function caseOpen(res){const best=res.slice().sort((a,b)=>b.t-a.t||b.sh-a.sh)[0],L=regList(greg),rt=rates(),col=REGC[greg],cb=caseArt(col),fast=res.length>1;
  const byT=[0,1,2,3].map(t=>L.filter(s=>tierOf(s)==t));const draw=()=>{let x=R(),t=0;for(;t<3;t++){if(x<rt[t]*1.0+(t==2?.04:0))break;x-=rt[t]}const P0=byT[t].length?byT[t]:L;const s=pick(P0);return[s.d,tierOf(s),R()<.03&&hasShiny(s.d)]};
  const N=52,WIN=44,cells=[];for(let i=0;i<N;i++)cells.push(i==WIN?[best.d,best.t,best.sh]:draw());
- ovs(`<div class="gcs" style="--rbg:url(${regionBG(greg)});--rc:${col}"><div class="gcs-bg"></div><canvas class="gfx"></canvas>
-  <div class="gcs-case"><img class="cbox" src="${cb.box}" alt=""><img class="clid" src="${cb.lid}" alt=""><i class="cflash"></i></div>
-  <div class="gcs-rl"><div class="rlw"><div class="rls">${cells.map(c=>rouletteCell(...c)).join("")}</div><i class="rlm"></i></div><b class="rlt"></b></div></div>`,"gov");
+ /* a couple of "near misses": a rare cell right next to the winner keeps the tension up */
+ if(best.t<2){const nb=WIN+(R()<.5?1:-1),up=byT[Math.min(3,best.t+2)];if(up&&up.length){const s2=pick(up);cells[nb]=[s2.d,tierOf(s2),0]}}
+ const tc=best.sh?"#ff9ae8":TCOL[best.t];
+ ovs(`<div class="gcs" style="--rbg:url(${regionBG(greg)});--rc:${col};--tc:${tc}"><div class="gcs-bg"></div><i class="gflash"></i><canvas class="gfx"></canvas>
+  <div class="gcs-case"><i class="crays"></i><img class="cbox" src="${cb.box}" alt=""><img class="clid" src="${cb.lid}" alt=""><i class="cflash"></i></div>
+  <div class="gcs-rl"><i class="rrays"></i><div class="rlw"><div class="rls">${cells.map(c=>rouletteCell(...c)).join("")}</div><i class="rlm"></i></div><b class="rlt"></b></div></div>`,"gov");
  const G0=ov.querySelector(".gcs");gfxStart(G0.querySelector(".gfx"));
  const at=(t,f)=>setTimeout(f,t);tone(160,.2,{w:"triangle",v:.08,f2:80});
- for(let k=0;k<4;k++)at(200+k*230,()=>{G0.classList.remove("shk");void G0.offsetWidth;G0.classList.add("shk");tone(260+k*90,.08,{w:"square",v:.07})});
- at(1200,()=>{G0.classList.add("open");gBurst(46,[col,"#ffffff","#ffd23f",cmix(col,"#ffffff",.5)],110,{star:1,up:30});tone(520,.25,{w:"triangle",v:.09,f2:1400});nz(.25,{ft:"bandpass",f:2400,q:1,v:.08})});
- at(1750,()=>{G0.classList.add("roll");const w=G0.querySelector(".rlw"),s=G0.querySelector(".rls"),cw=s.firstElementChild.getBoundingClientRect().width+8,off=(R()-.5)*cw*.7,dx=WIN*cw-w.clientWidth/2+cw/2+off,dur=fast?3600:5600;
-  const a=s.animate([{transform:"translateX(0)"},{transform:`translateX(${-dx}px)`}],{duration:dur,easing:"cubic-bezier(.06,.62,.1,1)",fill:"forwards"});let last=-1;
-  const tick=()=>{if(!s.isConnected)return;const m=new DOMMatrix(getComputedStyle(s).transform),i=Math.floor((-m.m41+w.clientWidth/2)/cw);if(i!=last){last=i;tone(1250+(i%2)*90,.025,{w:"square",v:.03})}if(a.playState=="running")requestAnimationFrame(tick)};requestAnimationFrame(tick);
-  a.onfinish=()=>{const c=s.children[WIN];c.classList.add("win");const sh=best.sh,lt=best.t;G0.querySelector(".rlt").innerHTML=`<span style="color:${sh?"#ff9ae8":TCOL[lt]}">${sh?"SHINY · ":""}${TIER[lt]}</span> · ${SPD[best.d].n}`;
-   if(sh){[2093,2637,3136,3520,4186].forEach((f,i)=>tone(f,.12,{w:"sine",v:.06,dl:i*.06}));gBurst(70,["#ff9ae8","#9ae8ff","#fff6a0","#ffffff"],120,{star:1,up:20});G0.classList.add("shiny")}
-   else if(lt>=2){[659,784,1047,1319].forEach((f,i)=>tone(f,.14,{w:"triangle",v:.07,dl:i*.07}));gBurst(40,GPAL[lt],100,{star:1})}else tone(988,.12,{w:"triangle",v:.06});
-   setTimeout(()=>{if(lt==3)legendCine(best,()=>gResult(res));else gResult(res)},sh?1500:1000)}})}
+ /* the case knocks harder and higher each time */
+ for(let k=0;k<5;k++)at(160+k*190,()=>{G0.classList.remove("shk");void G0.offsetWidth;G0.classList.add("shk");tone(200+k*80,.09,{w:"square",v:.06+k*.006});nz(.06,{ft:"bandpass",f:700+k*350,q:2,v:.05});if(k>=2)gBurst(4+k*2,[col,"#ffffff"],30+k*10,{dot:1,y:.5,g:40,t:.7})});
+ at(1180,()=>{G0.classList.add("open");gBurst(60,[col,"#ffffff","#ffd23f",cmix(col,"#ffffff",.5)],130,{star:1,up:30});
+  tone(392,.18,{w:"triangle",v:.08});tone(523,.22,{w:"triangle",v:.08,dl:.06});tone(784,.4,{w:"triangle",v:.07,dl:.12,f2:1568});tone(65,.4,{w:"sine",v:.18,f2:40});nz(.4,{ft:"bandpass",f:1800,f2:5200,q:1.2,v:.1})});
+ at(1750,()=>{G0.classList.add("roll");const w=G0.querySelector(".rlw"),s=G0.querySelector(".rls"),rlm=G0.querySelector(".rlm"),cw=s.firstElementChild.getBoundingClientRect().width+8,off=(R()-.5)*cw*.7,dx=WIN*cw-w.clientWidth/2+cw/2+off,dur=fast?3600:5600;
+  const a=s.animate([{transform:"translateX(0)"},{transform:`translateX(${-dx}px)`}],{duration:dur,easing:"cubic-bezier(.06,.62,.1,1)",fill:"forwards"});let last=-1,near=0;
+  const tick=()=>{if(!s.isConnected)return;const m=new DOMMatrix(getComputedStyle(s).transform),i=Math.floor((-m.m41+w.clientWidth/2)/cw),p=Math.min(1,(a.currentTime||0)/dur);
+   if(i!=last){last=i;const cl=cells[i]||[0,0,0],hot=cl[1]>=2||cl[2];tone(900+p*900+(i%2)*60,.03,{w:"square",v:.025+p*.03});
+    if(hot){tone(cl[2]?2637:cl[1]==3?2093:1760,.05,{w:"sine",v:.03});rlm.style.setProperty("--hc",cl[2]?"#ff9ae8":TCOL[cl[1]]);rlm.classList.remove("hot");void rlm.offsetWidth;rlm.classList.add("hot")}}
+   if(!near&&p>.6){near=1;G0.classList.add("near");tone(180,(dur*.4)/1000,{w:"sawtooth",v:.022,f2:880});}
+   if(a.playState=="running")requestAnimationFrame(tick)};requestAnimationFrame(tick);
+  a.onfinish=()=>gLand(G0,s.children[WIN],best,res)})}
+/* the roulette stops: focus on the winner, light burst, tier fanfare */
+function gLand(G0,c,best,res){const sh=best.sh,lt=best.t;G0.classList.remove("near");G0.classList.add("done");if(lt>=2||sh)G0.classList.add("quake");c.classList.add("rwin");
+ const r=c.getBoundingClientRect(),yf=(r.top+r.height/2)/innerHeight,pal=GPAL[lt].concat(sh?["#fff6a0","#ff8cf0","#5cf0ff"]:[]);
+ gBurst([26,44,70,90][lt]+(sh?60:0),pal,[80,100,130,160][lt],{star:lt>=1||sh,y:yf,up:24});if(lt>=2||sh)setTimeout(()=>gBurst(lt==3?60:34,pal,70,{star:1,y:yf,up:50,g:30}),200);
+ if(lt>=2||sh)GFX&&(GFX.amb={r:sh?.3:.18,c:pal});
+ gTierSnd(lt,sh);
+ G0.querySelector(".rlt").innerHTML=`<span class="rtt" style="color:${sh?"#ff9ae8":TCOL[lt]}">${sh?"SHINY · ":""}${TIER[lt]}</span><span class="rtn">${SPD[best.d].n}</span>`;
+ setTimeout(()=>{if(lt==3)legendCine(best,()=>gResult(res));else gResult(res)},sh?1700:lt>=2?1400:1100)}
+/* tier fanfares: the rarer, the longer and brighter */
+function gTierSnd(t,sh){const A=(L,o={})=>L.forEach((f,i)=>tone(f,o.d||.16,{w:o.w||"triangle",v:o.v||.07,dl:(o.s||0)+i*(o.g||.07)}));
+ tone(70,.35,{w:"sine",v:.2,f2:38});nz(.12,{f:900,f2:200,v:.1});
+ if(t==0)A([784,1047],{g:.08});
+ else if(t==1){A([659,880,1319],{g:.07});nz(.25,{ft:"highpass",f:6000,v:.05,dl:.18})}
+ else{A([523,659,784,1047,1319],{w:"square",v:.05,g:.065});tone(131,.5,{w:"sawtooth",v:.05,f2:262});A([2637,3136,2637,3520],{w:"sine",v:.03,s:.4,g:.09});if(t==3)A([1047,1319,1568,2093],{w:"triangle",v:.06,s:.7,g:.1,d:.4})}
+ if(sh){A([2093,2637,3136,3520,4186,5274],{w:"sine",v:.05,g:.05,s:.1});tone(1568,1.2,{w:"sine",v:.04,dl:.45});nz(.6,{ft:"highpass",f:7000,v:.05,dl:.2})}}
 /* ---------- resultado ---------- */
 function gResult(res){GSPIN=0;if(res.length>1){GQ={res,i:0,order:[],multi:1,tm:[]};return gSum()}const x=res[0],f=bform(x.d,x.sh),s=SPD[x.d];ld(f);
- ovs(`<div class="box grc t${x.t}${x.sh?" shy":""}" style="--tc:${x.sh?"#ff9ae8":TCOL[x.t]}"><div class="gtier">${TIER[x.t]}${x.sh?" · SHINY":""}</div><div class="ped">${sheetCSS(f,170,1)}</div><b class="nm">${s.n}</b><div>${s.t.map(tchip).join("")}</div>
+ ovs(`<canvas class="gfx gfxr"></canvas><div class="box grc t${x.t}${x.sh?" shy":""}" style="--tc:${x.sh?"#ff9ae8":TCOL[x.t]};--nd:${.35+(x.t+1)*.16}s"><i class="gshine"></i><div class="gtier"><span class="gst">${Array.from({length:x.t+1},(_,i)=>`<img src="${gStarURL()}" style="--d:${.15+i*.16}s" alt="">`).join("")}</span>${TIER[x.t]}${x.sh?" · SHINY":""}</div><div class="ped">${sheetCSS(f,170,1)}</div><b class="nm">${s.n}</b><div>${s.t.map(tchip).join("")}</div>
  <div class="nw">${x.isNew?'<span class="new">¡NUEVO!</span>':`<span class="dup">REPETIDO ${ivTot(x.iv)>ivTot(giv(x.d))?'<u class="up">▲ mejores IVs</u>':'<u class="dn">▼ peores IVs</u>'}</span>`}${x.isNew?`<span>${ico("rare-candy",20)}+${x.k}</span>`:""}${x.cap?`<span>${ico("bottle-cap",20)}+1</span>`:""}</div>
  <div class="ivbox"><small>${natTxt(x.nat)} · IV ${ivTot(x.iv)}/186 · <b>${judge(ivTot(x.iv))}</b></small>${ivMini(x.iv,x.nat,x.isNew?null:giv(x.d))}</div>
- <div class="mb row"><button data-gok="1">Continuar</button>${SV.tk>=1?`<button data-gag="1">Abrir otra ${ico("pass",16)}1</button>`:""}</div></div>`,"gov");cry(x.d,.35)}
+ <div class="mb row"><button data-gok="1">Continuar</button>${SV.tk>=1?`<button data-gag="1">Abrir otra ${ico("pass",16)}1</button>`:""}</div></div>`,"gov");cry(x.d,.35);gCard(x)}
 ov.addEventListener("click",e=>{const b=e.target.closest("[data-gok],[data-gag]");if(!b)return;e.stopImmediatePropagation();SFX.ui();const again=!!b.dataset.gag,x=GQ&&GQ.res;
  const dups=(GQ&&GQ.res||[]).filter(r=>r.pid&&SV.pend.some(p=>p.id==r.pid)).map(r=>r.pid);const fin=()=>{ov.hidden=true;menu();if(again)setTimeout(()=>slotPull(1),150)};
  if(dups.length)cmpOv(dups[0],fin);else fin()},true);
+
+/* result card: particles behind, one ding per star, a stamp for NEW */
+let GSTU=null;const gStarURL=()=>GSTU||(GSTU=STARS[2].toDataURL());
+function gCard(x){const cv=ov.querySelector(".gfxr");if(!cv)return;gfxStart(cv);const pal=GPAL[x.t].concat(x.sh?["#fff6a0","#ff8cf0","#5cf0ff"]:[]);
+ gBurst([20,34,56,80][x.t]+(x.sh?40:0),pal,[70,90,115,140][x.t],{star:x.t>=1||x.sh,y:.42,up:30});if(x.t>=2||x.sh)GFX.amb={r:x.sh?.25:.14,c:pal};
+ for(let i=0;i<=x.t;i++)setTimeout(()=>{if(ov.hidden)return;tone(1047*Math.pow(1.26,i),.12,{w:"square",v:.045});tone(2093*Math.pow(1.26,i),.08,{w:"sine",v:.025,dl:.03})},150+i*160);
+ if(x.isNew)setTimeout(()=>{if(ov.hidden)return;tone(90,.2,{w:"sine",v:.16,f2:50});nz(.08,{f:1200,f2:300,v:.08});[784,988,1319].forEach((f,i)=>tone(f,.12,{w:"triangle",v:.05,dl:.05+i*.06}))},(.35+(x.t+1)*.16)*1000)}
 {const _gr=gResult;gResult=function(res){GQ={res,i:0,order:[],multi:res.length>1,tm:[]};return _gr(res)}}
 /* ---------- cinemática legendaria (estilo "deseo"): x2 con un clic, vuelve a x1 con otro ---------- */
 function legendCine(x,done){const f=bform(x.d,x.sh),s=SPD[x.d],sh=x.sh;ld(f);const c1=sh?"#ff9ae8":"#ffc531",c2=sh?"#9ae8ff":"#fff6c0";
