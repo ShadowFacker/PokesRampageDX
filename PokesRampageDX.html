@@ -1123,6 +1123,133 @@ body:has(#dlg.on) #toasts{top:calc(158px + env(safe-area-inset-top,0px))}
 @media(min-width:1400px){#tup .ugrid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(min-width:900px){#tst .srow .ub{padding:4px 7px}#tst .sth{margin-bottom:0}}
 @media(min-width:1400px){#tree .twrap{width:min(1580px,100%)!important}}
+
+/* ===== v26 · menú ordenado (Jugar al centro · modos a la izquierda · colección a la derecha) ===== */
+#home{flex:1;justify-content:flex-start}
+#bar{position:relative;z-index:5;flex-shrink:0}
+#home,#ctabs{flex-shrink:0}
+#home .help{display:none!important}
+#home .h3{display:grid;grid-template-columns:minmax(250px,320px) minmax(0,1fr) minmax(250px,320px);gap:clamp(14px,3vw,48px);width:min(1440px,100%);align-items:center;padding:0 clamp(6px,1.5vw,24px) 34px;margin:auto 0}
+.hcol{display:flex;flex-direction:column;gap:12px;min-width:0}
+.hcol h4{margin:0 0 2px;padding:7px 12px 6px;font:9px var(--px);letter-spacing:2px;color:#f4eeff;text-transform:uppercase;background:var(--dg-hudp);box-shadow:0 0 0 3px #0a0620,inset 0 0 0 2px #ffffff24,4px 4px 0 #0009;text-shadow:2px 2px 0 #0a0620;image-rendering:pixelated}
+.hr h4{text-align:right}
+.hlist{display:flex;flex-direction:column;gap:12px}
+.hcard{position:relative;display:grid;grid-template-columns:54px minmax(0,1fr);align-items:center;gap:12px;padding:10px 12px;text-align:left;border:0;border-radius:0!important;cursor:pointer;color:#fff;
+ background:var(--dgm);image-rendering:pixelated;box-shadow:0 0 0 3px #0a0620,inset 0 0 0 2px #ffffff3a,inset 0 -4px 0 #00000050,5px 5px 0 #0009;transition:transform .12s ease-out;animation:mbin .3s cubic-bezier(.2,1.2,.3,1) both}
+.hlist .hcard:nth-child(2){animation-delay:.04s}.hlist .hcard:nth-child(3){animation-delay:.08s}
+.hcard:hover,.hcard:focus-visible{transform:translate(4px,-3px);outline:0;box-shadow:0 0 0 3px #0a0620,inset 0 0 0 2px #ffffffb0,inset 0 -4px 0 #00000050,5px 5px 0 #0009}
+.hl .hcard:hover,.hl .hcard:focus-visible{transform:translate(-4px,-3px)}
+.hcard .mi,.hplay .mi{width:52px;height:52px;display:grid;place-items:center;background:var(--dg-btn);box-shadow:0 0 0 3px #0a0620,inset 3px 3px 0 #ffffff55,inset -3px -3px 0 #00000066;image-rendering:pixelated}
+.hcard .mi img,.hplay .mi img{width:36px;height:36px;image-rendering:pixelated}
+.hcard b{display:block;font:11px var(--px);text-shadow:2px 2px 0 #0a0620;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hcard small{display:block;margin-top:6px;font:14px/1.2 var(--fn);color:#f4eeff;text-shadow:1px 1px 0 #0a0620,2px 2px 0 #0a062080}
+.hmid{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0}
+.hmid #ttl{margin:0 0 4px!important}
+#playw{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:6px;width:min(420px,100%)}
+.hplay{display:grid;grid-template-columns:60px 1fr;align-items:center;gap:14px;width:100%;padding:10px 16px;border:0;border-radius:0!important;cursor:pointer;text-align:left;color:#3a2000;
+ background:var(--dg-gold);image-rendering:pixelated;box-shadow:0 0 0 4px #3a2000,inset 0 0 0 2px #fff6c0,inset 0 -5px 0 #a85a10,6px 6px 0 #0009;transition:transform .12s ease-out;animation:mbin .3s cubic-bezier(.2,1.2,.3,1) both}
+.hplay:hover,.hplay:focus-visible{transform:translateY(-4px);outline:0}
+.hplay:active{transform:translateY(2px)}
+.hplay .mi{width:58px;height:58px;background:#fff3c0;box-shadow:0 0 0 3px #3a2000,inset -3px -3px 0 #e0b040}
+.hplay b{display:block;font:20px var(--px);letter-spacing:2px;text-shadow:2px 2px 0 #fff6}
+.hplay small{display:block;margin-top:6px;font:14px var(--fn);color:#5a3400}
+#playw .chg{margin:0}
+#home #dx{display:grid!important;grid-template-columns:1fr 1fr;gap:6px 10px;margin:4px 0 0!important;padding:10px 12px!important;font:13px var(--fn);background:#0a0620b0;box-shadow:0 0 0 3px #0a0620,inset 0 0 0 2px #ffffff18}
+#home #dx span{display:flex;justify-content:space-between;gap:6px;color:#d8d0f4}
+#home #dx b{color:var(--gold)}
+#home .foot{display:block!important;position:fixed;right:8px;bottom:6px;z-index:3;margin:0!important;max-width:min(620px,58vw);text-align:right;font:10px/1.5 var(--fn);color:#cfc6ee;
+ padding:3px 8px!important;background:#0a0620c0;box-shadow:0 0 0 2px #0a0620;opacity:.7;transition:opacity .15s}
+#home .foot:hover{opacity:1}
+/* tabs shared by Mis Pokémon / Árbol / Pokédex */
+#ctabs{display:flex;gap:8px;justify-content:center;margin:0 0 12px;z-index:2}
+#ctabs[hidden]{display:none}
+#ctabs button{font:9px var(--px);color:#fff;padding:10px 14px;border:0;border-radius:0!important;background:var(--dg-seg);box-shadow:0 0 0 3px #0a0620,inset 0 2px 0 #ffffff40,inset 0 -3px 0 #00000060,3px 3px 0 #0009;cursor:pointer;transition:transform .1s ease-out}
+#ctabs button:hover{transform:translateY(-2px)}
+#ctabs button.on{background:var(--dg-gold);color:#3a2000;box-shadow:0 0 0 3px #3a2000,inset 0 2px 0 #fff6c0,inset 0 -3px 0 #a85a10,3px 3px 0 #0009}
+/* ===== v26 · barra de recursos: dos grupos (Tienda · Entrenamiento) en un marco pixel continuo ===== */
+#res{display:flex;gap:16px;align-items:center;margin:14px 6px 6px;flex-wrap:nowrap;flex:none}
+#res .rg,#res .ri{flex:none;white-space:nowrap}
+#res .rg{margin:0!important;top:0!important;transform:none!important}
+#res .ri{width:auto!important;min-width:0!important;height:auto!important;margin:0!important;padding:0 2px!important;background:none!important;box-shadow:none!important;border:0!important;position:static!important}
+#res .ri b{width:auto!important;display:inline!important}
+#bar #res .pi,#bar #res .ic{width:26px!important;height:26px!important}
+#res .ri b{font:11px var(--px)!important;color:#fff!important}
+#res .rg{position:relative;display:flex;align-items:center;height:42px;padding:0 12px;background:var(--dg-resA);image-rendering:pixelated;
+ box-shadow:0 0 0 3px #0a0620,inset 0 0 0 2px #ffffff2a,inset 0 -3px 0 #00000055,4px 4px 0 #0009}
+#res .rg.rtr{background:var(--dg-resB)}
+#res .rl{position:absolute;left:8px;top:-9px;font:7px var(--px);font-style:normal;letter-spacing:1px;color:#f4eeff;background:#0a0620;padding:2px 5px 1px;text-transform:uppercase}
+#res .ri{display:inline-flex;align-items:center;gap:6px;font:11px var(--px);color:#fff;text-shadow:2px 2px 0 #0a0620;padding:0 2px}
+#res .ri b{min-width:14px}
+#res .pi,#res .ic{width:26px;height:26px;image-rendering:pixelated}
+#res .rsep{display:block;width:3px;height:24px;margin:0 10px;background:#0a0620;box-shadow:1px 0 0 #ffffff22}
+#bar #frb{position:relative}
+#bar #frb .bdg2{position:absolute;right:-6px;top:-6px;min-width:18px;height:18px;display:grid;place-items:center;font:8px var(--px);font-style:normal;color:#fff;background:var(--dg-red);box-shadow:0 0 0 2px #0a0620}
+/* ===== v26 · Cooperativo ===== */
+.coop2{max-width:min(860px,96vw)!important;width:100%}
+.coop2 .cph{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.coop2 .cph h2{margin:0;display:flex;align-items:center;gap:8px}
+.coop2 .cph small{font:14px var(--fn);color:#d8f0ff}
+.cpme{display:flex;gap:16px;align-items:center;padding:10px 14px;background:#0a062080;box-shadow:0 0 0 3px #0a0620,inset 0 0 0 2px #ffffff1a;margin-bottom:14px}
+.cpme .cd{width:96px;height:88px;display:flex;align-items:flex-end;justify-content:center}
+.cpmi{display:flex;flex-direction:column;gap:4px}
+.cpmi small{font:12px var(--fn);opacity:.75}.cpmi b{font:14px var(--px);text-shadow:2px 2px 0 #0a0620}.cpmi em{font-style:normal;color:var(--gold);font-size:13px}
+.cpmi label{display:flex;gap:10px;align-items:center;font:13px var(--fn);margin-top:4px}
+.coop2 input{font:12px var(--px);background:#0a1030;color:#fff;border:0;border-radius:0;box-shadow:0 0 0 3px #0a0620,inset 3px 3px 0 #0008,0 0 0 5px #62b9de;padding:8px 10px;width:170px;outline:0}
+.coop2 input:focus{box-shadow:0 0 0 3px #0a0620,inset 3px 3px 0 #0008,0 0 0 5px var(--gold)}
+.cpgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cpc{display:grid;grid-template-columns:54px 1fr;gap:12px;align-items:center;text-align:left;padding:16px 14px;border:0;border-radius:0!important;color:#fff;cursor:pointer;background:var(--dgm);image-rendering:pixelated;
+ box-shadow:0 0 0 3px #0a0620,inset 0 0 0 2px #ffffff40,inset 0 -4px 0 #00000055,5px 5px 0 #0009;transition:transform .12s ease-out}
+.cpc:hover,.cpc:focus-visible{transform:translateY(-4px);outline:0}
+.cpc .mi{width:52px;height:52px;display:grid;place-items:center;background:var(--dg-btn);box-shadow:0 0 0 3px #0a0620,inset 3px 3px 0 #ffffff55,inset -3px -3px 0 #0006}
+.cpc .mi img{width:36px;height:36px;image-rendering:pixelated}
+.cpc b{display:block;font:13px var(--px);text-shadow:2px 2px 0 #0a0620}
+.cpc small{display:block;font:14px/1.25 var(--fn);margin-top:6px;color:#f4eeff;text-shadow:1px 1px 0 #0a0620}
+.cpft{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.cpft button,.lbfb button,.rrow button,.lbfi button,.rscan,.pubt{font:9px var(--px);color:#fff;padding:9px 12px;border:0;border-radius:0!important;cursor:pointer;background:var(--dg-btn);image-rendering:pixelated;
+ box-shadow:0 0 0 3px #0a0620,inset 0 2px 0 #ffffff50,inset 0 -3px 0 #00000060,3px 3px 0 #0009;transition:transform .1s ease-out}
+.cpft button:hover,.lbfb button:hover,.rrow button:hover,.lbfi button:hover,.rscan:hover,.pubt:hover{transform:translateY(-2px)}
+.cpft button.pri,.rrow button.ok{background:var(--dg-gold);color:#3a2000;box-shadow:0 0 0 3px #3a2000,inset 0 2px 0 #fff6c0,inset 0 -3px 0 #a85a10,3px 3px 0 #0009}
+.rrow button.dis{background:#2a2450;color:#9a94c0;cursor:default}
+.coop2 .cst{min-height:18px;text-align:center;font:14px var(--fn);color:#ffe9a0;margin:10px 0 0}
+.coop2 .bld{display:block;text-align:right;opacity:.45;font-size:10px;margin-top:6px}
+.rsh{display:flex;align-items:center;gap:8px;margin:12px 0 8px;font:10px var(--px);color:var(--gold);text-shadow:2px 2px 0 #0a0620}
+.rsh em{font-style:normal;color:#fff;background:#0a0620;padding:3px 6px 2px}
+.rsh .rscan{margin-left:auto}
+.rlist{display:flex;flex-direction:column;gap:8px;max-height:30vh;overflow:auto;padding:4px}
+.rrow{display:grid;grid-template-columns:48px 1fr auto;gap:12px;align-items:center;padding:8px 10px;background:#0a0620a0;box-shadow:0 0 0 3px #0a0620,inset 0 0 0 2px #ffffff1c}
+.rrow.full{opacity:.6}
+.rrow .fav,.lbfi .fav{width:44px;height:44px;image-rendering:pixelated}
+.rrow b{display:block;font:11px var(--px)}.rrow small{display:block;margin-top:5px;font:13px var(--fn);color:#cfe8ff}.rrow .np{color:var(--gold)}
+.rempty{text-align:center;font:14px var(--fn);opacity:.75;padding:12px;background:#0a062060;box-shadow:inset 0 0 0 2px #ffffff12}
+.lobby .lbg{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:16px}
+.lob4{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.lob4 .lp{min-height:150px}
+.lob4 .lp .cd{height:104px}
+.lob4 .lp b{font-size:10px}
+.lbf{display:flex;flex-direction:column;gap:8px;padding:10px;background:#0a062090;box-shadow:0 0 0 3px #0a0620,inset 0 0 0 2px #ffffff1c}
+.lbf h3{margin:0;font:10px var(--px);color:var(--gold)}
+.lbfl{display:flex;flex-direction:column;gap:6px;max-height:34vh;overflow:auto}
+.lbfi{display:grid;grid-template-columns:12px 1fr auto;gap:8px;align-items:center;padding:6px 8px;background:#ffffff0c}
+.lbfi b{font:9px var(--px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lbfi em{font-style:normal;font-size:12px;opacity:.7}
+.lbfi.off{opacity:.55}
+.lbfi .dot{width:10px;height:10px;display:block;background:#6a6a8a;box-shadow:0 0 0 2px #0a0620}
+.lbfi .dot.on,.lbfi .dot.room,.lbfi .dot.play{background:#5ad040}
+.lbfb{display:flex;flex-direction:column;gap:8px;margin-top:auto}
+.pubt{background:var(--dg-green)!important;color:#04221a!important}
+.pubt:not(.on){background:var(--dg-silver)!important;color:#1a1a3a!important}
+@media (max-width:900px){
+ #home .h3{grid-template-columns:1fr;padding-bottom:60px}
+ .hmid{order:-1}
+ .hr h4{text-align:left}
+ #home .foot{position:static;max-width:none;text-align:center;margin-top:10px!important}
+ .cpgrid,.lobby .lbg{grid-template-columns:1fr}
+ #res .rl{display:none}
+}
+@media (max-height:760px) and (min-width:901px){
+ .hcard{padding:7px 10px}.hcard .mi{width:44px;height:44px}.hcard small{font-size:12px;margin-top:4px}
+ .hplay b{font-size:16px}.hplay .mi{width:48px;height:48px}
+}
 </style></head><body>
 <canvas id="c"></canvas>
 <div id="hud" hidden>
@@ -1147,10 +1274,12 @@ body:has(#dlg.on) #toasts{top:calc(158px + env(safe-area-inset-top,0px))}
  <div id="rpr" hidden></div><div id="rbar"></div><div id="rloc"></div>
 </div>
 <div id="menu">
- <div id="bar"><button id="bk" class="nes-btn tb" hidden>◀ Menú</button><span class="sp1"></span><b id="coin" class="nes-container is-rounded is-dark tp" title="Monedas"></b><b id="tick" class="nes-container is-rounded is-dark tp" title="Pases de Gacha · Chapas"></b><button id="acc" class="nes-btn tb acc" title="Perfil"></button><button id="svb" class="nes-btn is-warning tb" title="Guardar"></button><button id="snd" class="nes-btn is-primary tb ti" title="Sonido"></button><button id="fs" class="nes-btn is-primary tb ti" title="Pantalla completa"></button><button id="gear" class="nes-btn is-primary tb ti" title="Ajustes"></button><button id="out" class="nes-btn is-error tb"></button></div>
- <div id="home" class="sc"><div class="hgrid">
-  <div class="hleft"><h1 id="ttl">PokesRampage<span>DX · Mystery Survivors</span></h1><div id="partner"></div></div>
-  <div class="hright"><div id="mnu" class="box"></div><div id="dx" class="box"></div></div></div>
+ <div id="bar"><button id="bk" class="nes-btn tb" hidden>◀ Menú</button><div id="res"></div><span class="sp1"></span><button id="acc" class="nes-btn tb acc" title="Perfil"></button><button id="frb" class="nes-btn is-primary tb ti" title="Amigos" data-g="friends"></button><button id="svb" class="nes-btn is-warning tb" title="Guardar"></button><button id="snd" class="nes-btn is-primary tb ti" title="Sonido"></button><button id="fs" class="nes-btn is-primary tb ti" title="Pantalla completa"></button><button id="gear" class="nes-btn is-primary tb ti" title="Ajustes"></button><button id="out" class="nes-btn is-error tb"></button></div>
+ <div id="ctabs" hidden><button data-ct="mine">Mis Pokémon</button><button data-ct="tree">Árbol de habilidades</button><button data-ct="dex">Pokédex</button></div>
+ <div id="home" class="sc"><div class="h3">
+  <aside class="hcol hl"><h4>Modos de juego</h4><div id="mnuL" class="hlist"></div></aside>
+  <main class="hmid"><h1 id="ttl">PokesRampage<span>DX · Mystery Survivors</span></h1><div id="partner"></div><div id="playw"></div></main>
+  <aside class="hcol hr"><h4>Colección</h4><div id="mnuR" class="hlist"></div><div id="dx"></div></aside></div><div id="mnu" hidden></div>
   <p class="help">WASD / flechas: moverte · Ratón: apuntar y atacar (o automático con F) · 1–4 / rueda: cambiar ataque · E: Megaevolución · Esc: pausa · Móvil: arrastra para moverte</p>
   <p class="foot"><a href="#" id="crl">Créditos</a> · <a href="#" id="rst">Borrar progreso</a> · Sprites: PMD Collab (CC BY-NC 4.0) · Iconos: PokéAPI, PokeSprite y NES.css (MIT) · Pokémon © Nintendo / Game Freak · Fangame sin fines de lucro</p>
  </div>
@@ -2037,7 +2166,7 @@ function tintOf(I,col){I.tn=I.tn||{};if(I.tn[col])return I.tn[col];const c=docum
 function applyStatus(e,ty,dmg){const s=STS[ty];if(!s)return;e.sts=e.sts||{};const dur=s.dur*(e.boss?.35:1);
  if(s.kb){const dx=e.x-P.x,dy=e.y-P.y,d=Math.hypot(dx,dy)||1;kbE(e,dx/d,dy/d,95)}
  const cur=e.sts[ty],v=s.dot?dmg*s.dot*(cur?1.25:1):0;e.sts[ty]={t:dur,v:Math.max(v,cur?cur.v:0),tk:cur?cur.tk:0};
- if(!cur&&(e.el||e.boss||R()<.35))ft.push({x:e.x,y:e.y-e.r*3,v:s.n,c:s.c,t:.6,txt:1})}
+ if(!cur&&(e.el||e.boss||R()<.35))if(CROWD<.3)ft.push({x:e.x,y:e.y-e.r*3,v:s.n,c:s.c,t:.6,txt:1})}
 function stTick(e,dt){const M={};e.vul=0;if(!e.sts)return M;let any=0;
  for(const k in e.sts){const o=e.sts[k],s=STS[k];o.t-=dt;if(o.t<=0){delete e.sts[k];continue}any=1;
   if(s.dot){e.hp-=o.v*dt;o.tk+=dt;if(o.tk>.5){o.tk=0;dmgText(e.x,e.y-e.r*2,Math.max(1,Math.round(o.v*.5)),s.c,0);if(s.heal&&P.hp<P.mh)P.hp=Math.min(P.mh,P.hp+o.v*.5*s.heal)}}
@@ -2157,7 +2286,8 @@ function drawLasers(time){for(const z of LZ){const ox=z.fired?z.x:P.x,oy=z.fired
 /* ================= RUN PACING ================= */
 const RUNLEN=1800,MEGA_LV=20,BOSS_EVERY=300;
 const xpNeed=lv=>Math.round(8+lv*3.5+lv*lv*.3+.3*Math.max(0,lv-8)**2);
-const evoGate=()=>18+7*lv.filter(x=>x>=6).length;
+/* v26: the four attacks can all reach MAX in a normal run (Nv 15, 19, 23 and 27) */
+const evoGate=()=>[15,19,23,27][Math.min(3,lv.filter(x=>x>=6).length)];
 /* account-strength threat: same challenge for a fresh starter and a maxed Mega */
 function threatOf(d){const s=SPD[d],bst=clamp((s.bst-300)/320,0,1),ev=evSum(d)/EVTOT,iv=ivTot(giv(d))/186,up=UPG.reduce((a,n)=>a+(n.max?upl(d,n.id)/n.max:0),0)/UPG.filter(n=>n.max).length,mg=SV.me[d]&&SV.mu[SV.me[d]]?1:0;
  return clamp(.3*ev+.08*iv+.32*up+.2*bst+.12*mg,0,1)}
@@ -2328,7 +2458,7 @@ function drawPortal(o,time,exit){const tier=exit?RIFT.tier:o.tier,f=((time*10)|0
 /* ================= CO-OP ONLINE (WebRTC via PeerJS, host-authoritative world) =================
    Host simulates enemies, spawns, events, drops and rifts. Each player simulates their own Pokémon
    (movement, moves, level-ups, Mega) and reports hits/pickups to the host. XP is shared. */
-const BUILD="18.e37d9",NETV="pkrdx-"+BUILD,NMAX=4;
+const BUILD="26.0",NETV="pkrdx-"+BUILD,NMAX=4;
 const NET={on:0,role:null,peer:null,conns:{},code:"",pl:{},me:"h",idx:0,np:1,thr:0,seed:0,seq:0,o:{h:[],gp:[],kp:[],bu:[],fx:[],pv:[]},
  em:new Map(),ei:new Map(),pd:new Map(),gpk:new Map(),kpk:new Map(),lob:0,lobL:null,last:0,sent:0,rdone:0,ended:0,bi:0,porT:0,allyK:"",
  bc:/[?&]bc\b/.test(location.search)};
@@ -2365,7 +2495,7 @@ function netSend(c,m){if(c&&c.open!==false)try{c.send(m)}catch(e){}}
 function netAll(m,ex){for(const k in NET.conns)if(k!==ex)netSend(NET.conns[k],m)}
 const peerId=c=>"PKRDX8-"+c;
 function mkCode(){const A="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";let s="";for(let i=0;i<5;i++)s+=A[(Math.random()*A.length)|0];return s}
-function netErr(e){const t=e&&e.type;return t=="peer-unavailable"?"No existe ninguna sala con ese código (o el anfitrión la cerró).":
+function netErr(e){const t=e&&e.type;return t=="peer-unavailable"?"Esa sala ya no existe (el anfitrión la cerró).":
  t=="network"||t=="server-error"||t=="socket-error"||t=="socket-closed"?"No se pudo conectar al servidor de emparejamiento. Revisa tu conexión a internet.":
  t=="browser-incompatible"?"Tu navegador no soporta WebRTC. Prueba con Chrome, Edge o Firefox.":"Error de red ("+(t||e)+")."}
 function netReset(){try{NET.peer&&NET.peer.destroy()}catch(e){}for(const k in NET.conns)try{NET.conns[k].close()}catch(e){}
@@ -2391,12 +2521,12 @@ function netHost(tries=0){netReset();if(!okLast())return coopMsg("Necesitas un P
   if(!NET.lob||e.type!="peer-unavailable")coopMsg(netErr(e))});
  p.on("disconnected",()=>{try{if(NET.role=="host"&&NET.peer===p)p.reconnect()}catch(e){}})}
 function netJoin(code,tries=0){code=String(code||"").toUpperCase().replace(/[^A-Z0-9]/g,"");if(code.length<4)return coopMsg("Escribe el código de 5 letras de la sala.");
- netReset();if(!okLast())return coopMsg("Necesitas un Pokémon para jugar.");NET.role="guest";NET.code=code;NET.last=performance.now();coopMsg(tries?`Reintentando (${tries+1}/3)… sala ${code}`:"Conectando con la sala "+code+"…");
+ netReset();if(!okLast())return coopMsg("Necesitas un Pokémon para jugar.");NET.role="guest";NET.code=code;NET.last=performance.now();coopMsg(tries?`Reintentando (${tries+1}/3)…`:"Conectando con la sala…");
  const hi=()=>({t:"hi",v:NETV,nm:myName(),d:SV.last,fk:fkey(formOf(SV.last)),thr:threatOf(SV.last),best:myBest()});
  if(NET.bc){const c=bcJoin(code);NET.conns.h=c;netConn(c);c.on("open",()=>netSend(c,hi()));return}
  if(!window.Peer)return coopMsg("No se pudo cargar el módulo de red. Recarga la página.");
  const p=NET.peer=mkPeer(),again=why=>{if(NET.peer!==p)return;clearTimeout(to);try{p.destroy()}catch(e){}NET.peer=null;
-   if(why!="peer-unavailable"&&tries<2)setTimeout(()=>netJoin(code,tries+1),600);else coopMsg(why=="peer-unavailable"?"No existe ninguna sala con ese código (o el anfitrión la cerró).":"No se pudo conectar con la sala. Puede ser el firewall o la red de alguno de los dos: prueba «Diagnóstico de red», otra red (datos móviles) o que el otro jugador cree la sala.")},
+   if(why!="peer-unavailable"&&tries<2)setTimeout(()=>netJoin(code,tries+1),600);else coopMsg(why=="peer-unavailable"?"Esa sala ya no existe (el anfitrión la cerró).":"No se pudo conectar con la sala. Puede ser el firewall o la red de alguno de los dos: prueba «Diagnóstico de red», otra red (datos móviles) o que el otro jugador cree la sala.")},
   to=setTimeout(()=>again("timeout"),11000);
  p.on("open",()=>{clearTimeout(to);pConn(p,code,9000,c=>{NET.conns.h=c;netConn(c);netSend(c,hi());
    setTimeout(()=>{if(NET.role=="guest"&&NET.code==code&&!NET.lob&&!NET.on)coopMsg("Conectado, pero la sala no contesta. ¿Tienen los dos el mismo archivo del juego?")},6000)},why=>again(why))});
@@ -2462,7 +2592,7 @@ function plOf(p,pid){const me=p===P,bm=me?(ch?ch.bs.filter(b=>b.len).map(b=>[b.t
 function plSet(o,a){const[,fk,x,y,dir,fl,aa,ha,hp,mh,lv,rv,ad,bm,nm,em]=a;if(nm)o.nm=String(nm).slice(0,20);if(em!=null)o.emo=EMOL[em]||"Normal";if(fk&&fk!==o.fk){const f=fget(fk);if(f){o.fk=fk;o.f=ld(f);o.px=pxOf(f);o.r=radOf(f,o.px)}}
  o.tx=x;o.ty=y;if(!o.seen){o.x=x;o.y=y;o.seen=1}o.dir=dir;o.mv=fl&1;o.dead=!!(fl&2);o.iv=fl&4;o.at=T-aa;o.hurt=T-ha;o.hp=hp;o.mh=mh;o.lv=lv;o.rv=rv;o.ad=ad;o.bm=bm||null;o.al=1}
 function shOf(L){const o=[];for(const s of L){if(s.dl>0)continue;o.push([Math.round(s.x),Math.round(s.y),s.ty,Math.round(s.vx||0),Math.round(s.vy||0),r1(s.z||1),(s.tg?1:0)|(s.fall?2:0)|(s.gold?4:0),Math.round(s.ex||0),s.fall?Math.round(s.h):0,r1(s.lf||0),r1(s.LF||1)]);if(o.length>=60)break}return o}
-const rsOf=a=>({x:a[0],y:a[1],ty:a[2],vx:a[3],vy:a[4],z:a[5],tg:a[6]&1,fall:a[6]&2,gold:a[6]&4,ex:a[7],h:a[8],lf:a[9],LF:a[10],dl:0});
+const rsOf=a=>({rm:1,x:a[0],y:a[1],ty:a[2],vx:a[3],vy:a[4],z:a[5],tg:a[6]&1,fall:a[6]&2,gold:a[6]&4,ex:a[7],h:a[8],lf:a[9],LF:a[10],dl:0});
 function rsBuild(){RS=[];for(const k in NET.pl){const o=NET.pl[k];if(o.rs)for(const s of o.rs)RS.push(s)}}
 function hostU(o,m){plSet(o,[0,m.fk,m.x,m.y,m.dir,m.fl,m.aa,m.ha,m.hp,m.mh,m.lv,m.rv,m.ad,m.bm,null,m.em]);o.pw=+m.pw||1;o.hr=Math.min(1e7,+m.hr||0);if(m.vw)o.vw=[clamp(+m.vw[0]||260,120,700),clamp(+m.vw[1]||170,90,500)];
  o.sh=Array.isArray(m.sh)?m.sh.slice(0,60):[];o.rs=o.sh.map(rsOf);rsBuild();
@@ -2720,7 +2850,7 @@ function dmgText(x,y,v,col,big){if(!SV.set.dmg)return;if(typeof v=="number"){for
 function hitE(e,d,ty,kx,ky,sc,sm){if(e.pvp)return pvpHitE(e,d,ty);const f=ef(ty,e.t);let cr=R()<P.crit;d*=f*(cr?1.6:1)*(1+(e.vul||0));const sh0=e.sh>0;dmgE(e,d);if(P.it=="shell"&&!P.dead)P.hp=Math.min(P.mh,P.hp+d*.03);P.dacc+=d/Math.max(.25,f);{const h0=d/Math.max(.25,f);P.hitA=P.hitA?P.hitA*.985+h0*.015:h0;P.hitM=Math.max((P.hitM||0)*.997,h0)}e.hf=.1;const sa=sc&&R()<sc;if(sa)applyStatus(e,ty,d*(sm||1));if(P.bf&&P.bf.tox&&!e.pvp&&R()<.6)applyStatus(e,4,d*.8);if(NG())NET.o.h.push([e.id,Math.round(d*10)/10,ty,Math.round(kx*10),Math.round(ky*10),sa?1:0]);
  kbE(e,kx,ky,d>15?40:20);if(!e.boss&&d>e.mh*.15)e.ht=T;
  dmgText(e.x,e.y-e.r*2.4,Math.round(sh0?d*.7:d),sh0?"#9fd0ff":f>1?"#ffd23f":f<1?"#9aa3ad":cr?"#ff9b3a":"#fff",f>1||cr);
- if(f>1&&T-(e.seT||-9)>.6&&(e.seT=T))ft.push({x:e.x,y:e.y-e.r*3.4,v:"¡Súper eficaz!",c:"#ffd23f",t:.8,txt:1});
+ if(f>1&&CROWD<.3&&T-(e.seT||-9)>.6&&(e.seT=T))ft.push({x:e.x,y:e.y-e.r*3.4,v:"¡Súper eficaz!",c:"#ffd23f",t:.8,txt:1});
  if(cr)SFX.crit();else SFX.hit();
  const c=TC[ty-1];for(let i=0;i<3;i++)addP({x:e.x,y:e.y-e.r,vx:(R()-.5)*60+kx*40,vy:(R()-.5)*60+ky*40,t:.25,T:.25,c:i?c:"#fff",s:1,dg:4})}
 function objHit(o,x,y,ty){burst(x,y,TC[ty-1],6,45,{t:.25});const c=o.t=="tree"?"#3f8a36":o.t=="crystal"||o.t=="ice"?"#cfe6ff":o.t=="magma"?"#ff7a2a":o.t=="cactus"?"#4a9a3a":"#9a9088";burst(x,y,c,4,35,{t:.35,g:140});if(!rl("ob",70))tone(180+R()*60,.06,{w:"square",v:.04,f2:90})}
@@ -2832,7 +2962,7 @@ function upd(dt0){ax=CAM.x+(msx*DPR-VW/2)/G;ay=CAM.y+(msy*DPR-VH/2)/G;if(slowT>0
   s.x+=s.vx*dt;s.y+=s.vy*dt;s.lf-=dt;
   if(s.wv){const L=Math.hypot(s.vx,s.vy)||1,w=Math.cos(s.lf*18)*170*dt;s.vx-=s.vy/L*w;s.vy+=s.vx/L*w}
   if(s.ac){s.vx*=1+s.ac*dt;s.vy*=1+s.ac*dt}if(s.zz){const L2=Math.hypot(s.vx,s.vy)||1,w=(Math.cos(s.lf*11)>0?1:-1)*150*dt;s.vx-=s.vy/L2*w;s.vy+=s.vx/L2*w}
-  if(s.tl&&R()<.32)addP({x:s.x,y:s.y,vx:-s.vx*.1+(R()-.5)*12,vy:-s.vy*.1+(R()-.5)*12,t:.3,T:.3,k:"pj",ty:s.ty,st:s.st,s:.55});
+  if(s.tl&&R()<.32*(1-.8*CROWD))addP({x:s.x,y:s.y,vx:-s.vx*.1+(R()-.5)*12,vy:-s.vy*.1+(R()-.5)*12,t:.3,T:.3,k:"pj",ty:s.ty,st:s.st,s:.55});
   if(s.ty==10||s.ty==13||s.ty==16)FLs.push({x:s.x,y:s.y,r:26,c:TC[s.ty-1]});
   {const ob=blockAt(s.x,s.y+7);if(ob){objHit(ob,s.x,s.y,s.ty);if(s.ex){boom(s.x,s.y,s.ex,s.ty,0,s.st&&s.st.g);if(s.st)mfx(s.st.id,s.x,s.y,{sc:clamp(s.ex/30,.85,1.5)});netFx(["b",Math.round(s.x),Math.round(s.y),Math.round(s.ex),s.ty,0]);area(s.x,s.y,s.ex,s.dm,s.ty,s.sc)}return 0}}
   if(s.ex){if(s.lf>0)return 1;boom(s.x,s.y,s.ex,s.ty,s.ex>34,s.st&&s.st.g);if(s.st)mfx(s.st.id,s.x,s.y,{sc:clamp(s.ex/30,.85,1.5)});netFx(["b",Math.round(s.x),Math.round(s.y),Math.round(s.ex),s.ty,s.ex>34?1:0]);area(s.x,s.y,s.ex,s.dm,s.ty,s.sc);return 0}
@@ -2968,7 +3098,7 @@ function drawPlayer(time){const X=SX(P.x),Y=SY(P.y),hurt=T-P.hurt<aDur(P.f,2),at
  P.sk=(P.sk||0)+(sinkT(P)-(P.sk||0))*.12;const sk=Math.round(P.sk+(P.sk>1?Math.sin(time*3)*.6:0));
  if(P.tf&&(P.tf.t-=1/60)<=0)P.tf=null;const ptint=P.dead?"#20203a":P.tf&&((time*12)|0)%2?P.tf.c:P.pst&&((time*6)|0)%2?STS[P.pst.ty].c:null;
  const wrp=P.sk>.6?Math.min(1,P.sk/3):.5;if(P.inW)waterRing(cx,P.f,X,Y,P.px,time,wrp,1);
- if(!dsp(cx,P.f,kind,dir,ms,X,Y,P.px,{white:megaAnim&&megaAnim.t>.35&&megaAnim.t<.6||hurt&&((time*10)|0)%2,sink:sk,tint:ptint})){cx.fillStyle="#fff";cx.fillRect(X-G*4,Y-G*10,G*8,G*10)}cx.globalAlpha=1;
+ PDR={kind,dir,ms,X,Y,sk,ptint};if(!dsp(cx,P.f,kind,dir,ms,X,Y,P.px,{white:megaAnim&&megaAnim.t>.35&&megaAnim.t<.6||hurt&&((time*10)|0)%2,sink:sk,tint:ptint})){cx.fillStyle="#fff";cx.fillRect(X-G*4,Y-G*10,G*8,G*10)}cx.globalAlpha=1;
  if(P.inW)waterRing(cx,P.f,X,Y,P.px,time,wrp,2);drawEmote(P,X,Y-Math.round((P.f.w.fh/2+P.f.ft)*P.px)-6*G);if(P.f.shiny)shinyFX(X,Y,P.f.vw*P.px,P.f.w.fh*P.px*.8,time,.37);
  if(!P.dead&&st!="menu"&&(bossNow||EB.some(b=>Math.abs(b.x-P.x)<90&&Math.abs(b.y-P.y)<90))){const hx=SX(P.x),hy=SY(P.y-P.r*.8),r=Math.max(2,Math.round(hbR()*.6))*G;cx.fillStyle="#0b0820";cx.fillRect(hx-r-G,hy-r-G,2*r+2*G,2*r+2*G);cx.fillStyle=((time*6)|0)%2?"#ff3a5a":"#ff7a8a";cx.fillRect(hx-r,hy-r,2*r,2*r);cx.fillStyle="#fff";cx.fillRect(hx-G,hy-G,2*G,2*G)}
  const pic=P.pst?STS[P.pst.ty].ic:P.slowT>0?"down":null;if(pic){const a=STIC[pic];cx.drawImage(a,X-Math.round(a.width*G/2),Y-Math.round((P.f.w.fh/2+P.f.ft)*P.px)-8*G,a.width*G,a.height*G)}}
@@ -2983,9 +3113,9 @@ function drawFX(time){worldT();
  drawLasers(time);
  if(NET.on)for(const k in NET.pl){const o=NET.pl[k];if(o.bm&&o.f)for(const a of o.bm)drawBeam({ty:a[0],len:a[1],wd:a[2],angs:a.slice(3)},o.x,o.y-(o.r||6)*.9,time)}
  for(const s of RS.length?S.concat(RS):S){if(s.dl>0||s.tg)continue;const yy=s.fall?s.y-s.h:s.y,z=s.z||1,art=s.st?pjArt(s.ty,s.st.sh,s.st.p):pjArt(s.ty),fr=((time*14+s.x*.1)|0)&3,sh=s.st?s.st.sh:SHAPE[s.ty-1];
-  lit();cx.globalAlpha=.24;wDraw(pGlow(s.gold?"#ffd23f":s.st?s.st.g:TC[s.ty-1],Math.round((s.gold?9:6)*z)),s.x,yy);nrm();
-  cx.save();cx.translate(Math.round(s.x),Math.round(yy));const a=s.fall?Math.PI/2:ROT[sh]?Math.atan2(s.vy,s.vx):(sh=="star"||sh=="rock")?time*9:0;cx.rotate(Math.round(a/(Math.PI/4))*(Math.PI/4));
-  const w=Math.round(16*z);cx.drawImage(art,fr*16,0,16,16,-Math.round(w/2),-Math.round(w/2),w,w);cx.restore()}
+  if(!s.rm){lit();cx.globalAlpha=.24*(1-.6*CROWD);wDraw(pGlow(s.gold?"#ffd23f":s.st?s.st.g:TC[s.ty-1],Math.round((s.gold?9:6)*z)),s.x,yy);nrm()}
+  AMUL=s.rm?.45:1;cx.globalAlpha=1;cx.save();cx.translate(Math.round(s.x),Math.round(yy));const a=s.fall?Math.PI/2:ROT[sh]?Math.atan2(s.vy,s.vx):(sh=="star"||sh=="rock")?time*9:0;cx.rotate(Math.round(a/(Math.PI/4))*(Math.PI/4));
+  const w=Math.round(16*z);cx.drawImage(art,fr*16,0,16,16,-Math.round(w/2),-Math.round(w/2),w,w);cx.restore();AMUL=1;cx.globalAlpha=1}
  for(const b of EB){const fr=((time*14)|0)&3;lit();wDraw(pGlow(TC[b.ty-1],8),b.x,b.y);nrm();cx.drawImage(pjArt(b.ty),fr*16,0,16,16,Math.round(b.x-6),Math.round(b.y-6),12,12);wDraw(pRing(7,7,((time*3)|0)%2?"#e8584a":"#f0a090"),b.x,b.y)}
  for(const p of pa)if(!(p.k=="ripple"||p.k=="ring"||p.gd))drawPart(p,time)}
 function drawPart(p,time){const u=p.t/p.T;
@@ -5250,5 +5380,134 @@ function sfxDraw(p,time){if(p.dl>0)return;const A=FXA[p.a],im=fxStrip(p.a,p.col)
  if(p.fl){cx.save();cx.translate(p.x,0);cx.scale(-1,1);cx.drawImage(im,f*A.w,0,A.w,A.h,-ax,p.y-ay,w,h);cx.restore()}
  else cx.drawImage(im,f*A.w,0,A.w,A.h,p.x-ax,p.y-ay,w,h);cx.globalAlpha=1}
 setTimeout(()=>{for(const k in FXA)fxImg(k)},2500);
+/* ================= v26 · MENÚ ORDENADO, BARRA DE RECURSOS, CO-OP CON SALAS Y CLARIDAD EN LATE GAME ================= */
+/* ---------- 1. Claridad: el jugador siempre se ve, y los efectos se calman solos cuando la pantalla se llena ---------- */
+/* opacity multiplier for the main canvas: lets us draw whole groups of effects fainter without touching each one */
+const _GA=Object.getOwnPropertyDescriptor(CanvasRenderingContext2D.prototype,"globalAlpha");let AMUL=1;
+Object.defineProperty(cx,"globalAlpha",{configurable:true,get(){return _GA.get.call(this)/AMUL},set(v){_GA.set.call(this,clamp(+v||0,0,1)*AMUL)}});
+function withA(m,f){const o=AMUL;AMUL=o*m;cx.globalAlpha=1;try{f()}finally{AMUL=o;cx.globalAlpha=1}}
+/* CROWD 0..1: how busy the screen is (projectiles, particles, enemies, other players) */
+let CROWD=0;
+function crowdTick(){if(!P||st=="menu"){CROWD=0;return}const n=S.length+RS.length*1.3+pa.length/10+E.length/4+LZ.length*3+(ch?8:0)+(NET.on?(NET.np-1)*10:0),c=clamp((n-20)/50,0,1);CROWD+=(c-CROWD)*.08}
+/* effects that come from OTHER players are drawn faint, ours stay at full strength */
+{const _fp=fxPlay;fxPlay=function(a){const n0=pa.length,l0=LZ.length;_fp(a);for(let i=n0;i<pa.length;i++)pa[i].dim=1;for(let i=l0;i<LZ.length;i++)LZ[i].dim=1}}
+{const _dp=drawPart;drawPart=function(p,time){if(p.dim)return withA(.38,()=>_dp(p,time));if(CROWD>.15&&p.k!="sfx"&&p.k!="ghost"&&p.k!="arw")return withA(1-.45*CROWD,()=>_dp(p,time));return _dp(p,time)}}
+{const _dl=drawLasers;drawLasers=function(time){const own=LZ.filter(z=>!z.dim),oth=LZ.filter(z=>z.dim);if(!oth.length)return _dl(time);const all=LZ;LZ=own;_dl(time);LZ=oth;withA(.4,()=>_dl(time));LZ=all}}
+/* fewer sparks/trails/sprite effects in proportion to the crowd */
+{const _b=burst;burst=function(x,y,c,n,sp,o){return _b(x,y,c,Math.max(1,Math.round(n*(1-.6*CROWD))),sp,o)}}
+{const _m=mfx;mfx=function(id,x,y,o={}){if(CROWD>.35&&R()<CROWD*.55)return;return _m(id,x,y,o)}}
+/* damage numbers: in a crowded fight only the big ones (crits / super effective) are shown */
+{const _dt=dmgText;dmgText=function(x,y,v,col,big){if(CROWD>.35&&!big&&ft.length>6)return;return _dt(x,y,v,col,big)}}
+/* "you are here": golden ring at the feet + arrow over the head, stronger the busier the screen is */
+const MEARR=pxc(9,7,(g)=>{const m=["...kkk...","..kyyyk..",".kyyYyyk.","kyyYYYyyk",".kkyYykk.","...kyk...","....k...."];const C={k:"#2a1400",y:"#ffd23f",Y:"#fff6c0"};m.forEach((r,y)=>[...r].forEach((ch,x)=>{if(C[ch]){g.fillStyle=C[ch];g.fillRect(x,y,1,1)}}))});
+let PDR=null;
+function drawMe(time){if(!P||P.dead||st=="menu"||st=="ranch")return;const k=NET.on?Math.max(.55,CROWD):CROWD;if(k<.12)return;
+ if(PDR&&k>.2){scrT();cx.globalAlpha=.92;dsp(cx,P.f,PDR.kind,PDR.dir,PDR.ms,PDR.X,PDR.Y,P.px,{sink:PDR.sk,tint:PDR.ptint});cx.globalAlpha=1}
+ worldT();
+ cx.globalAlpha=.25+.45*k;wDraw(pRing(13,5,"#2a1400",1),P.x,P.y+1);cx.globalAlpha=.45+.55*k;wDraw(pRing(12,4,"#ffd23f",2),P.x,P.y+1);
+ const bob=Math.round(Math.sin(time*4)*1.5),hy=Math.round(P.y-P.r*2.6-16+bob);cx.globalAlpha=Math.min(1,.5+k);cx.drawImage(MEARR,Math.round(P.x-9),hy,18,14);cx.globalAlpha=1}
+{const _r=render;render=function(time,dt){crowdTick();_r(time,dt);if(st!="menu"&&P)drawMe(time)}}
+
+/* ---------- 2. Barra superior: dos grupos claros (Tienda · Entrenamiento) ---------- */
+function topbar(){const ic=k=>`<img class="pi" src="${PXI[k]}" alt="">`,tl=tLv(),d=SV.last&&SV.u[SV.last]?SV.last:Object.keys(SV.u)[0],dn=d&&SPD[d]?SPD[d].n:"";
+ $("#res").innerHTML=`<div class="rg" title="Monedas y pases: se gastan en el Gacha y la tienda"><em class="rl">Tienda</em>
+  <span class="ri" title="Monedas">${ic("coin")}<b>${SV.c.toLocaleString("es")}</b></span><i class="rsep"></i><span class="ri" title="Pases de Gacha">${ic("tick")}<b>${SV.tk}</b></span></div>
+  <div class="rg rtr" title="Para entrenar a tus Pokémon en el Árbol de habilidades"><em class="rl">Entrenamiento</em>
+  <span class="ri" title="Caramelos raros de la familia de ${esc(dn)}">${ico("rare-candy",26)}<b>${d?cand(d):0}</b></span><i class="rsep"></i><span class="ri" title="Chapas: suben los IVs de tus Pokémon">${ic("cap")}<b>${SV.cap||0}</b></span></div>`;
+ $("#acc").innerHTML=`<img class="pav2" src="${avURL(SV.prof&&SV.prof.av||SV.last)}" alt=""><span class="an">${esc(accName())}</span><img class="pi sm" src="${PXI.crown}" alt=""><span class="al2">${tl.lv}</span>`;
+ $("#frb").innerHTML=`${ic("users")}<em class="bdg2" hidden>0</em>`;
+ $("#svb").innerHTML=ic("disk")+"<span>Guardar</span>";$("#snd").innerHTML=`<img class="pi${SV.set.mus||SV.set.sfx?"":" off"}" src="${PXI.snd}" alt="">`;$("#fs").innerHTML=ic("fs");$("#gear").innerHTML=ic("gear");
+ $("#out").innerHTML=`<img class="pi sm" src="${PXI.door}" alt=""><span>${logged()?"Salir":"Entrar"}</span>`;frBadge()}
+function frBadge(){const n=Object.keys(frSV().in).length;document.querySelectorAll('[data-g="friends"] .bdg2').forEach(b=>{b.textContent=n;b.hidden=!n})}
+$("#frb").onclick=()=>{ainit();SFX.ui();friendsOpen()};
+
+/* ---------- 3. Menú principal: Jugar al centro, modos a la izquierda, colección a la derecha ---------- */
+const HICO=i=>PXI[i]?`<img class="ic" src="${PXI[i]}" width="36" height="36" alt="">`:ico(i,36);
+function homeR(){if(!Object.keys(SV.u).length){$("#partner").innerHTML="";$("#mnuL").innerHTML="";$("#mnuR").innerHTML="";$("#playw").innerHTML="";if(!QS)startQuiz();return}
+ const d=SV.u[SV.last]?SV.last:Object.keys(SV.u)[0],f=formOf(d),s=SPD[d],mg=SV.me[d]&&SV.mu[SV.me[d]];SV.last=d;
+ $("#partner").innerHTML=`<div class="stage">${sheetCSS(f,190,1)}</div><div class="pn"><small>Compañero</small><b>${s.n}${f.shiny?' <span class="shn">★</span>':""}</b><div>${s.t.map(tchip).join("")}</div>
+ <div class="bdg">${f.alt?'<span class="alt">✦ Arte alternativo</span>':""}<span class="alt mstb">${ribHTML(mInfo(d).l,18)} M${mInfo(d).l}${isMain(d)?" · ★ MAIN":""}</span><span class="alt lvb">EVs ${evSum(d)}/${EVTOT}</span>${mg?`<span class="alt mg">${ico(STONE[d]||"key-stone",16)} Mega lista</span>`:""}</div>
+ ${tierHTML(d)}</div>`;
+ $("#playw").innerHTML=`<button class="hplay" data-g="play"><span class="mi">${HICO("ball")}</span><span><b>Jugar</b><small>Derrota al jefe final (30:00) con ${s.n}</small></span></button><button class="chg" data-g="mine">Cambiar compañero</button>`;
+ const own=Object.keys(SV.u).length,ns=Object.keys(SV.seen).length,card=([g,i,t,s2])=>`<button class="hcard" data-g="${g}" style="--dgm:${dgMenu(MCOL2[g]||"#9a6bff")}"><span class="mi">${HICO(i)}</span><span><b>${t}</b><small>${s2}</small></span></button>`;
+ $("#mnuL").innerHTML=[["br","sword","Rampage.io","Todos contra todos en línea: come, crece y domina"],["coop","coop","Cooperativo online","Crea una sala e invita a tus amigos"],
+  ["ranch","barn","Rancho de Ditto",SV.rn?`${SEAS[rnSea(SV.rn.day)].n}, día ${rnDoy(SV.rn.day)} · ${SV.rn.f.filter(p=>p&&p.c&&rnGrow(p)==4).length} bayas listas`:"Vive como un Ditto granjero"]].map(card).join("");
+ $("#mnuR").innerHTML=[["mine","box","Mis Pokémon",`${own}/${SPL.length} · árbol de habilidades y Pokédex`],["gacha","mball","Gacha",SV.pend.length?`${SV.pend.length} repetido(s) por revisar`:"9 regiones · Pokémon y shinies"],
+  ["rank","trophy","Ranking","Mundial, semanal, diario y amigos"]].map(card).join("");
+ $("#dx").innerHTML=`<span>Partidas <b>${SV.runs}</b></span><span>Mejor tiempo <b>${fmt(SV.best.t)}</b></span><span>Mejor nivel <b>${SV.best.l||0}</b></span><span>Derrotados <b>${SV.k.toLocaleString("es")}</b></span>`;
+ frUI();frBadge();if(SV.refund){toast(`Sistema nuevo: se te devolvieron ${SV.refund} monedas de mejoras antiguas`,1);delete SV.refund;save()}}
+/* Mis Pokémon · Árbol de habilidades · Pokédex share one tab strip */
+function go(s,t){scr=s;if(t)tab=t;for(const k of["home","pk","gacha","tree","prof","rank"])$("#"+k).hidden=k!=(s=="roster"?"pk":s);$("#bk").hidden=s=="home";
+ const ct=$("#ctabs"),on=s=="roster"||s=="tree";ct.hidden=!on;if(on)ct.querySelectorAll("button").forEach(b=>b.classList.toggle("on",s=="tree"?b.dataset.ct=="tree":b.dataset.ct==tab));menu()}
+$("#ctabs").onclick=e=>{const b=e.target.closest("[data-ct]");if(!b)return;SFX.ui();const k=b.dataset.ct;if(k=="tree"){if(scr=="roster"&&tab=="mine"&&sel&&SV.u[sel]){SV.last=sel;save()}go("tree")}else{if(k=="mine")sel=SV.last;go("roster",k)}};
+
+/* ---------- 4. Cooperativo: crear sala / unirse (sin códigos), lista de salas, invitar amigos ---------- */
+const RPID=n=>"PKRDX8-R-"+n,RMAX=16;NET.pub=SV.coopPub!=null?!!SV.coopPub:true;
+const RBC={p:null,ch:null};
+function roomInfo(){return{t:"room",v:NETV,code:NET.code,nm:myName(),d:SV.last,np:1+Object.keys(NET.pl).length,max:NMAX,open:!!(NET.lob&&!NET.on&&st=="menu")}}
+/* a public room answers "who's there?" on a well-known id, so others can list it without typing anything */
+function beaconStart(n=1){beaconStop();if(NET.role!="host"||!NET.pub||!NET.lob||NET.on)return;
+ if(NET.bc){const ch=RBC.ch=new BroadcastChannel("pkr-rooms");ch.onmessage=e=>{if(e.data&&e.data.t=="who")ch.postMessage(roomInfo())};return}
+ if(!window.Peer||n>RMAX)return;let p;try{p=RBC.p=mkPeer(RPID(n))}catch(e){return}
+ p.on("connection",c=>{c.on("open",()=>{try{c.send(roomInfo())}catch(e){}setTimeout(()=>{try{c.close()}catch(e){}},1500)});c.on("error",()=>0)});
+ p.on("error",e=>{if(RBC.p!==p)return;if(e.type=="unavailable-id"){try{p.destroy()}catch(x){}RBC.p=null;beaconStart(n+1)}});
+ p.on("disconnected",()=>{try{RBC.p===p&&p.reconnect()}catch(e){}})}
+function beaconStop(){try{RBC.p&&RBC.p.destroy()}catch(e){}RBC.p=null;try{RBC.ch&&RBC.ch.close()}catch(e){}RBC.ch=null}
+{const _nr=netReset;netReset=function(){beaconStop();_nr()}}
+{const _ng=netGo;netGo=function(){beaconStop();_ng()}}
+/* scan the well-known ids (and friends' rooms) */
+let ROOMS=[],SCAN=0;
+function roomScan(){if(SCAN)return;SCAN=1;ROOMS=[];coopBrowseR();const found={},add=r=>{if(!r||r.t!="room"||!r.code||found[r.code])return;found[r.code]=1;ROOMS.push(r);coopBrowseR()},fin=()=>{SCAN=0;coopBrowseR()};
+ if(NET.bc){const ch=new BroadcastChannel("pkr-rooms");ch.onmessage=e=>add(e.data);ch.postMessage({t:"who"});setTimeout(()=>{ch.close();fin()},900);return}
+ if(!window.Peer){fin();return}let p;try{p=mkPeer()}catch(e){fin();return}const end=setTimeout(()=>{try{p.destroy()}catch(e){}fin()},6500);
+ p.on("open",()=>{for(let n=1;n<=RMAX;n++){try{const c=p.connect(RPID(n),{serialization:"json",reliable:true});c.on("data",m=>{add(m);try{c.close()}catch(e){}});c.on("error",()=>0)}catch(e){}}});
+ p.on("error",()=>0)}
+const coopMe=()=>{const d=SV.last&&SV.u[SV.last]?SV.last:Object.keys(SV.u)[0];return{d,f:formOf(d)}};
+function coopHome(msg){if(st!="menu")return;brReset();const{d,f}=coopMe();if(!d)return;SV.nm=SV.nm||("Entrenador"+(100+Math.random()*900|0));
+ ovs(`<div class="box coop2"><div class="cph"><h2>${ico("exp-share",30)} Cooperativo online</h2><small>Hasta 4 entrenadores, cada uno con su Pokémon, sus mejoras y su Mega</small></div>
+ <div class="cpme"><div class="cd">${sheetCSS(f,84,1)}</div><div class="cpmi"><small>Juegas con</small><b>${SPD[d].n}</b><em>Amenaza ${"★".repeat(thrStars(threatOf(d)))}</em>
+  <label>Tu nombre<input id="cnm" maxlength="12" value="${esc(myName())}" autocomplete="off" ${logged()?"disabled":""}></label></div></div>
+ <div class="cpgrid"><button class="cpc host" data-c="host" style="--dgm:${dgMenu("#ffc531")}"><span class="mi">${HICO("ball")}</span><span><b>Crear sala</b><small>Invita a tus amigos desde la sala y comienza cuando estén listos</small></span></button>
+  <button class="cpc join" data-c="browse" style="--dgm:${dgMenu("#3ad0ff")}"><span class="mi">${HICO("users")}</span><span><b>Unirse a una sala</b><small>Salas de tus amigos y salas públicas abiertas</small></span></button></div>
+ <p id="cst" class="cst">${esc(msg||"")}</p><div id="ndg"></div>
+ <div class="cpft"><button data-c="diag">${ico("poke-radar",18)} Diagnóstico de red</button><button data-c="fix">⟲ Reparar conexión</button><button data-c="close">✕ Cerrar</button></div><small class="bld">Versión ${BUILD}</small></div>`,"coopov");
+ const n=$("#cnm");n.onchange=n.oninput=()=>{SV.nm=n.value.trim().slice(0,12)||"Entrenador";save()}}
+function coopBrowse(){if(st!="menu")return;ovs(`<div class="box coop2" id="cbw"></div>`,"coopov");roomScan();frTick(1)}
+function coopBrowseR(){const el=$("#cbw");if(!el||$("#ov").hidden)return;const F=frSV(),fr=Object.keys(F.f).map(n=>[n,F.c[n]||{},frStatus(n)[0]]).filter(x=>x[1].room&&x[2]!="off"),
+  frRooms=new Set(fr.map(x=>x[1].room)),pub=ROOMS.filter(r=>!frRooms.has(r.code)&&r.code!=NET.code);
+ const row=(nm,d,np,max,code,tag,open=1)=>`<div class="rrow${open?"":" full"}"><img class="fav" src="${pkIcon(String(d||"0025").slice(0,4),0)}" alt=""><div><b>${esc(nm)}</b><small>${tag} · <span class="np">${np}/${max}</span> jugadores</small></div>
+  <button data-c="${open&&np<max?"jr:"+esc(code):"none"}" class="${open&&np<max?"ok":"dis"}"${open&&np<max?"":" disabled"}>${!open?"En partida":np>=max?"Llena":"Unirse ▶"}</button></div>`;
+ el.innerHTML=`<div class="cph"><h2>${ico("users",30)} Unirse a una sala</h2><small>Elige una sala y entra con un clic</small></div>
+ <h3 class="rsh">Salas de tus amigos <em>${fr.length}</em></h3><div class="rlist">${fr.length?fr.map(([n,c])=>row(n,c.d,c.np||"?",NMAX,c.room,"Amigo",1)).join(""):`<p class="rempty">Ninguno de tus amigos tiene una sala abierta ahora.</p>`}</div>
+ <h3 class="rsh">Salas públicas <em>${pub.length}</em><button data-c="scan" class="rscan"${SCAN?" disabled":""}>${SCAN?"Buscando…":"⟳ Buscar"}</button></h3>
+ <div class="rlist">${pub.length?pub.map(r=>row(r.nm,r.d,r.np,r.max,r.code,"Pública",r.open)).join(""):`<p class="rempty">${SCAN?"Buscando salas abiertas…":"No hay salas públicas abiertas. ¡Crea una!"}</p>`}</div>
+ <p id="cst" class="cst"></p><div class="cpft"><button data-c="home">◀ Volver</button><button data-c="host">${ico("poke-ball",18)} Crear mi sala</button></div>`}
+function coopLobby(L){if(st!="menu")return;L=L||(NET.role=="host"?netLobList():NET.lobL||[]);const H=NET.role=="host",hn=(L[0]&&L[0][1])||myName();
+ const F=frSV(),fl=Object.keys(F.f).map(n=>[n,frStatus(n)[0]]).sort((a,b)=>(b[1]!="off")-(a[1]!="off")||a[0].localeCompare(b[0])),inRoom=new Set(L.map(x=>x[1]));
+ ovs(`<div class="box coop2 lobby"><div class="cph"><h2>${ico("exp-share",30)} Sala de ${esc(hn)}</h2>${H?`<button data-c="pub" class="pubt ${NET.pub?"on":""}" title="Pública: cualquiera la ve en «Unirse a una sala». Solo amigos: solo entran tus amigos e invitados.">${NET.pub?"● Pública":"● Solo amigos"}</button>`:`<small>Esperando a que el anfitrión comience…</small>`}</div>
+ <div class="lbg"><div class="lob4">${[0,1,2,3].map(i=>{const x=L[i];if(!x)return`<div class="lp emp"><span>Esperando<br>jugador…</span></div>`;const f=fget(x[3]);
+  return`<div class="lp${x[0]==NET.me?" me":""}"><div class="cd">${f?sheetCSS(f,100,1):""}</div><b>${esc(x[1])}</b><small>${SPD[x[2]]?SPD[x[2]].n:"?"}</small><em>${x[0]=="h"?"♛ Anfitrión":"★".repeat(thrStars(+x[4]||0))}</em></div>`}).join("")}</div>
+ ${H?`<aside class="lbf"><h3>Invitar amigos</h3><div class="lbfl">${fl.length?fl.map(([n,k])=>`<div class="lbfi ${k}"><span class="dot ${k}"></span><b>${esc(n)}</b>${inRoom.has(n)?`<em>En la sala</em>`:k=="off"?`<em>Desconectado</em>`:`<button data-c="inv:${esc(n)}">Invitar</button>`}</div>`).join(""):`<p class="rempty">Aún no tienes amigos agregados.</p>`}</div>
+  <div class="lbfb"><button data-c="addfr">＋ Agregar amigos</button><button data-c="link" title="Copia un enlace: quien lo abra entra directo a tu sala">⧉ Copiar invitación</button></div></aside>`:""}</div>
+ <p id="cst" class="cst"></p>
+ <div class="cpft">${H?`<button data-c="go" class="pri">▶ Comenzar (${L.length} jugador${L.length>1?"es":""})</button>`:""}<button data-c="leave">✕ Salir de la sala</button></div></div>`,"coopov");
+ if(H&&!RBC.p&&!RBC.ch)beaconStart()}
+document.getElementById("ov").addEventListener("click",e=>{const b=e.target.closest("[data-c]");if(!b||!$("#ov").classList.contains("coopov"))return;const a=b.dataset.c,[k,...r]=a.split(":"),n=r.join(":"),done=f=>{e.stopImmediatePropagation();SFX.ui();f()};
+ if(a=="browse")return done(coopBrowse);if(a=="home")return done(()=>coopHome());if(a=="scan")return done(roomScan);if(a=="none")return e.stopImmediatePropagation();
+ if(k=="jr")return done(()=>{coopHome();netJoin(n)});
+ if(k=="inv")return done(()=>{frInv(n);b.disabled=true;b.textContent="Enviada ✓"});
+ if(a=="addfr")return done(friendsOpen);
+ if(a=="pub")return done(()=>{NET.pub=!NET.pub;SV.coopPub=NET.pub?1:0;save();if(NET.pub)beaconStart();else beaconStop();coopLobby()});
+ if(a=="link")return done(()=>{const u=location.href.split(/[?#]/)[0]+"?sala="+NET.code;try{navigator.clipboard.writeText(u);toast("Invitación copiada: pégala en WhatsApp o Discord")}catch(x){toast(u)}})},true);
+/* the old handler still does host/join/go/leave/diag/fix/close */
+function frInvite(n,room){if(!room)return;const d=document.createElement("div");d.className="toast big inv";d.innerHTML=`${esc(n)} te invita a jugar en su sala <button>Unirse ▶</button>`;
+ d.querySelector("button").onclick=()=>{d.remove();if(st=="menu"){$("#ov").hidden=true;coopHome();netJoin(room)}else toast("Termina tu partida para unirte")};$("#toasts").appendChild(d);setTimeout(()=>d.remove(),15000);SFX.lvl()}
+{const _fs=frStatus;frStatus=function(n){const r=_fs(n);if(r[0]=="room")r[1]="En una sala · puedes unirte";return r}}
+{const _fi=frInfo;frInfo=function(){const o=_fi();if(o.room)o.np=1+Object.keys(NET.pl).length;return o}}
+/* invitation links: ?sala=XXXXX opens the game and joins that room */
+setTimeout(function autoJoin(){const m=/[?&]sala=([A-Z0-9]{4,6})/i.exec(location.search);if(!m)return;if(st!="menu"||!Object.keys(SV.u||{}).length||!$("#ov").hidden&&$("#ov").innerHTML.includes("abox"))return setTimeout(autoJoin,1500);
+ try{history.replaceState(null,"",location.pathname)}catch(e){}coopHome();netJoin(m[1].toUpperCase())},2500);
+
+{const r=document.documentElement.style;r.setProperty("--dg-resA",dgBG(DGR.panel,14,"y",3,.18));r.setProperty("--dg-resB",dgBG(DGR.tree,14,"y",3,.18))}
 rs();resetWorld(4242);music.play("menu");requestAnimationFrame(loop);accBoot();
 </script></body></html>
