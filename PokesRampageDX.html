@@ -1735,6 +1735,62 @@ body.rdm #lb{display:none!important}body.rdm #hud .tc{display:none}
 .htg{font:8px var(--px);padding:7px 9px;border:0;border-radius:0;cursor:pointer;color:#fff;background:var(--dg-tab,#251b4a);box-shadow:0 0 0 2px #0a0620,inset 0 -3px 0 #0006}
 .htg.on{background:var(--dg-gold);color:#3a2000;box-shadow:0 0 0 2px #3a2000,inset 0 2px 0 #fff6c0,inset 0 -3px 0 #a85a10}
 @media(max-width:560px){.hcl{grid-template-columns:1fr;justify-items:center}.hrow b{width:100%}}
+/*V36CS*/
+/* ===== v36 · HUD del rancho: madera tallada, pergamino con dither, placas doradas ===== */
+#ranch .rclk,#ranch .rcoin,#ranch .rres,#ranch #rqt,#ranch .rtr button,#ranch #rbar,#ranch #rpr{image-rendering:pixelated;border-radius:0}
+#ranch .rclk{position:relative;gap:0;background:var(--dg-parch);border:12px solid transparent;border-image:var(--rf-wood) 6 / 12px stretch;box-shadow:5px 5px 0 #0a061299;padding:0}
+#ranch .rclk::before{content:"";position:absolute;left:-2px;top:-2px;bottom:-2px;width:4px;background:var(--sc,#ff9ad0);box-shadow:inset -1px 0 0 #0004}
+#ranch .rclk .rcd{gap:4px;padding:2px 10px 3px 8px}
+#ranch .rclk .rcd b{font:9px var(--px);color:#3a2014;text-shadow:1px 1px 0 #fff8e6}
+#ranch #rsea{font:8px var(--px);color:#7a3a1a!important;text-shadow:1px 1px 0 #fff8e6}
+#ranch .rdp{position:relative;display:block;height:6px;margin-top:3px;background:var(--dg-day);box-shadow:0 0 0 2px #3a2014,inset 0 -1px 0 #0003}
+#ranch .rdp b{position:absolute;top:-3px;width:10px;height:10px;left:0;background:radial-gradient(circle at 35% 35%,#fff8c8 0 2px,#ffd23f 2px 4px,#c87a10 4px);box-shadow:0 0 0 2px #3a2014;transition:left .5s linear}
+#ranch .rclk .rct{gap:7px;padding:0 10px;background:var(--dg-ink);box-shadow:inset 3px 3px 0 #120a1c,inset -2px -2px 0 #6a5480;margin:2px 2px 2px 0}
+#ranch .rclk .rct b{font:14px var(--px);color:#ffd23f;text-shadow:2px 2px 0 #7a3a00,0 -1px 0 #fff3b0}
+#ranch .rclk .rct b.late{color:#ff8a7a;text-shadow:2px 2px 0 #6a1010}
+#ranch .rcoin{gap:7px;padding:2px 10px 2px 4px;background:var(--dg-goldp);border:10px solid transparent;border-image:var(--rf-wood) 6 / 10px stretch;box-shadow:4px 4px 0 #0a061299}
+#ranch .rcoin b{font:10px var(--px);color:#4a2400;text-shadow:1px 1px 0 #fff6c0}
+#ranch .rcoin img{filter:drop-shadow(1px 1px 0 #7a3a00)}
+#ranch .rres{gap:8px;padding:2px 8px 2px 4px;background:var(--dg-parch2);border:8px solid transparent;border-image:var(--rf-thin) 4 / 8px stretch;box-shadow:4px 4px 0 #0a061299}
+#ranch .rres span{color:#3a2014;text-shadow:1px 1px 0 #fff8e6}
+#ranch #rqt{position:relative;background:var(--dg-parch);border:10px solid transparent;border-image:var(--rf-thin) 4 / 10px stretch;box-shadow:4px 4px 0 #0a061299;padding:4px 8px 6px}
+#ranch #rqt::before{content:"";position:absolute;left:50%;top:-12px;width:8px;height:8px;margin-left:-4px;background:radial-gradient(circle at 35% 35%,#ffb0a0 0 1.5px,#e8344a 1.5px 3px,#7a1020 3px);box-shadow:0 0 0 2px #2a0a10}
+#ranch #rqt b{color:#a03a10;text-shadow:1px 1px 0 #fff8e6}
+#ranch #rqt span{color:#2e1a10;text-shadow:none}
+#ranch #rqt em{color:#2e7a20}
+#ranch #rqt:hover{transform:translateY(-2px)}
+#ranch .rtr{gap:10px}
+#ranch .rtr button{font:8px var(--px);color:#fff8e6;padding:6px 10px;background:var(--dg-plankb);border:10px solid transparent;border-image:var(--rf-wood) 6 / 10px stretch;box-shadow:4px 4px 0 #0a061299;text-shadow:1px 1px 0 #4a2210,-1px 0 0 #4a2210,0 -1px 0 #4a2210,1px 0 0 #4a2210;transition:transform .1s ease-out}
+#ranch .rtr button.rd{background:var(--dg-plankr);box-shadow:4px 4px 0 #0a061299}
+#ranch .rtr button[data-rb="closet"]{background:var(--dg-plankv)}
+#ranch .rtr button:hover{transform:translateY(-3px)}#ranch .rtr button:active{transform:translateY(1px)}
+#ranch #rbar{gap:7px;padding:4px;background:var(--rf-plank) 0 0/96px 32px repeat,#5a3220;border:12px solid transparent;border-image:var(--rf-wood) 6 / 12px stretch;box-shadow:6px 6px 0 #0a061299}
+#ranch .rsl{width:52px;height:52px;background:var(--dg-parch2);border:8px solid transparent;border-image:var(--rf-inset) 4 / 8px stretch;box-shadow:none;transition:transform .12s cubic-bezier(.2,1.6,.4,1)}
+#ranch .rsl img{width:28px;height:28px;filter:drop-shadow(1px 1px 0 #7a4a2a)}
+#ranch .rsl em{left:-4px;top:-5px;padding:2px 3px 1px;font:7px var(--px);color:#ffe9b0;background:#3a2014;box-shadow:0 0 0 1px #1c0e0a}
+#ranch .rsl b{right:-4px;bottom:-5px;font:8px var(--px);color:#fff;text-shadow:1px 1px 0 #2a1408,-1px -1px 0 #2a1408,1px -1px 0 #2a1408,-1px 1px 0 #2a1408}
+#ranch .rsl.on{background:var(--dg-goldp);border-image:var(--rf-gold) 4 / 8px stretch;transform:translateY(-4px)}
+#ranch .rsl.on em{background:#a86a10;color:#fff8c8}
+#ranch .rsl:hover:not(.on){transform:translateY(-2px)}
+#ranch .rsl.frm,#ranch .rsl.bag{width:auto;min-width:70px;padding:0 8px 0 2px;background:var(--dg-parch2);border-image:var(--rf-inset) 4 / 8px stretch;box-shadow:none}
+#ranch .rsl.frm{background:linear-gradient(#0000,#0000),var(--dg-parch2)}
+#ranch .rsl.frm small,#ranch .rsl.bag small{color:#4a2414;text-shadow:none}
+#ranch .rsl.bag b{color:#3a2014;text-shadow:1px 1px 0 #fff8e6}
+#ranch .rsl.frm em{background:#6a3eaa;color:#fff}
+#ranch .rsl0{color:#ffe9b0;text-shadow:1px 1px 0 #1c0e0a}
+#ranch #rpr{color:#2e1a10;background:var(--dg-parch2);border:10px solid transparent;border-image:var(--rf-thin) 4 / 10px stretch;box-shadow:4px 4px 0 #0a061299;padding:3px 10px 3px 4px}
+#ranch #rpr kbd{background:var(--dg-goldp);color:#3a1a00;box-shadow:0 0 0 2px #3a2014,inset 0 -2px 0 #a86a10}
+#ranch #rpr .rneed{color:#b02a1a}
+#ranch #rpr .hrt{color:#d0306a}
+#ranch #rpr{bottom:calc(112px + env(safe-area-inset-bottom,0px))}
+#rloc{padding:9px 34px 10px;color:#fff6d8;border:10px solid transparent;border-image:var(--rf-rib) 4 12 4 12 fill / 8px 24px stretch;text-shadow:2px 2px 0 #5a0e0e,-1px -1px 0 #5a0e0e;image-rendering:pixelated}
+#rloc::before,#rloc::after{display:none}
+@media(max-width:640px){#ranch .rclk{border-width:8px;border-image-width:8px}#ranch .rclk .rct b{font-size:11px}#ranch .rclk .rcd b{font-size:7px}#ranch #rsea{font-size:6px}
+ #ranch .rsl{width:44px;height:44px;border-width:6px;border-image-width:6px}#ranch .rsl img{width:24px;height:24px}#ranch #rbar{border-width:8px;border-image-width:8px;gap:5px}
+ #ranch .rtr button{padding:4px 6px;border-width:8px;border-image-width:8px;font-size:7px}#ranch .rcoin,#ranch .rres,#ranch #rqt{border-width:7px;border-image-width:7px}#rloc{padding:6px 22px 7px}#ranch #rpr{bottom:calc(86px + env(safe-area-inset-bottom,0px))}}
+@media(max-width:560px){#ranch .rtr{flex-direction:column;align-items:flex-end;gap:6px}#ranch .rtr button{min-width:74px}}
+
+/*V36CE*/
 </style></head><body>
 <canvas id="c"></canvas>
 <div id="hud" hidden>
@@ -6754,5 +6810,398 @@ function rnStumpOf(k){const ck="st_"+k;if(RNC[ck]!==undefined)return RNC[ck];con
  for(let x=L;x<=R;x++){const u=Math.abs(x-mid)/rw;put(x,0,"#3a2410");put(x,1,u>.8?"#c8a060":u<.3?"#c8a060":"#f0d49a");put(x,2,u>.85?"#8a5a2e":"#e2bc7c")}
  put(L-1,1,"#3a2410");put(R+1,1,"#3a2410");put(L-1,2,"#3a2410");put(R+1,2,"#3a2410");
  g.putImageData(id,0,0);c.ox=x0-1;c.oy=top-2;return RNC[ck]=c}
+/*V36S*/
+/* ================= v36 · RANCHO VIVO: terreno orgánico, granja salvaje, puertas animadas, interior nuevo y HUD de madera ================= */
+/* ---------- terrain: grass with dithered bands and tufts, dirt paths with ragged edges, real pond shores, cobbled plaza ---------- */
+const TR={
+ g:[["#1f4234","#2b6338","#3f823a","#5ba042","#86bd52","#b2d86a"],["#1c3e2c","#275a30","#377832","#4f9238","#72ad42","#9cc656"],
+    ["#3a3624","#565428","#736e32","#918a3c","#b0a24a","#cfbc66"],["#6e7c9c","#8e9eba","#adbcd4","#cad6e8","#e4ecf6","#fbfdff"]],
+ p:[["#3e2620","#5e3c2a","#7e5636","#9c7042","#ba8c54","#d6aa6c"],["#3e2620","#5e3c2a","#7e5636","#9c7042","#ba8c54","#d6aa6c"],
+    ["#3e2620","#5e3c2a","#7e5636","#9c7042","#ba8c54","#d6aa6c"],["#5a6378","#7a849a","#9aa4b8","#bac2d2","#d8dee8","#f4f7fb"]],
+ w:[["#14325e","#1c4886","#245ea8","#3478c4","#5498da","#9ad0f2"],["#14325e","#1c4886","#245ea8","#3478c4","#5498da","#9ad0f2"],
+    ["#14325e","#1c4886","#245ea8","#3478c4","#5498da","#9ad0f2"],["#5a7aa4","#7896be","#94b2d4","#b2cce4","#cfe4f4","#f0f8ff"]],
+ c:["#2c2630","#4a4250","#665e6a","#837a84","#a0969c","#bcb2b2"],mortar:"#26202a",
+ fl:[[["#ffffff","#ffe066"],["#ff8fc8","#ffe066"],["#c8a0ff","#fff6c0"],["#ffb0d8","#ffffff"]],[["#ffd23f","#c46a00"],["#ff6b6b","#ffe066"],["#8fd0ff","#ffffff"],["#ffffff","#ffd23f"]],
+     [["#ff9a3a","#7a3a10"],["#d8602a","#ffd23f"],["#b0402a","#ffb060"],["#f0c040","#7a3a10"]],[]],
+ tuft:[["b.b","aba","d.d"],[".b..","ba.b","aaba","d.dd"],["..b..","b.a.b","abaab","d.d.d"],["b..","ab.","dab"]]};
+const trHex=c=>{const v=parseInt(c.slice(1),16);return[v>>16&255,v>>8&255,v&255]};
+const trPal=a=>a.map(trHex);
+/* class map with a little domain warp, so paths and plaza edges are ragged instead of ruler-straight */
+function trClasses(M,W,H,PD){const C=new Uint8Array(W*H),TW=RN_W,TH=RN_H;
+ const at=(x,y)=>{x=Math.floor(x);y=Math.floor(y);const tx=x>>4,ty=y>>4;return tx<0||ty<0||tx>=TW||ty>=TH?0:M.base[ty*TW+tx]};
+ const soft=c=>c==0||c==1||c==7||c==8;
+ for(let y=0;y<H;y++)for(let x=0;x<W;x++){const raw=at(x,y);let c=raw;
+  if(soft(raw)){const wx=x+(vn(x/9,y/9,301)-.5)*7+(vn(x/3.5,y/3.5,303)-.5)*2,wy=y+(vn(x/9,y/9,302)-.5)*7+(vn(x/3.5,y/3.5,304)-.5)*2,w=at(wx,wy);if(soft(w))c=w}
+  if(PD){const d=((x/16-PD.x)/PD.rx)**2+((y/16-PD.y)/PD.ry)**2+(vn(x/7,y/7,305)-.5)*.22;c=d<1?3:(c==3?0:c)}
+  C[y*W+x]=c}return C}
+function trDither(v,x,y,hold){const lv=Math.floor(v);let f=v-lv;f=clamp((f-hold)/(1-2*hold),0,1);return f>BAYER(x,y)?lv+1:lv}
+function rnBGv36(s){const M=rnBuild(),W=RN_W*16,H=RN_H*16,PD=RMAP=="farm"?POND:RMAP=="forest"?{x:10,y:20,rx:4.2,ry:2.8}:null;
+ const C=trClasses(M,W,H,PD),c=document.createElement("canvas");c.width=W;c.height=H;const g=c.getContext("2d"),id=g.createImageData(W,H),D=id.data;
+ const GR=trPal(TR.g[s]),GF=trPal(TR.g[s].map(h=>cmix(h,"#0c2420",s==3?.12:.3))),PT=trPal(TR.p[s]),WA=trPal(TR.w[s]),CB=trPal(TR.c),MO=trHex(TR.mortar);
+ const cl=(x,y)=>x<0||y<0||x>=W||y>=H?255:C[y*W+x],isG=k=>k==0||k==2||k==4||k==8,LV=new Int8Array(W*H);
+ const put=(x,y,col)=>{if(x<0||y<0||x>=W||y>=H)return;const o=(y*W+x)*4;D[o]=col[0];D[o+1]=col[1];D[o+2]=col[2];D[o+3]=255};
+ /* cobble rows: staggered stones 8–12 px wide, 8 px tall */
+ const CBR=[];for(let r=0;r<=H/8;r++){const b=[];let x=-(h2(r,0,401)*10|0);while(x<W+12){b.push(x);x+=8+(h2(r,b.length,402)*5|0)}CBR.push(b)}
+ for(let y=0;y<H;y++)for(let x=0;x<W;x++){const k=C[y*W+x],i=y*W+x;let col;
+  if(isG(k)){const P=k==8?GF:GR;let v=2.3+(vn(x/42,y/42,311)*.62+vn(x/14,y/14,312)*.38-.5)*3.4;if(k==2)v-=.35;
+   let lv=clamp(trDither(v,x,y,.25),1,4);
+   const dn=cl(x,y+1),dn2=cl(x,y+2),lf=cl(x-1,y),rt=cl(x+1,y);
+   if((dn!=255&&!isG(dn))||(lf!=255&&!isG(lf))||(rt!=255&&!isG(rt)))lv=0;else if(dn2!=255&&!isG(dn2))lv=Math.min(lv,1);
+   if(k==4&&lv>0){const t=vn(x/9,y/9,313)*.8+vn(x/4,y/4,314)*.2;if(t>.8||(t>.75&&BAYER(x,y)<.5)){col=PT[t>.86?2:3];LV[i]=-1;put(x,y,col);continue}}
+   LV[i]=lv;col=P[lv]}
+  else if(k==1){let v=3.1+(vn(x/22,y/22,321)-.5)*1.5+(vn(x/6,y/6,322)-.5)*.6,lv=clamp(trDither(v,x,y,.22),2,4);
+   const u1=cl(x,y-1),u2=cl(x,y-2),u3=cl(x,y-3),l1=cl(x-1,y),r1=cl(x+1,y);
+   if(isG(u1))lv=1;else if(isG(u2))lv=2;else if(isG(u3)&&BAYER(x,y)<.5)lv=Math.min(lv,2);if(isG(l1)||isG(r1))lv=Math.min(lv,2);
+   LV[i]=10+lv;col=PT[lv]}
+  else if(k==7){const r=y>>3,ly=y&7,B=CBR[r];let j=0;while(j<B.length-1&&B[j+1]<=x)j++;const x0=B[j],w=B[j+1]-x0,lx=x-x0,t0=2+(h2(r,j,403)*2.2|0)+(vn(x/40,y/40,331)>.6?1:0);
+   let v=t0;if(ly==7||lx==w-1)col=MO;else{if(ly==0||lx==0)v=t0+1;else if(ly==6||lx==w-2)v=t0-1;if((lx==0||lx==w-2)&&(ly==0||ly==6))col=MO;else col=CB[clamp(v,0,5)]}
+   const u1=cl(x,y-1);if(isG(u1)){col=CB[0]}LV[i]=20;}
+  else if(k==3){const d=PD?Math.sqrt(((x/16-PD.x)/PD.rx)**2+((y/16-PD.y)/PD.ry)**2):.5;let v=4.2-(1-d)*3+(vn(x/12,y/12,341)-.5)*.8,lv=clamp(trDither(v,x,y,.2),1,4);
+   const u1=cl(x,y-1),u2=cl(x,y-2),u3=cl(x,y-3),u4=cl(x,y-4);
+   if(u1!=3&&u1!=255)col=PT[2];else if(u2!=3&&u2!=255)col=PT[1];else if(u3!=3&&u3!=255)col=PT[0];else if(u4!=3&&u4!=255)col=WA[0];
+   else{const sd=cl(x-1,y)!=3||cl(x+1,y)!=3||cl(x,y+1)!=3;col=sd?WA[5]:WA[lv]}LV[i]=30}
+  else{col=GR[2];LV[i]=2}
+  put(x,y,col)}
+ /* pebbles and stones on the paths, ripples on the water */
+ for(let j=0;j<H;j+=6)for(let i=0;i<W;i+=6){const x=i+(h2(i,j,351)*5|0),y=j+(h2(i,j,352)*5|0),r=h2(i,j,353),k=cl(x,y);
+  if(k==1&&cl(x+2,y)==1&&cl(x,y+2)==1&&cl(x+2,y+2)==1&&cl(x,y-2)==1){if(r<.16){put(x,y,PT[5]);put(x+1,y,PT[4]);put(x,y+1,PT[1]);put(x+1,y+1,PT[1])}else if(r<.2){const S=[CB[1],CB[3],CB[4]];put(x,y,S[2]);put(x+1,y,S[1]);put(x+2,y,S[1]);put(x,y+1,S[1]);put(x+1,y+1,S[0]);put(x+2,y+1,S[0])}else if(r<.26){put(x,y,PT[1]);put(x+1,y+1,PT[1]);put(x+2,y+1,PT[1])}}
+  if(k==3&&r<.22&&cl(x-3,y)==3&&cl(x+5,y)==3&&cl(x,y-5)==3&&cl(x,y+3)==3){const L=3+(r*12|0)%3;for(let q=0;q<L;q++)put(x+q,y,WA[q==0||q==L-1?4:5])}}
+ /* grass tufts and flowers, hand-authored micro shapes in the local tone (a=+1, b=+2, d=-1) */
+ const FL=TR.fl[s].map(f=>f.map(trHex));
+ for(let j=0;j<H;j+=5)for(let i=0;i<W;i+=5){const x=i+(h2(i,j,361)*4|0),y=j+(h2(i,j,362)*4|0),r=h2(i,j,363),k=cl(x,y);if(!isG(k))continue;
+  const lv=LV[y*W+x];if(lv<1)continue;const P=k==8?GF:GR,patch=vn(x/26,y/26,364);
+  if(r<(k==8?.42:.3)+patch*.12){const T=TR.tuft[(h2(i,j,365)*TR.tuft.length)|0];let ok=1;for(let a=0;a<T.length&&ok;a++)for(let b=0;b<T[a].length;b++)if(T[a][b]!="."&&(!isG(cl(x+b,y+a))||LV[(y+a)*W+x+b]<1)){ok=0;break}
+   if(ok)for(let a=0;a<T.length;a++)for(let b=0;b<T[a].length;b++){const ch=T[a][b];if(ch==".")continue;put(x+b,y+a,P[clamp(lv+(ch=="a"?1:ch=="b"?2:-1),0,5)])}}
+  else if(FL.length&&k!=2&&r>(patch>.62?.88:.975)&&lv>=1){const f=FL[(h2(i,j,366)*FL.length)|0];if(isG(cl(x-1,y))&&isG(cl(x+1,y))&&isG(cl(x,y-1))&&isG(cl(x,y+2))){put(x,y,f[1]);put(x-1,y,f[0]);put(x+1,y,f[0]);put(x,y-1,f[0]);put(x,y+1,P[0])}}
+  else if(k==8&&r>.9){const L2=s==2?["#7a2e12","#b04a18","#f0a038"]:["#5a3a1e","#8a5a2e","#b07a40"];const q=L2.map(trHex);put(x,y,q[2]);put(x+1,y,q[1]);put(x+1,y+1,q[0])}}
+ /* lily pads */
+ if(PD&&s!=3)for(let n=0;n<7;n++){const a=h2(n,1,371)*TAU,rr=.55+h2(n,2,371)*.3,x=Math.round((PD.x+Math.cos(a)*PD.rx*rr)*16),y=Math.round((PD.y+Math.sin(a)*PD.ry*rr)*16);if(cl(x,y)!=3||cl(x+6,y+4)!=3||cl(x-1,y-1)!=3)continue;
+  const P=["#1e5a2c","#2e7a34","#4a9a3c","#7cc05a"].map(trHex);for(let yy=0;yy<4;yy++)for(let xx=0;xx<6;xx++){const e=((xx-2.5)/3)**2+((yy-1.5)/2)**2;if(e>1.05||(xx==3&&yy<2))continue;put(x+xx,y+yy,P[e>.7?(yy>=2?0:1):yy==0?3:2])}
+  if(n%3==0){put(x+1,y,trHex("#ffd0e8"));put(x+2,y-1,trHex("#ff8ac0"));put(x+1,y-1,trHex("#fff0f6"))}}
+ /* field: a faint dithered furrow border so you can see where the farmland is */
+ if(RMAP=="farm"&&s!=3)for(let y=FLD.y*16;y<(FLD.y+FLD.h)*16;y++)for(let x=FLD.x*16;x<(FLD.x+FLD.w)*16;x++){const ex=Math.min(x-FLD.x*16,(FLD.x+FLD.w)*16-1-x,y-FLD.y*16,(FLD.y+FLD.h)*16-1-y);if(ex<2&&(x+y)%2==0)put(x,y,GR[ex==0?1:2])}
+ g.putImageData(id,0,0);return c}
+{const _bg=rnBG;rnBG=function(s){const ind=RMAP=="house",k="bg"+RMAP+(ind?0:s);if(RART[k])return RART[k];if(ind)return typeof rnHouseBG=="function"?(RART[k]=rnHouseBG()):_bg(s);return RART[k]=rnBGv36(s)}}
+/* tilled soil: furrows, rounded corners, darker and glossy when watered */
+rnTil=function(w){return rnArt("til36"+w,16,16,g=>{const P=w?["#24140c","#33200f","#432c16","#55391e","#6e4b28"]:["#3c2416","#57361e","#714a28","#8c6034","#a87a44"];
+ for(let y=0;y<16;y++)for(let x=0;x<16;x++){const cr=(x<1||x>14)&&(y<1||y>14);if(cr)continue;const r=y%4;let v=r==0?3:r==1?2:r==2?2:1;if(v==2&&BAYER(x,y)>.8)v=3;
+  if(x==0||x==15||y==15)v=0;else if(y==0)v=4;if(y==14&&x>0&&x<15)v=Math.min(v,1);g.fillStyle=P[v];g.fillRect(x,y,1,1)}
+ if(w){g.fillStyle="#7aa8d0";g.fillRect(3,4,3,1);g.fillRect(10,8,2,1);g.fillRect(6,12,3,1);g.fillStyle="#b8dcf4";g.fillRect(3,4,1,1);g.fillRect(10,8,1,1)}})};
+
+/* ---------- the farm you just inherited: overgrown with tall grass, stones, twigs, stumps, young trees, logs and boulders ---------- */
+const DEBK=new Set(["tall","stone","twig","stump","log","boulder"]),DEBSOLID=new Set(["stone","stump","log","boulder"]);
+const DEBHP={stone:3,stump:4,log:9,boulder:10,twig:1,tall:1};
+const DEBC=[["#1c1a28","#363446","#555364","#75737f","#96939c","#bbb6bc"],["#2a2420","#463c34","#665848","#86765e","#a69476","#c8b494"]];
+/* auto 1px outline in a dark tinted colour around the opaque pixels (sel-out: shadow side darker) */
+function dbOutline(c,dark){const W=c.width,H=c.height,g=c.getContext("2d"),D=g.getImageData(0,0,W,H),S=D.data,O=new Uint8ClampedArray(S),A=(x,y)=>x>=0&&y>=0&&x<W&&y<H&&S[(y*W+x)*4+3]>200,dk=rdHex(dark);
+ for(let y=0;y<H;y++)for(let x=0;x<W;x++){if(A(x,y)||!(A(x+1,y)||A(x-1,y)||A(x,y+1)||A(x,y-1)))continue;const i=(y*W+x)*4;O[i]=dk[0];O[i+1]=dk[1];O[i+2]=dk[2];O[i+3]=255}
+ D.data.set(O);g.putImageData(D,0,0);return c}
+/* tall grass: one hand-drawn clump, the top rows lean with the wind (3 poses), dark sel-out only on the lower half */
+const DBTALL=["..........5.........","....5.....4...5.....","....4....43...4..5..",".5..43...43..43..4..",".4...3..433..3..43..",".43..33.3.3.33..3...","..3..23.3.33.3.33.5.","..33.2333.3233.3..4.",
+ "5..3.22323322332.43.","4..32.2223222232.3..","43.2232222212222.3..",".3.222122.1222213...",".32212211212221123..","..2211111111211122..","..211101111110111...","...1000110001100....","....00000000000....."];
+function dbTall(v,s,sw){return rnArt("tall"+v+s+sw,22,19,g=>{const P=s==3?["#3a2c20","#5a4430","#7c6040","#a08254","#c4a874","#f4f0e8"]:s==2?["#3a3620","#5e5626","#80762e","#a29438","#c4b048","#e8d470"]:TR.g[s],K=s==3?"#2a1e14":s==2?"#2a2414":"#132e20";
+ const fl=v%2,H=DBTALL.length,M=[];for(let y=0;y<H;y++){const sh=y<6?sw:y<10&&Math.abs(sw)>1?Math.sign(sw):0;M.push([...DBTALL[y]].map((c,x,a)=>{const X=fl?a.length-1-x:x;return a[X-sh]||"."}))}
+ g.fillStyle="rgba(4,20,12,.3)";for(let x=4;x<18;x++)if(x%2==0||x>6&&x<15)g.fillRect(x+1,H+0,1,1);
+ const A=(x,y)=>y>=0&&y<H&&x>=0&&x<20&&M[y][x]!=".";
+ for(let y=0;y<H;y++)for(let x=0;x<20;x++){if(A(x,y)){const t=+M[y][x];g.fillStyle=P[v>=4&&t==5?4:t];g.fillRect(x+1,y,1,1)}else if(y>=6&&(A(x+1,y)||A(x-1,y)||A(x,y+1)||A(x,y-1))){g.fillStyle=K;g.fillRect(x+1,y,1,1)}}
+ if(s==3){g.fillStyle="#ffffff";for(const[x,y]of[[5,4],[11,2],[15,5],[8,8]])g.fillRect(x,y,2,1)}})}
+/* small stones: three hand-drawn shapes, light from the top-left */
+const DBSTONE=[["....kkkkkk....","..kk554443kk..",".k5544443332k.",".k4444333322k.","k44433333221k.","k43333322211k.","k33332222110k.",".k2222111100k.","..kk1110000k..","....kkkkkk...."],
+ [".....kkkk.....","...kk5544k....","..k5544433k...","..k4443332kkk.",".k44333321543k","k433332211432k","k333222110321k","k22221110k10k.",".kk1100kk.kk..","...kkkk......."],
+ ["......gG......","...kkkgGkk....","..k55gg443k...",".k5444433332k.","k444433333221k","k43333322221k.",".k222222111k..","..kkk1100kk...",".....kkkk....."]];
+const DBSP={k:"#1a1826",0:"#2e2c40",1:"#48465c",2:"#66637a",3:"#878298",4:"#a9a2b4",5:"#d0c8d2",g:"#3e7a34",G:"#6aa848"};
+function dbStone(v,s){return rnArt("stn"+v+s,16,13,g=>{const G=DBSTONE[v%3];g.fillStyle="rgba(4,20,12,.3)";for(let x=2;x<15;x++)if(x%2==0||(x>4&&x<12))g.fillRect(x,12,1,1);
+ G.forEach((r,y)=>[...r].forEach((ch,x)=>{if(ch==".")return;g.fillStyle=DBSP[ch];g.fillRect(x+1,y+12-G.length,1,1)}));
+ if(s==3){g.fillStyle="#ffffff";g.fillRect(5,12-G.length+1,5,1);g.fillRect(4,12-G.length+2,3,1)}})}
+/* stump: hand-drawn trunk base with roots and a ringed cut (same footprint as a small tree trunk) */
+const DBSTUMP=["....kkkkkkkk......","..kkCCCCCCCCkk....","..kCCcccrcccCCk...","..kCcrcccccrcdk...","..kdccrrrrrccdk...","..k4ddddddddd1k...","..k43332222211k...","..k43323222121k...",
+ "..k43322232111k...","..k43322222111k...",".k3433222221111k..","k32k4332222111k1k.","k21k3322221111k21k",".kk.kkkkkkkkkk.kk."];
+function dbStump(v,s){return rnArt("stp"+v+s,18,15,g=>{const P={k:"#22130c",1:"#4a2a18",2:"#6e4426",3:"#8e5c32",4:"#b07a44",d:"#7a5030",c:"#d8ae6e",C:"#f0d49a",r:"#a06c38"};if(v%2){P[2]="#5e3e26";P[3]="#7a5634";P[4]="#9a7448"}
+ g.fillStyle="rgba(4,20,12,.3)";for(let x=1;x<17;x++)if(x%2==0||(x>3&&x<14))g.fillRect(x,14,1,1);
+ DBSTUMP.forEach((r,y)=>[...r].forEach((ch,x)=>{if(ch==".")return;let c=P[ch];if(s==3&&y<5&&"Ccr".includes(ch))c=y<3?"#ffffff":"#dce8f6";g.fillStyle=c;g.fillRect(x,y,1,1)}))})}
+/* twigs: a forked branch with a couple of leaves */
+function dbTwig(v,s){return rnArt("twg"+v+s,18,10,g=>{const W=["#3a2414","#5e3c20","#86582e","#ac7a44"],L=s==2?["#a8501c","#e08a2a"]:s==3?["#c8d4e2","#ffffff"]:["#2e7a34","#62b04a"];
+ const put=(x,y,c)=>{g.fillStyle=c;g.fillRect(x,y,1,1)};g.fillStyle="rgba(4,20,12,.28)";for(let x=3;x<16;x+=1)if(x%2)g.fillRect(x,9,1,1);
+ const fl=v%2,X=x=>fl?17-x:x;for(let x=2;x<15;x++){const y=Math.round(6-(x-2)*.25);put(X(x),y,W[2]);put(X(x),y+1,W[1]);if(x%4==1)put(X(x),y,W[3])}
+ for(let k=0;k<4;k++){put(X(9+k),4-k,W[2]);put(X(9+k),5-k,W[1])}put(X(5),4,W[2]);put(X(4),3,W[2]);
+ put(X(12),1,L[1]);put(X(13),1,L[0]);put(X(13),0,L[1]);put(X(3),2,L[1]);put(X(4),2,L[0]);dbOutline(g.canvas,"#1a1010")})}
+const DBST=["oakA","oakC","oakD","oakB"];
+function dbArt(n,s,time){const k=n.k,v=n.v||0;
+ if(k=="tall"){const ph=Math.sin(time*1.8+n.tx*.7+n.ty*.4),rus=n.rus&&time-n.rus<.6,sw=rus?(((time*14)|0)%2?2:-2):ph>.55?1:ph<-.55?-1:0;return dbTall(v%4,s,sw)}
+ if(k=="stone")return dbStone(v,s);
+ if(k=="twig")return dbTwig(v,s);
+ if(k=="stump")return dbStump(v,s);
+ if(k=="log"){const a=RNI(v%2?"logB":"logA");return a?rnSnowy(a,"dlg"+v,s):oart("log",0)}
+ if(k=="boulder"){const a=RNI(["rockA","rockB","rockD"][v%3]);return a?rnSnowy(a,"dbl"+v,s):oart("rock",1)}
+ return null}
+/* state of a permanent farm node (cleared ones stay cleared; a little tall grass grows back each night) */
+function rnFD(){const r=RN();return r.fd||(r.fd={})}
+{const _st=ndSt;ndSt=function(n){if(!n.perm)return _st(n);const r=RN();
+ if(n.k=="tree"){const s=r.tr[RMAP+":"+n.id];if(!s)return{a:1,hp:5};if(s.cut)return{a:0,st:s.st?1:0};return{a:1,hp:s.hp}}
+ const v=rnFD()[n.id];return v===0?{a:0}:{a:1,hp:v==null?DEBHP[n.k]:v}}}
+{const _so=rnSolidT;rnSolidT=function(tx,ty){if(_so(tx,ty))return 1;if(tx<0||ty<0||tx>=RN_W||ty>=RN_H)return 1;const ni=RNM.ns[ty*RN_W+tx];if(ni>=0){const n=RNM.ND[ni];if(DEBSOLID.has(n.k)&&ndSt(n).a)return 1}return 0}}
+{const _wh=rnWhat;rnWhat=function(tx,ty){const n=rnNode(tx,ty);if(n&&DEBK.has(n.k)){const s=ndSt(n);if(!s.a)return null;const hp=s.hp,big=n.k=="log"||n.k=="boulder";
+  if(n.k=="tall")return{a:"cutg",n:"Cortar pasto alto",tool:"sickle",pw:["horno","cosecha"],nd:n};
+  if(n.k=="twig")return{a:"twig",n:"Recoger rama",hand:1,pw:["cosecha","excava"],nd:n};
+  if(n.k=="stone"||n.k=="boulder")return{a:"pmine",n:`${big?"Romper roca grande":"Picar piedra"}${hp>1?` (${hp})`:""}`,tool:"pick",pw:["excava"],nd:n};
+  return{a:"pchop",n:`${n.k=="log"?"Cortar tronco caído":"Arrancar tocón"}${hp>1?` (${hp})`:""}`,tool:"axe",pw:n.k=="log"?["excava"]:["excava","horno"],nd:n}}
+ return _wh(tx,ty)}}
+function rnNdGone(n){for(let y=n.ty-(n.fh||1)+1;y<=n.ty;y++)for(let x=n.tx;x<n.tx+(n.fw||1);x++)if(RNM.ns[y*RN_W+x]==n.i)RNM.ns[y*RN_W+x]=-1}
+{const _ap=rnApply;rnApply=function(w,tx,ty){if(!w||!w.nd||!["cutg","twig","pmine","pchop"].includes(w.a)){const d=_ap(w,tx,ty);if(w&&w.nd&&w.nd.perm&&w.a=="tstump"){const S=RN().tr[RMAP+":"+w.nd.id];if(S&&!S.st)rnNdGone(w.nd)}return d}
+ const r=RN(),n=w.nd,F=rnFD(),pw=w.m=="pw",dm=w.m=="tool"?1+r.tool:1,X=n.x,Y=n.y-2,s=rnSea(r.day);if(pw)rnPwFx(w.j,[[n.tx,n.ty]]);
+ if(w.a=="cutg"){F[n.id]=0;rnNdGone(n);rnPart(pw&&w.j=="horno"?"fire":"grass",X,Y-4,pw?8:12);if(!pw)rnSnd("sickle");if(R()<.6)rnGain("f",1,X,Y-12);if(R()<.07){const L=Object.keys(BERRIES).filter(b=>BERRIES[b].sea.includes(s)&&b!="ziuela"),b=pick(L);r.inv.s[b]=(r.inv.s[b]||0)+1;rnPop(`+1 semilla ${BERRIES[b].n}`,X,Y-26)}}
+ else if(w.a=="twig"){F[n.id]=0;rnNdGone(n);rnPart("chip",X,Y-2,8);if(!pw)nz(.08,{ft:"highpass",f:2200,v:.08});rnGain("w",1,X,Y-12)}
+ else{const hp=(F[n.id]==null?DEBHP[n.k]:F[n.id])-(pw?(n.k=="log"||n.k=="boulder"?4:9):dm);n.sh=.3;
+  if(w.a=="pmine"){rnPart("spark",X,Y-6,6);rnPart("stone",X,Y-4,n.k=="boulder"?8:5);if(!pw)rnSnd("pick")}else{rnPart("chip",X,Y-8,8);if(!(pw&&w.j=="horno"))rnSnd("axe")}
+  FARM.shk=Math.max(FARM.shk,n.k=="boulder"||n.k=="log"?.1:.06);
+  if(hp<=0){F[n.id]=0;rnNdGone(n);FARM.shk=.14;if(w.a=="pmine"){rnPart("stone",X,Y-4,n.k=="boulder"?22:12);nz(.2,{f:900,f2:150,v:.2});rnGain("s",n.k=="boulder"?5+(R()*4|0):1+(R()*2|0),X,Y-14);const q=R();if(q<(n.k=="boulder"?.12:.03)){SV.cap++;rnPop("¡+1 Chapa!",X,Y-30,"#ffd23f")}else if(q<.2){const c=10+(R()*25|0);SV.c+=c;rnPop(`+${c} monedas`,X,Y-30,"#ffd23f")}}
+   else{rnPart("chip",X,Y-6,n.k=="log"?20:10);rnPart("dirt",X,Y,8);rnSnd("fell");rnGain("w",n.k=="log"?6+(R()*4|0):2+(R()*2|0),X,Y-14);if(R()<.25){r.inv.s.aranja=(r.inv.s.aranja||0)+1;rnPop("+1 semilla Aranja",X,Y-30)}}}
+  else F[n.id]=hp}
+ rnSaveSoon();rnHudBuild();return 1}}
+/* every night some of the grass you cut grows back */
+{const _nd=rnNewDay;rnNewDay=function(p){const F=SV.rn&&SV.rn.fd;if(F)for(const k in F)if(F[k]===0&&k.startsWith("tall")&&Math.random()<.06)delete F[k];return _nd(p)}}
+/* field debris (weeds, stones, stumps inside the farmland) use the same new art */
+{const _oa=oart;oart=function(t,v){if(st=="ranch"){const s=SV.rn?rnSea(SV.rn.day):0;
+  if(t=="tuft")return[0,1,2,3].map(f=>dbTall(4+v,s,[0,1,0,-1][f]));if(t=="rock"&&v==2)return dbStone(1,s);if(t=="stump"&&v==0)return dbStump(0,s)}
+ return _oa(t,v)}}
+RNSH0.add("deb");
+/* ---------- farm layout: fix overlapping props, more decoration, then scatter the debris ---------- */
+function rnFoot(m,o,a){/* block the tiles under the base of a free-standing prop */if(o.b===0||!a)return;const W=m.W,x0=Math.floor((o.x-a.width/2+3)/16),x1=Math.floor((o.x+a.width/2-4)/16),ty=Math.floor((o.y-2)/16);
+ for(let x=x0;x<=x1;x++)if(x>=0&&x<W)m.blk[ty*W+x]=1}
+/* the farm grows 16 columns to the east: a wild strip of land that nobody has touched in years */
+const FARMADD=16,FARMW=44+FARMADD;
+function rnWiden(m,add){const W0=m.W,H=m.H,W=W0+add,n=rnMk(W,H),cut=(W0-2)*16;
+ for(let y=0;y<H;y++)for(let x=0;x<W;x++){const src=x<W0-2?x:x>=W-2?x-add:-1,q=y*W+x;
+  if(src>=0){const o=y*W0+src;n.base[q]=m.base[o];n.blk[q]=m.blk[o];n.ns[q]=m.ns[o]}else{n.base[q]=y==9||y==10?1:0;n.blk[q]=y<2||y>=H-2?1:0}}
+ const sh=o=>{if(o.x!=null&&o.x>=cut-16)o.x+=add*16;if(o.ax!=null&&o.ax>=cut-16)o.ax+=add*16;return o};
+ n.O=m.O.map(sh);n.T=m.T.map(t=>t.x>=cut?Object.assign({},t,{x:t.x+add*16}):t);n.fence=m.fence;n.I=m.I.map(sh);n.NP=m.NP;n.ND=m.ND;n.DC=m.DC;n.LT=m.LT.map(l=>l[0]>=cut?[l[0]+add*16,l[1],l[2]]:l);
+ n.X=m.X.map(e=>e.x>=W0-2?Object.assign({},e,{x:e.x+add}):e);
+ for(let x=cut-8;x<(W-2)*16;x+=27+(h2(x,1,5)*8|0)){n.T.push({x,y:26+h2(x,2,5)*6,k:h2(x,3,5)<.35?"p":"d",s:h2(x|0,9,9)});n.T.push({x:x+6,y:H*16-4-h2(x,5,5)*6,k:h2(x,6,5)<.35?"p":"d",s:h2(x|0,11,9)})}
+ for(const t of n.T){const tx=Math.floor(t.x/16),ty=Math.floor((t.y-4)/16);if(tx>=0&&ty>=0&&tx<W&&ty<H&&(ty<2||ty>=H-2||tx<2||tx>=W-2))n.blk[ty*W+tx]=1}
+ return n}
+{const _t=RMAPS.town;RMAPS.town=function(){const m=_t();for(const e of m.X)if(e.to=="farm")e.sx=(FARMW-2.7)*16;return m}}
+function rnFarm36(m){m=rnWiden(m,FARMADD);const W=m.W,H=m.H,r=RN(),s=rnSea(r.day);
+ /* props that were overlapping something */
+ for(const o of m.O){if(o.t=="tub"){o.x=24*16+12;o.y=13*16+14;m.blk[13*W+25]=0;m.blk[13*W+24]=1}
+  if(o.t=="barrel2"){o.x=27*16+1}if(o.t=="barrel"){o.x=34*16+14}if(o.t=="crate2"){o.x=36*16+4}}
+ m.ob("lamp2",20,7,{x:20*16+6});m.ob("barrel",12,6,{x:12*16+2,b:0});
+ for(const o of m.O)if(o.x!=null&&o.ax==null&&RNC[o.t])rnFoot(m,o,RNC[o.t]);
+ /* border trees must not hide the pond */
+ m.T=m.T.filter(t=>!(t.x>(POND.x-POND.rx-2)*16&&t.x<(POND.x+POND.rx+2)*16&&t.y>(POND.y-POND.ry-1)*16));
+ for(const x of[32.6,35.2,38,40.6])m.ob("bigbush",Math.floor(x),H-1,{x:x*16,y:(H-1)*16+12,b:0});
+ /* reeds and lily flowers around the pond */
+ for(const[x,y,v]of[[33,24,0],[41,25,1],[34,27,0],[40,27,1]])m.ob("reedx",x,y,{b:0,v});
+ /* reserved: paths (+margin), buildings, interaction spots, exits, field, pond, gate */
+ const RS=new Uint8Array(W*H),res=(x0,y0,w,h,v=1)=>{for(let y=y0;y<y0+h;y++)for(let x=x0;x<x0+w;x++)if(x>=0&&y>=0&&x<W&&y<H)RS[y*W+x]=Math.max(RS[y*W+x],v)};
+ for(let y=0;y<H;y++)for(let x=0;x<W;x++){const b=m.base[y*W+x];if(b==1){res(x-1,y-1,3,3,1);RS[y*W+x]=2}else if(b==3)res(x-1,y-1,3,3,2);if(m.blk[y*W+x])RS[y*W+x]=2}
+ res(HOUSE.x-1,HOUSE.y-1,HOUSE.w+3,HOUSE.h+3,2);res(SHOP.x-1,SHOP.y-1,SHOP.w+2,SHOP.h+3,2);res(FLD.x-1,FLD.y-1,FLD.w+2,FLD.h+2,2);const FRS=()=>{for(let j=0;j<FLD.h;j++)for(let i=0;i<FLD.w;i++)RS[(FLD.y+j)*W+FLD.x+i]=1};res(19,24,7,6,2);res(0,8,4,5,2);res(W-4,8,4,5,2);res(W-5,6,3,3,1);
+ for(const o of m.I)res(Math.floor(o.x/16)-1,Math.floor(o.y/16)-1,3,3,2);res(CRL.x,CRL.y,CRL.w,CRL.h,1);
+ for(const o of m.O){if(o.x==null||o.ax!=null)continue;const tx=Math.floor(o.x/16),ty=Math.floor((o.y-2)/16);res(tx-1,ty-1,3,3,1)}
+ for(const n of m.ND)res(n.tx-2,n.ty-1,5,3,2);
+ const put=(k,tx,ty,o={})=>{const fw=o.fw||1,fh=o.fh||1;for(let y=ty-fh+1;y<=ty;y++)for(let x=tx;x<tx+fw;x++){if(x<2||y<2||x>=W-2||y>=H-2)return null;const q=y*W+x;if(m.ns[q]>=0||m.blk[q]||RS[q]>=2)return null;if(DEBSOLID.has(k)&&RS[q]>=1)return null}
+  const id0=k+tx+"_"+ty;if(k!="tree"&&r.fd&&r.fd[id0]===0)return null;if(k=="tree"){const t=r.tr["farm:"+id0];if(t&&t.cut&&!t.st)return null}
+  const jx=k=="tall"||k=="stone"||k=="twig"?Math.round((h2(tx,ty,508)-.5)*7):0,jy=k=="tall"?Math.round((h2(tx,ty,509)-.5)*4):0;
+  const n={k,tx,ty,i:m.ND.length,id:k+tx+"_"+ty,x:(tx+fw/2)*16,y:ty*16+14,perm:1,v:o.v||0,fw,fh,jx,jy};m.ND.push(n);for(let y=ty-fh+1;y<=ty;y++)for(let x=tx;x<tx+fw;x++)m.ns[y*W+x]=n.i;
+  if(k!="tree")m.O.push({t:"deb",n,x:n.x+jx,y:n.y+jy,b:0});return n};
+ /* big pieces first, by hand */
+ const cand=[];for(let y=4;y<H-4;y++)for(let x=3;x<W-6;x++)cand.push([h2(x,y,510),x,y]);cand.sort((p,q)=>p[0]-q[0]);
+ const big=(k,fw,fh,n)=>{let c=0;for(const[,x,y]of cand){if(c>=n)break;let ok=1;for(let b=-fh;b<=1&&ok;b++)for(let a=-1;a<=fw;a++){const q=(y+b)*W+x+a;if(RS[q]||m.blk[q]||m.ns[q]>=0){ok=0;break}}if(!ok)continue;const nd=put(k,x,y,{v:c,fw,fh});if(nd){c++;res(x-1,y-fh,fw+2,fh+2,1)}}};
+ big("boulder",3,2,3);big("log",4,1,2);
+ /* young trees in small groves, never touching each other */
+ const trees=[];for(let y=3;y<H-3;y++)for(let x=3;x<W-3;x++){const gr=vn(x/4.5,y/4.5,501),q=h2(x,y,504);if(gr>.64&&q<.5&&!trees.some(([a,b])=>Math.abs(a-x)<3&&Math.abs(b-y)<3)){const q=y*W+x;let far=1;for(let b=-2;b<=1&&far;b++)for(let a=-2;a<=2;a++){const k=(y+b)*W+x+a;if(m.base[k]==1||m.base[k]==3){far=0;break}}if(!far||RS[q]>=1)continue;const n=put("tree",x,y);if(n){n.tk=h2(x,y,505)<.3?"p":"d";trees.push([x,y]);res(x-1,y-1,3,2,1)}}}
+ for(let y=3;y<H-3;y++)for(let x=3;x<W-3;x++){const q=y*W+x;if(m.ns[q]>=0||m.blk[q]||RS[q]>=2)continue;const rk=vn(x/5,y/5,502),gs=vn(x/6.5,y/6.5,503),r1=h2(x,y,506),v=(h2(x,y,507)*8)|0;
+  if(RS[q]==1){if(gs>.5&&r1<.6)put("tall",x,y,{v});else if(r1>.93)put("twig",x,y,{v});continue}
+  if(rk>.66&&r1<.5)put("stone",x,y,{v});else if(gs>.46&&r1<.66)put("tall",x,y,{v});else if(r1<.09)put("stone",x,y,{v});else if(r1<.15)put("twig",x,y,{v});else if(r1<.2)put("stump",x,y,{v});else if(r1<.5)put("tall",x,y,{v})}
+ FRS();for(let j=0;j<FLD.h;j++)for(let i=0;i<FLD.w;i++){const x=FLD.x+i,y=FLD.y+j;if(r.f[j*FLD.w+i]||h2(x,y,511)>.5)continue;put("tall",x,y,{v:(h2(x,y,507)*8)|0})}
+ return m}
+{const _b=RMAPS.farm;RMAPS.farm=function(){return rnFarm36(_b())}}
+/* reeds by the pond */
+function dbReed(v,s){return rnArt("reed"+v+s,14,22,g=>{const P=s==3?["#5a4a3a","#8a7454","#b49a70"]:s==2?["#5a4a1e","#8a7a2a","#b8a03a"]:["#1e5a2c","#2e7a34","#5aa244"],put=(x,y,c)=>{g.fillStyle=c;g.fillRect(x,y,1,1)};
+ for(let i=0;i<6;i++){const bx=2+i*2+(h2(v,i,611)*2|0),h=10+h2(v,i,612)*9|0,l=(bx-7)*.25;for(let t=0;t<h;t++)put(Math.round(bx+l*t/h),21-t,P[t<h*.4?0:t<h*.8?1:2]);
+  if(i%2==0&&s<3){const tx=Math.round(bx+l),ty=21-h;put(tx,ty,"#6a3a1e");put(tx,ty+1,"#8a5228");put(tx,ty+2,"#6a3a1e")}}})}
+{const _oa=rnOA;rnOA=function(o,s){if(o.t=="deb"){const n=o.n,S=ndSt(n);if(!S.a)return null;const t=performance.now()/1000,a=dbArt(n,s,t);if(!a)return null;
+  const j=n.sh>0?Math.round(Math.sin(t*70)*n.sh*4):0;o.x=n.x+(n.jx||0)+j;return a}
+ if(o.t=="reedx")return dbReed(o.v||0,s);return _oa(o,s)}}
+/* walking through tall grass rustles it */
+function rnRustle(time){if(RMAP!="farm"||!FARM.mv)return;const tx=Math.floor(FARM.x/16),ty=Math.floor((FARM.y-2)/16),n=rnNode(tx,ty);if(!n||n.k!="tall"||!ndSt(n).a)return;
+ if(!n.rus||time-n.rus>.35){n.rus=time;if(Math.random()<.5)rnPart("grass",FARM.x,FARM.y-4,2);if(!rl("rus",180))nz(.07,{ft:"bandpass",f:3200,q:.8,v:.035})}}
+
+/* ---------- town: fountain with a real footprint, props that no longer pile up, plaza not hidden behind the border trees ---------- */
+{const _t=RMAPS.town;RMAPS.town=function(){const m=_t(),W=m.W,H=m.H;
+ m.O=m.O.filter(o=>!(o.t=="log"));m.blk[5*W+13]=0;
+ for(const o of m.O){if(o.t=="crate"&&o.x<12*16){o.x=11*16+4}else if(o.t=="crate"){o.x=12*16+14}
+  if(o.t=="fount"&&RNC.fountain){const a=RNC.fountain;o.sy=14*16+3;o.ay=o.sy-a.height+3;for(let y=12;y<=13;y++)for(let x=16;x<=19;x++)m.blk[y*W+x]=1}
+  if(o.t=="stall"||o.t=="ftable"){o.y-=16}}
+ for(let y=0;y<H;y++)for(let x=0;x<W;x++)if(m.blk[y*W+x]&&(y==19||y==18)&&x>=15&&x<=21&&!m.fence.some(([a,b])=>a==x&&b==y))m.blk[y*W+x]=0;
+ for(const o of m.O)if(o.t=="stall"||o.t=="ftable"){const a=RNC[o.t];if(a)rnFoot(m,o,a)}
+ m.T=m.T.filter(t=>!(t.y>(H-3)*16&&t.x>10*16&&t.x<26*16));
+ for(const x of[11.6,14.2,16.8,19.4,22,24.6])m.ob("bigbush",Math.floor(x),H-1,{x:x*16,y:(H-1)*16+12,b:0});
+ return m}}
+
+/* ---------- doors that open, Ditto walking in, and pixel transitions between places (iris for doors, dithered wipe for roads) ---------- */
+const HDOOR={x:43,y:106,w:16,h:26};/* the door of the farmhouse picture */
+FARM.dk=0;FARM.ent=0;
+function rnHouseObj(){const M=RNM;if(!M||RMAP!="farm")return null;return M.O.find(o=>o.t=="house")}
+function rnDoorRect(){const o=rnHouseObj();if(!o||o.ax==null)return null;return{x:o.ax+HDOOR.x,y:o.ay+HDOOR.y,w:HDOOR.w,h:HDOOR.h}}
+/* house picture with the door opened k steps (1..3): dark hall with a little warm floor, the leaf turning on its hinge */
+function rnDoorArt(base,k,s){const key="hdoor"+k+s;if(RART[key])return RART[key];const c=document.createElement("canvas");c.width=base.width;c.height=base.height;const g=c.getContext("2d");g.imageSmoothingEnabled=false;g.drawImage(base,0,0);
+ const{x,y,w,h}=HDOOR,leaf=document.createElement("canvas");leaf.width=w;leaf.height=h;leaf.getContext("2d").drawImage(base,x,y,w,h,0,0,w,h);
+ const IN=["#120a10","#1a0e14","#24141a","#2e1a1c","#3c2420","#5a3826","#7a5030"];
+ for(let j=0;j<h;j++)for(let i=0;i<w;i++){const u=j/(h-1);let v=u<.55?0:u<.7?1:u<.8?2:u<.88?3:u<.94?4:5;if(BAYER(i,j)>.7&&v<5&&u>.5)v++;if(i==0||i==w-1)v=Math.max(0,v-2);g.fillStyle=IN[v];g.fillRect(x+i,y+j,1,1)}
+ g.fillStyle="#ffd890";g.globalAlpha=.25;g.fillRect(x+3,y+h-3,w-6,2);g.globalAlpha=1;
+ const lw=[0,11,6,3][k];g.drawImage(leaf,0,0,w,h,x,y,lw,h);g.fillStyle=`rgba(10,4,12,${.12*k})`;g.fillRect(x,y,lw,h);g.fillStyle="#2a1408";g.fillRect(x+lw,y,1,h);
+ if(k==3){g.fillStyle="#8a5a30";g.fillRect(x,y+1,2,h-2);g.fillStyle="#c08048";g.fillRect(x,y+1,1,h-2)}
+ return RART[key]=c}
+{const _oa=rnOA;rnOA=function(o,s){const a=_oa(o,s);if(o.t=="house"&&a&&FARM.dk>.02&&RMAP=="farm"){const k=FARM.dk>.8?3:FARM.dk>.45?2:1;return rnDoorArt(a,k,s)}return a}}
+/* Ditto steps into (or out of) the doorway: drawn higher by FARM.ent px and clipped to the opening */
+{const _dp=rnDrawPlayer;rnDrawPlayer=function(time){const e=FARM.ent,d=e>0&&RMAP=="farm"?rnDoorRect():null;if(!d){_dp(time);return}
+ cx.save();cx.beginPath();cx.rect(d.x,d.y,d.w,d.h+1);cx.rect(d.x-40,d.y+d.h,d.w+80,80);cx.clip();
+ const y0=FARM.y;FARM.y=y0-e;_dp(time);FARM.y=y0;worldT();const sh=clamp((e-6)/18,0,1)*.9;if(sh>0){cx.fillStyle=`rgba(14,6,14,${sh.toFixed(3)})`;cx.fillRect(d.x,d.y,d.w,d.h)}cx.restore()}}
+/* the door opens when you walk up to it facing it, and during a transition */
+function rnDoorTick(dt){const d=rnDoorRect();let tg=0;if(d){const q=FARM.tr;if(q&&q.v36&&(q.kind=="in"||q.kind=="out"))tg=q.kind=="in"||q.u<.85?1:0;
+ else{const dx=FARM.x-(d.x+d.w/2),dy=FARM.y-(d.y+d.h);if(Math.abs(dx)<14&&dy>-2&&dy<26&&(FARM.dir==4||FARM.dir==3||FARM.dir==5))tg=1}}
+ const was=FARM.dk;FARM.dk=clamp(FARM.dk+(tg?dt*7:-dt*5),0,1);if(was<=.02&&FARM.dk>.02)rnDoorSnd(1);else if(was>.3&&FARM.dk<=.3&&!tg)rnDoorSnd(0)}
+function rnDoorSnd(open){if(open){tone(190,.16,{w:"triangle",v:.035,f2:290});nz(.05,{f:900,v:.05})}else{nz(.07,{f:260,f2:120,v:.12});tone(110,.06,{w:"sine",v:.07})}}
+/* transitions */
+rnGoMap=function(to,x,y,dir){if(FARM.tr)return;const kind=RMAP=="farm"&&to=="house"?"in":RMAP=="house"&&to=="farm"?"out":"edge";
+ FARM.tr={v36:1,kind,to,x,y,dir,u:0,did:0,t:-1e9,x0:FARM.x,y0:FARM.y,wd:FARM.dir};FARM.path=null;FARM.goal=null;FARM.act=null;keys={};
+ if(kind=="edge")nz(.3,{ft:"bandpass",f:900,f2:1600,q:.6,v:.07});else if(kind=="out")tone(260,.08,{w:"square",v:.03,f2:180})};
+const TRT={in:[.7,1],out:[.3,1],edge:[.26,.52]};
+function rnTrStep(q,dt){q.u+=dt;const[sw,end]=TRT[q.kind];if(FARM.fol&&(q.kind=="out"||q.kind=="in"&&q.u>.2)){q.fol=FARM.fol;FARM.fol=null}
+ if(q.kind=="in"&&!q.did){const d=rnDoorRect();FARM.dir=4;if(d){const cxd=d.x+d.w/2,a=clamp(q.u/.16,0,1);FARM.x=lerp(q.x0,cxd,a);FARM.ent=clamp((q.u-.12)/.42,0,1)*Math.max(8,q.y0-(d.y+10));FARM.mv=q.u>.08&&q.u<.62?1:0}}
+ if(!q.did&&q.u>=sw){q.did=1;FARM.ent=0;FARM.mv=0;rnSwitch(q.to,q.x,q.y,q.dir);if(q.kind=="out"){const d=rnDoorRect();FARM.dk=1;FARM.dir=0;q.e0=d?Math.max(10,q.y-(d.y+d.h-6)):0;FARM.ent=q.e0}
+  if(q.kind=="in")tone(320,.06,{w:"square",v:.03,f2:240})}
+ if(q.kind=="out"&&q.did){const a=clamp((q.u-sw-.04)/.4,0,1);FARM.ent=(q.e0||0)*(1-a);FARM.mv=a>0&&a<1?1:0;FARM.dir=0}
+ if(q.u>=end){FARM.tr=null;FARM.ent=0;FARM.mv=0;if(q.fol){const f=q.fol;FARM.fol=f;if(q.kind=="out"){const d=rnDoorRect();f.x=d?d.x+d.w/2:FARM.x;f.y=FARM.y-12}else{f.x=FARM.x+14;f.y=FARM.y+6}FARM.trail=[]}}}
+/* iris / wipe drawn at art resolution with a Bayer-dithered edge */
+let IRC=null,IRX=null;
+function rnTrDraw(q){const[sw,end]=TRT[q.kind],w=Math.ceil(VW/G),h=Math.ceil(VH/G);if(!IRC||IRC.width!=w||IRC.height!=h){IRC=document.createElement("canvas");IRC.width=w;IRC.height=h;IRX=IRC.getContext("2d")}
+ let p;if(q.u<sw){const st=q.kind=="in"?.36:0;p=clamp((q.u-st)/(sw-st),0,1)}else p=1-clamp((q.u-sw)/((end-sw)*(q.kind=="out"?.6:.95)),0,1);if(p<=0)return;p=p*p*(3-2*p);
+ const id=IRX.createImageData(w,h),D=id.data,C=[10,6,20];
+ if(q.kind=="edge"){const before=q.u<sw,dd=q.dir;
+  for(let y=0;y<h;y++)for(let x=0;x<w;x++){const a=dd==2||dd==1||dd==3?x/w:dd>=5?1-x/w:dd==4?1-y/h:y/h,v=before?(p*1.2-a)/.08:(a-(1-p)*1.2+.2)/.08;
+   if(v>BAYER(x,y)){const o=(y*w+x)*4;D[o]=C[0];D[o+1]=C[1];D[o+2]=C[2];D[o+3]=255}}}
+ else{let cxp,cyp;if(q.u<sw&&q.kind=="in"){const d=rnDoorRect();cxp=d?(SX(d.x+d.w/2))/G:w/2;cyp=d?(SY(d.y+d.h-8))/G:h/2}else{cxp=SX(FARM.x)/G;cyp=SY(FARM.y-14)/G}
+  const R=Math.hypot(Math.max(cxp,w-cxp),Math.max(cyp,h-cyp))*(1-p)+.01;
+  for(let y=0;y<h;y++)for(let x=0;x<w;x++){const d=Math.hypot(x-cxp,y-cyp),t=(d-R)/3;if(t>BAYER(x,y)){const o=(y*w+x)*4;D[o]=C[0];D[o+1]=C[1];D[o+2]=C[2];D[o+3]=255}}}
+ IRX.putImageData(id,0,0);scrT();cx.imageSmoothingEnabled=false;cx.drawImage(IRC,0,0,w*G,h*G)}
+{const _tk=rnTick;rnTick=function(dt,time){const q=FARM.tr;if(q&&q.v36){q.t=-1e9;rnTrStep(q,dt)}rnDoorTick(dt);if(typeof rnRustle=="function")rnRustle(time);_tk(dt,time);const q2=FARM.tr;if(q2&&q2.v36&&st=="ranch")rnTrDraw(q2)}}
+
+/* ---------- inside the farmhouse: wallpaper and wainscot, plank floor, woven rug, and every piece of furniture redrawn ---------- */
+const HW={wood:["#2e1810","#4e2c1a","#734326","#985c34","#b87a46","#d69c62"],paper:["#9c7c6e","#bfa08c","#d8bca2","#e8d2b8","#f4e4cc"],
+ floor:["#3c2216","#5a341e","#7a4a2a","#975f36","#b27744","#c99158"],k:"#1e1016"};
+const hx2=c=>trHex(c);
+function rnHouseBG(){const W=RN_W*16,H=RN_H*16,M=RNM,c=document.createElement("canvas");c.width=W;c.height=H;const g=c.getContext("2d"),id=g.createImageData(W,H),D=id.data;
+ const put=(x,y,col)=>{if(x<0||y<0||x>=W||y>=H)return;const o=(y*W+x)*4;D[o]=col[0];D[o+1]=col[1];D[o+2]=col[2];D[o+3]=255};
+ const WD=HW.wood.map(hx2),PP=HW.paper.map(hx2),FL=HW.floor.map(hx2),K=hx2(HW.k),TOP=hx2("#2a1820"),TOP2=hx2("#3e2630");
+ const RG=["#3a1028","#5e1a3a","#86284a","#a83c58","#c85a6a","#e88a84","#f6c6a0"].map(hx2),MAT=["#4a2418","#8a3a22","#c0643a","#e0a060","#f0d8a8"].map(hx2);
+ const at=(x,y)=>{const tx=x>>4,ty=y>>4;return tx<0||ty<0||tx>=RN_W||ty>=RN_H?12:M.base[ty*RN_W+tx]};
+ /* plank layout: rows 8 px tall, each row cut at staggered lengths */
+ const PL=[];for(let r=0;r<H/8;r++){const b=[];let x=-(h2(r,0,701)*30|0);while(x<W+40){b.push(x);x+=26+(h2(r,b.length,702)*26|0)}PL.push(b)}
+ for(let y=0;y<H;y++)for(let x=0;x<W;x++){const k=at(x,y);let col;
+  if(k==6){/* back wall */if(y<3)col=y==2?TOP2:TOP;else if(y<34){const sx=x%12;let v=2;if(y<6)v=y<4?0:1;else if(sx==0)v=1;else if(sx==1)v=4;else{const fx=(x+6)%24,fy=(y-8)%14;if(((fx-6)**2+(fy-6)**2<3)&&((x/24|0)+(y/14|0))%2==0)col=fx==6&&fy==6?hx2("#e8a0a8"):hx2("#c8848c")}
+    if(!col){if(v==2&&BAYER(x,y)>.9)v=3;col=PP[v]}}
+   else if(y<44){const lx=x%32,ly=y-34;if(ly==0)col=WD[5];else if(ly==1)col=WD[3];else if(ly==9)col=WD[1];else if(lx<2)col=lx==0?WD[1]:WD[4];else if(lx==31)col=WD[1];else if(ly==2||lx==2)col=WD[2];else if(ly==8||lx==30)col=WD[4];else col=BAYER(x,y)>.85?WD[2]:WD[3]}
+   else col=y==44?WD[4]:y==47?K:WD[1]}
+  else if(k==12){/* top of the side and front walls, seen from above */const inX=x<16?x:x>=W-16?W-1-x:99,inY=y>=H-16?H-1-y:99,e=Math.min(inX,inY);col=e==15||e==14?WD[e==15?2:4]:e<1?K:TOP;if(e<14&&e>=1&&((x+y)%8==0))col=TOP2}
+  else if(k==11){/* doorway: light from outside spills in */const ly=y-(H-16),v=ly<3?4:ly<8?3:2;col=hx2(["#3a5a2a","#6a9a3a","#a8c868","#e8e0a0","#fff4d0"][BAYER(x,y)>.5&&v>2?v-1:v]);if(x%32==16||x%32==15)col=WD[2]}
+  else{/* floor planks */const r=y>>3,ly=y&7,B=PL[r];let j=0;while(j<B.length-1&&B[j+1]<=x)j++;const x0=B[j],lx=x-x0,t=2+(h2(r,j,703)*2.2|0);let v=t;
+   if(ly==7)v=0;else if(ly==0)v=t+1;else if(lx==0)v=1;else if(lx==1)v=t+1;else{const gr=h2((x>>2)+j*7,r*8+ly,704);if(gr<.06)v=t-1;else if(gr>.97)v=t+1}
+   if(y<52&&at(x,y-8)==6)v=Math.max(0,v-(y<50?2:1));if((at(x-2,y)==12||at(x+2,y)==12)&&BAYER(x,y)>.4)v=Math.max(0,v-1);col=FL[clamp(v,0,5)];
+   if(k==9){/* rug */const lx2=x-48,ly2=y-80,bw=96,bh=48,e=Math.min(lx2,ly2,bw-1-lx2,bh-1-ly2);if(lx2<0||ly2<0||lx2>=bw||ly2>=bh){}else{
+     if(lx2<3||lx2>=bw-3){col=(ly2%2==0&&(lx2==0||lx2==bw-1))?FL[2]:RG[6];if(lx2>=1&&lx2<=bw-2&&(lx2==2||lx2==bw-3))col=RG[1]}
+     else if(e<4)col=e==3?RG[1]:RG[e==0?0:2];else if(e<6)col=RG[5];else if(e<7)col=RG[1];else{const cx2=lx2-bw/2+.5,cy2=ly2-bh/2+.5,dm=Math.abs(((cx2+48)%16)-8)+Math.abs(((cy2+48)%16)-8);
+      col=dm<2?RG[6]:dm<4?RG[4]:dm==4?RG[1]:RG[3];const cd=Math.abs(cx2)/2+Math.abs(cy2);if(cd<8)col=cd<3?RG[6]:cd<5?RG[5]:RG[2]}}}
+   if(x>=84&&x<108&&y>=H-30&&y<H-17){const lx3=x-84,ly3=y-(H-30);col=MAT[(ly3%4<2)?(lx3%6<3?3:2):1];if(ly3==0||ly3==12)col=MAT[0];if(lx3==0||lx3==23)col=MAT[4]}}
+  put(x,y,col)}
+ for(let y=H-16;y<H;y++)for(const x0 of[78,112]){for(let i=0;i<2;i++){const col=i==0?(x0==78?WD[4]:WD[2]):(x0==78?WD[2]:WD[1]);put(x0+i,y,col)}put(x0==78?77:114,y,K)}
+ for(let x=78;x<114;x++){put(x,H-16,WD[5]);put(x,H-15,WD[2])}
+ g.putImageData(id,0,0);return c}
+/* furniture, all lit from the windows on the back wall (top-left light) */
+function hF(g,c,x,y,w,h){g.fillStyle=c;g.fillRect(x,y,w,h)}
+function hBox(g,x,y,w,h,R,top){/* wooden block: outline, lit top band, front face with bevels */hF(g,HW.k,x,y,w,h);hF(g,R[3],x+1,y+1,w-2,h-2);if(top){hF(g,R[5],x+1,y+1,w-2,1);hF(g,R[4],x+1,y+2,w-2,top-1);hF(g,R[2],x+1,y+top+1,w-2,1)}
+ hF(g,R[4],x+1,y+top+2,1,h-top-3);hF(g,R[2],x+w-2,y+top+2,1,h-top-3);hF(g,R[1],x+1,y+h-2,w-2,1)}
+const HART={
+ bed:[32,46,g=>{const W=HW.wood,B=["#1a2252","#283a80","#3a58aa","#5478cc","#7ea0e4","#b4ccf4"],Pi=["#8a8ea8","#b8bccc","#dde0ea","#f6f8fc"];
+  hBox(g,0,0,32,13,W,3);hF(g,W[2],4,5,24,6);hF(g,W[1],4,10,24,1);hF(g,W[4],4,5,24,1);hF(g,HW.k,0,0,1,1);hF(g,HW.k,31,0,1,1);hF(g,W[5],2,1,3,1);hF(g,W[5],27,1,3,1);
+  hF(g,HW.k,1,12,30,30);hF(g,Pi[2],2,12,28,9);hF(g,Pi[3],4,13,10,6);hF(g,Pi[3],18,13,10,6);hF(g,Pi[1],4,18,10,2);hF(g,Pi[1],18,18,10,2);hF(g,Pi[0],2,20,28,1);
+  for(let y=21;y<41;y++)for(let x=2;x<30;x++){const q=((x-2)/7|0)+((y-21)/6|0),sx=(x-2)%7,sy=(y-21)%6;let v=q%2?2:3;if(sx==0||sy==0)v=1;if(y==21||y==22)v=y==21?5:4;if(x<4)v=Math.min(5,v+1);if(x>27)v=Math.max(0,v-1);if(y>38)v=Math.max(0,v-1);g.fillStyle=B[v];g.fillRect(x,y,1,1)}
+  hF(g,Pi[3],2,21,28,1);hBox(g,0,39,32,7,W,2)}],
+ tv:[20,28,g=>{const W=HW.wood;hBox(g,0,13,20,15,W,3);hF(g,W[2],3,19,6,6);hF(g,W[2],11,19,6,6);hF(g,W[4],3,19,6,1);hF(g,W[4],11,19,6,1);hF(g,"#e8c070",8,21,1,2);hF(g,"#e8c070",11,21,1,2);
+  hF(g,HW.k,1,0,18,15);hF(g,"#4a4656",2,1,16,13);hF(g,"#6a6676",2,1,16,1);hF(g,"#2a2836",3,2,11,10);const S=["#1a3a4a","#2a5a6a","#3a7a8a"];for(let y=3;y<11;y++)for(let x=4;x<13;x++){g.fillStyle=S[((y+((performance.now()/400)|0))%3)];g.fillRect(x,y,1,1)}
+  hF(g,"#c8f0ff",4,3,3,1);hF(g,"#c8f0ff",4,4,1,1);hF(g,"#ffd23f",15,3,2,2);hF(g,"#e8344a",15,7,2,1);hF(g,"#8a8698",15,9,2,1);hF(g,"#8a8698",15,11,2,1);hF(g,HW.k,6,0,1,1);hF(g,"#8a8698",4,0,1,1);hF(g,"#8a8698",13,0,1,1)}],
+ shelf:[22,40,g=>{const W=HW.wood,BK=[["#7a1a26","#c03040","#e86070"],["#1a3a7a","#2c60c0","#5c90e8"],["#7a5a10","#d0a020","#f4d060"],["#1e5a2a","#3a9a44","#6ac868"],["#4a2470","#7a44b0","#a878e0"],["#7a3a14","#d06a2a","#f4a060"]];
+  hBox(g,0,0,22,40,W,2);for(const y of[4,16,28]){hF(g,W[1],2,y,18,10);hF(g,W[0],2,y,18,1);let x=3,i=(y*3)%6;while(x<19){const w=2+(h2(x,y,705)*2|0),h=6+(h2(x,y,706)*3|0),C=BK[i++%6];if(x+w>19)break;
+    hF(g,C[1],x,y+10-h,w,h);hF(g,C[2],x,y+10-h,1,h);hF(g,C[0],x+w-1,y+10-h,1,h);hF(g,C[2],x,y+10-h+2,w,1);x+=w+(h2(x,y,707)<.18?1:0)}hF(g,W[5],1,y+10,20,1);hF(g,W[2],1,y+11,20,1)}
+  hF(g,"#f4f0e8",14,6,3,4);hF(g,"#c8c0b4",16,6,1,4)}],
+ kitchen:[48,34,g=>{const W=HW.wood,T=["#9aa8b4","#c4d0d8","#e2eaee"];for(let y=0;y<8;y++)for(let x=0;x<48;x++){g.fillStyle=(x%6==0||y%4==0)?T[0]:((x/6|0)+(y/4|0))%2?T[1]:T[2];g.fillRect(x,y,1,1)}
+  hF(g,HW.k,0,8,48,26);hF(g,"#e6ddd0",1,9,46,5);hF(g,"#fffaf0",1,9,46,1);hF(g,"#b8ac9c",1,13,46,1);hBox(g,0,13,48,21,W,0);for(const x of[2,17,32]){hF(g,W[2],x,16,14,15);hF(g,W[4],x,16,14,1);hF(g,W[4],x,16,1,15);hF(g,W[1],x+13,16,1,15);hF(g,"#e8c070",x+6,22,2,2);hF(g,"#fff0b0",x+6,22,1,1)}
+  hF(g,"#2a2836",2,9,15,4);hF(g,"#444054",3,10,5,2);hF(g,"#444054",10,10,5,2);hF(g,"#e8442a",4,10,3,1);hF(g,"#ff9a3a",5,10,1,1);hF(g,"#5a5468",10,3,7,6);hF(g,"#8a84a0",11,4,5,4);hF(g,"#c8c4d8",11,4,5,1);hF(g,"#3a3448",9,5,1,2);
+  hF(g,"#8a96a4",30,9,15,4);hF(g,"#4a86c8",31,10,13,2);hF(g,"#a8d4f4",32,10,4,1);hF(g,"#c4ccd4",37,4,2,6);hF(g,"#c4ccd4",37,4,5,1);hF(g,"#e8344a",22,10,3,2);hF(g,"#ffb020",25,11,2,1)}],
+ boxes:[28,26,g=>{const bx=(x,y,w,h)=>{const C=["#5a3a1e","#9a6a3a","#c89a62","#e2bc84","#f4dcac"];hF(g,HW.k,x,y,w,h);hF(g,C[2],x+1,y+1,w-2,h-2);hF(g,C[3],x+1,y+1,w-2,3);hF(g,C[4],x+1,y+1,w-2,1);hF(g,C[1],x+w-2,y+4,1,h-5);hF(g,C[1],x+1,y+h-2,w-2,1);
+   hF(g,"#d8c8a0",x+(w>>1)-1,y+1,3,h-2);hF(g,"#f0e4c4",x+(w>>1)-1,y+1,1,h-2);hF(g,C[1],x+3,y+6,4,1)};bx(0,10,16,16);bx(13,12,15,14);bx(4,0,15,12)}],
+ table:[34,24,g=>{const W=HW.wood;hF(g,HW.k,5,12,4,12);hF(g,W[2],6,12,2,11);hF(g,HW.k,25,12,4,12);hF(g,W[2],26,12,2,11);
+  for(let y=0;y<15;y++)for(let x=0;x<34;x++){const d=((x-16.5)/17)**2+((y-6.5)/7.5)**2;if(d>1)continue;let c=d>.86?HW.k:y>11?W[2]:d>.62&&x<17&&y<6?W[5]:W[4];if(d<.62)c=y<5?"#fff8ec":"#f0e6d4";if(d<.62&&y>8)c="#d8ccb8";g.fillStyle=c;g.fillRect(x,y,1,1)}
+  hF(g,"#5a6aa0",13,3,8,4);hF(g,"#8a9ad0",14,3,6,1);hF(g,"#e8344a",14,4,2,2);hF(g,"#ffb020",17,4,2,2);hF(g,"#5ac84a",16,3,1,1);hF(g,"#3a4a80",13,6,8,1)}],
+ stool:[12,10,g=>{const W=HW.wood;for(let y=0;y<5;y++)for(let x=0;x<12;x++){const d=((x-5.5)/6)**2+((y-2)/2.6)**2;if(d>1)continue;g.fillStyle=d>.7?HW.k:y<2?W[5]:W[4];g.fillRect(x,y,1,1)}hF(g,HW.k,2,4,2,6);hF(g,W[2],2,4,1,5);hF(g,HW.k,8,4,2,6);hF(g,W[2],8,4,1,5)}],
+ desk:[20,26,g=>{const W=HW.wood;hBox(g,0,8,20,18,W,3);hF(g,W[2],2,15,16,8);hF(g,W[4],2,15,16,1);hF(g,"#e8c070",9,18,2,2);
+  hF(g,HW.k,2,2,11,8);hF(g,"#f6f0e2",3,3,4,6);hF(g,"#ece2cc",8,3,4,6);hF(g,"#8a2a4a",7,3,1,6);for(let i=0;i<3;i++){hF(g,"#a49aa8",4,4+i*2,2,1);hF(g,"#a49aa8",9,4+i*2,2,1)}
+  hF(g,"#f4f0e8",15,3,2,6);hF(g,"#c8c0b4",16,3,1,6);hF(g,"#ffd23f",15,1,2,2);hF(g,"#fff6c0",15,1,1,1);hF(g,HW.k,14,9,4,1)}],
+ plant0:[14,22,g=>{const P=["#5a2414","#8a3a1e","#b85a2e","#d87a44"],L=["#14401e","#1e5e2a","#2e7e34","#4a9e40","#76c058"];hF(g,HW.k,2,14,10,8);hF(g,P[2],3,14,8,7);hF(g,P[3],3,14,3,7);hF(g,P[1],10,14,1,7);hF(g,P[3],2,13,10,2);hF(g,P[0],3,20,8,1);
+  const lf=(x,y,dx,len)=>{for(let k=0;k<len;k++){const X=x+Math.round(dx*k),Y=y-k;g.fillStyle=k<len*.4?L[1]:k<len*.8?L[2]:L[3];g.fillRect(X,Y,2,1);if(k==len-1){g.fillStyle=L[4];g.fillRect(X,Y,1,1)}}};
+  lf(6,13,-.6,8);lf(7,13,.5,9);lf(5,13,-.2,11);lf(8,13,.1,12);lf(4,12,-1,5);lf(9,12,1,5)}],
+ plant1:[14,22,g=>{const P=["#2a3a5a","#3a5a8a","#5a7ab4","#8aa4d8"],L=["#14401e","#1e5e2a","#2e7e34","#4a9e40","#76c058"];hF(g,HW.k,2,14,10,8);hF(g,P[2],3,14,8,7);hF(g,P[3],3,14,3,7);hF(g,P[1],10,14,1,7);hF(g,P[3],2,13,10,2);
+  for(let y=0;y<13;y++)for(let x=0;x<14;x++){const d=Math.hypot(x-6.5,(y-7)*1.1)+(h2(x,y,708)-.5)*1.6;if(d>6)continue;g.fillStyle=d>5.2?L[0]:(x+y<11?L[3]:L[2]);g.fillRect(x,y,1,1)}
+  for(const[x,y,c]of[[4,3,"#ff6b8a"],[9,4,"#ffd23f"],[6,7,"#ff6b8a"],[10,8,"#fff0f6"]]){hF(g,c,x,y,2,2);hF(g,"#ffffff",x,y,1,1)}}],
+ basket:[26,16,g=>{const C=["#4a2a14","#7a4a22","#a8703a","#cc9656"];for(let y=0;y<16;y++)for(let x=0;x<26;x++){const d=((x-12.5)/13)**2+((y-8)/8)**2;if(d>1)continue;let c;if(d>.86)c=HW.k;else if(d>.56)c=C[((x>>1)+(y>>1))%2?2:3-(y>8?1:0)];else c=y<8?"#ffb0d0":y<11?"#f08ab8":"#d86aa0";if(d>.56&&d<.66&&y<8)c=C[1];g.fillStyle=c;g.fillRect(x,y,1,1)}}]};
+{const _oa=rnObjArt;rnObjArt=function(t,s,o){const k=t=="plant"?"plant"+((o&&o.v)||0):t,H=HART[k];if(H&&RMAP=="house"){if(t=="tv")return rnArt("h36tv"+(((performance.now()/400)|0)%3),H[0],H[1],H[2]);return rnArt("h36"+k,H[0],H[1],H[2])}return _oa(t,s,o)}}
+/* windows: frame, sill, curtains and the sky of the hour */
+{const _dc=rnDecal;rnDecal=function(d,time,r){if(d.t!="win")return _dc(d,time,r);const F=(c,x,y,w,h)=>{cx.fillStyle=c;cx.fillRect(d.x+x,d.y+y,w,h)},m=r.min;
+ const sky=m<360||m>=1200?["#0e1430","#1a2448"]:m<420?["#ff9a6a","#ffc890"]:m<1020?["#5ab0f0","#a8dcff"]:m<1140?["#ff8a4a","#ffc070"]:["#2a2a6a","#4a3a8a"];
+ F(HW.k,-1,-1,34,26);F(HW.wood[3],0,0,32,24);F(HW.wood[5],0,0,32,1);F(sky[0],3,3,26,17);F(sky[1],3,3,26,6);
+ if(m>=420&&m<1020){F("#ffffff",7,9,6,2);F("#ffffff",8,8,3,1);F("#e8f6ff",19,6,5,2)}else if(m<360||m>=1200){F("#fff6a0",9,6,1,1);F("#ffffff",22,5,1,1);F("#ffffff",15,13,1,1);F("#fff6c0",24,10,2,2)}
+ if(r.wx==1){cx.fillStyle="rgba(200,225,255,.7)";for(let i=0;i<6;i++){const y=(time*40+i*13)%14;cx.fillRect(d.x+5+i*4,d.y+3+y,1,3)}}
+ F(HW.wood[2],15,3,2,17);F(HW.wood[2],3,11,26,2);F(HW.wood[4],15,3,1,17);F(HW.k,-2,20,36,1);F(HW.wood[4],-2,21,36,3);F(HW.wood[5],-2,21,36,1);
+ const CU=["#a83a5a","#d85a7a","#f08aa0"];for(const[x,fl]of[[-3,0],[27,1]]){for(let y=-2;y<20;y++){const w=y<4?6:5-((y/5)|0)%2;for(let i=0;i<w;i++){const X=fl?x+8-w+i:x+i;F(i==(fl?0:w-1)?CU[0]:(i+(y>>1))%3==0?CU[2]:CU[1],X,y,1,1)}}}
+ F(HW.k,-4,-3,40,1);F(HW.wood[4],-4,-2,40,1)}}
+
+/* ---------- ranch HUD: carved wood frames with brass rivets, dithered parchment, gold plates, a ribbon for place names ---------- */
+(function(){const S=(k,v)=>document.documentElement.style.setProperty("--"+k,v),url=c=>`url(${c.toDataURL()})`;
+ const frame=(n,F)=>{const c=document.createElement("canvas");c.width=c.height=n;const g=c.getContext("2d");for(let y=0;y<n;y++)for(let x=0;x<n;x++){const col=F(x,y,n);if(col){g.fillStyle=col;g.fillRect(x,y,1,1)}}return c};
+ /* wood frame 18×18, slice 6: outline, lit bevel top-left, shaded bevel bottom-right, grain, brass rivets in the corners */
+ const WL=["#f2c27e","#d69c62","#b87a46","#985c34","#7a4628","#5a3220"],K="#1c0e0a",IN="#2a140c";
+ const wood=frame(18,(x,y,n)=>{const d=Math.min(x,y,n-1-x,n-1-y);if(d>5)return null;const br=(n-1-x==d||n-1-y==d)&&!(x==d||y==d),hor=(y==d||n-1-y==d);
+  if(d==0)return K;if(d==5)return IN;if(d==1)return br?WL[5]:WL[0];if(d==4)return br?WL[5]:WL[3];const grain=hor?(x%5==0||(x+y)%7==0):(y%5==0);let v=br?3:2;if(grain)v++;if(d==2&&!br)v=1;return WL[Math.min(5,v)]});
+ {const g=wood.getContext("2d");for(const[x,y]of[[2,2],[14,2],[2,14],[14,14]]){g.fillStyle="#7a4a10";g.fillRect(x,y,2,2);g.fillStyle="#ffd23f";g.fillRect(x,y,1,1);g.fillStyle="#fff2a8";g.fillRect(x,y,1,1)}}
+ /* thin wood frame 12×12, slice 4 (small chips) */
+ const thin=frame(12,(x,y,n)=>{const d=Math.min(x,y,n-1-x,n-1-y);if(d>3)return null;const br=(n-1-x==d||n-1-y==d)&&!(x==d||y==d);if(d==0)return K;if(d==3)return IN;if(d==1)return br?WL[4]:WL[0];return br?WL[4]:WL[2]});
+ /* sunken slot 12×12, slice 4: shadow top-left, light bottom-right */
+ const inset=frame(12,(x,y,n)=>{const d=Math.min(x,y,n-1-x,n-1-y);if(d>3)return null;const tl=(x==d||y==d);if(d==0)return K;if(d==1)return tl?"#4a2a18":"#c8946a";if(d==2)return tl?"#7a5034":"#e6c08c";return tl?"#b88c5c":null});
+ /* gold slot (selected) */
+ const gold=frame(12,(x,y,n)=>{const d=Math.min(x,y,n-1-x,n-1-y);if(d>3)return null;const tl=(x==d||y==d);if(d==0)return K;if(d==1)return tl?"#fff6c0":"#a86a10";if(d==2)return tl?"#ffd23f":"#e09a1a";return tl?"#ffe680":"#c88a18"});
+ /* ribbon 32×20 for the place name: red cloth with gold hems and notched tails */
+ const rib=document.createElement("canvas");rib.width=32;rib.height=20;{const g=rib.getContext("2d"),R=["#ff9a8a","#f0644e","#d2442e","#a82a22","#7a1a18"];
+  for(let y=0;y<20;y++)for(let x=0;x<32;x++){const tail=x<6||x>25,notch=tail&&Math.abs(y-9.5)<(x<6?6-x:x-25)*.9-1&&(x<3||x>28);if(notch)continue;const yy=tail?y:y;let c;
+   if(y==0||y==19)c=K;else if(y==1||y==18)c=y==1?"#fff2a8":"#a86a10";else if(y==2||y==17)c=y==2?"#ffd23f":"#e09a1a";else{const t=(y-3)/13*4,v=Math.floor(t+(BAYER(x,y)-.5)*.9);c=R[clamp(v,0,4)];if(tail)c=R[clamp(v+1,0,4)]}
+   if((x==0||x==31)&&!notch)c=K;g.fillStyle=c;g.fillRect(x,yy,1,1)}
+  g.fillStyle=K;for(let y=0;y<20;y++){for(const x0 of[5,26]){g.fillRect(x0,y,1,1)}}}
+ /* plank texture for the toolbar */
+ const plank=document.createElement("canvas");plank.width=48;plank.height=16;{const g=plank.getContext("2d"),P=["#3e2214","#5a3220","#6e3e26","#80492c","#945634"];
+  for(let y=0;y<16;y++)for(let x=0;x<48;x++){const r=y>>3,ly=y&7,cut=(x+(r?20:0))%48==0;let v=ly==7?0:ly==0?4:2+((h2(x>>2,y,801)<.25)?1:0)-((h2(x>>3,y,802)<.12)?1:0);if(cut)v=0;else if((x+(r?20:0))%48==1)v=4;g.fillStyle=P[clamp(v,0,4)];g.fillRect(x,y,1,1)}}
+ S("rf-wood",url(wood));S("rf-thin",url(thin));S("rf-inset",url(inset));S("rf-gold",url(gold));S("rf-rib",url(rib));S("rf-plank",url(plank));
+ S("dg-parch",dgBG(["#fff4dc","#f6e6c4","#ecd6aa","#e0c290","#d2ae78"],36,"y",2,.2));
+ S("dg-parch2",dgBG(["#fff8e6","#f4e4c0","#e6cc9c"],14,"y",2,.18));
+ S("dg-plankb",dgBG(["#f6c888","#dca066","#be8048","#9c6038","#7a4628"],14,"y",2,.14));
+ S("dg-plankr",dgBG(["#ffb4a0","#f07a62","#d2523e","#a83a2c","#7a2420"],14,"y",2,.14));
+ S("dg-plankv",dgBG(["#e0c4ff","#b48ae8","#8a5ccc","#6a3eaa","#4a2880"],14,"y",2,.14));
+ S("dg-goldp",dgBG(["#fff8c8","#ffe27a","#ffc83a","#e8a020","#b06c10"],14,"y",2,.14));
+ S("dg-ink",dgBG(["#4a3458","#3a2848","#2c1e3a","#20152c"],18,"y",2,.18));
+ S("dg-day",dgLayer(["#ff9a6a","#ffd27a","#8ad0ff","#5ab0f0","#8ad0ff","#ffb06a","#5a4aa0","#2a2a6a"],64,"x",2,.12))})();
+/* day progress (sun → moon) under the date */
+{const el=document.querySelector("#ranch .rcd");if(el&&!el.querySelector(".rdp")){const i=document.createElement("i");i.className="rdp";i.innerHTML="<b></b>";el.appendChild(i)}}
+{const _hu=rnHudUpd;rnHudUpd=function(){_hu();const r=RN(),b=document.querySelector("#ranch .rdp b");if(b){const p=clamp((r.min-360)/(1440-360),0,1);const k=Math.round(p*100);if(b._k!==k){b._k=k;b.style.left=`calc(${k}% - 5px)`}}
+ const c=document.querySelector("#ranch .rclk");if(c){const s=rnSea(r.day);if(c._s!==s){c._s=s;c.style.setProperty("--sc",SEAS[s].c)}}}}
+
+/*V36E*/
 rs();resetWorld(4242);music.play("menu");requestAnimationFrame(loop);accBoot();
 </script></body></html>
