@@ -1490,6 +1490,39 @@ body:has(#dlg.on) #toasts{top:calc(158px + env(safe-area-inset-top,0px))}
 .lgnx{position:absolute;left:50%;bottom:6%;transform:translateX(-50%);font:10px var(--px);color:#fff;opacity:0}
 .lgc.s7 .lgnx{opacity:.75}
 @media (max-width:700px){.gcase{right:6%;transform:scale(.7)}.glegs .glg:nth-child(3){display:none}.rc{width:84px;height:84px}.rc img{width:68px;height:68px}}
+/* ===== v30 · bayas del rancho ===== */
+#berryb{position:relative;width:50px;height:50px;align-self:flex-end;margin-right:6px;flex:none;border:0;padding:0;cursor:pointer;pointer-events:auto;background:var(--dg-hudp);
+ box-shadow:0 0 0 3px #0a0620,inset 0 0 0 2px #6cff8a55,5px 5px 0 #0008;display:grid;place-items:center;overflow:hidden}
+#berryb[hidden]{display:none}
+#berryb img{width:36px;height:36px;image-rendering:pixelated}
+#berryb em{position:absolute;left:3px;top:2px;font:7px var(--px);font-style:normal;color:#fff;text-shadow:1px 1px 0 #000}
+#berryb b{position:absolute;right:3px;bottom:2px;font:9px var(--px);color:#fff6a0;text-shadow:2px 2px 0 #000}
+#berryb small{position:absolute;right:3px;top:2px;font:7px var(--px);color:#b8f0d8}
+#berryb .bcd{position:absolute;left:0;right:0;bottom:0;height:calc(var(--cd,0)*100%);background:#0a0620b0;pointer-events:none}
+.rbag{display:flex;flex-direction:column;gap:8px;width:100%}
+.rbag .rbb{flex-direction:row;justify-content:flex-start;min-width:0;padding:6px 10px;gap:8px}
+.rbag .rbb>span{width:auto}
+#ttl .lg{width:min(460px,80vw,40vh)!important}
+.rbm{flex:1;display:grid;grid-template-columns:48px 1fr;gap:10px;align-items:center;padding:8px 10px;border:0;border-radius:0!important;cursor:pointer;color:#fff;text-align:left;
+ background:var(--dg-green);image-rendering:pixelated;box-shadow:0 0 0 3px #0a0620,inset 0 0 0 2px #ffffff50,inset 0 -4px 0 #0005,5px 5px 0 #0009;transition:transform .12s ease-out}
+.rbm:hover{transform:translateY(-3px)}
+.rbm .mi{width:46px;height:46px;display:grid;place-items:center;background:var(--dg-btn);box-shadow:0 0 0 3px #0a0620,inset 3px 3px 0 #ffffff55}
+.rbm .mi img{width:32px;height:32px;image-rendering:pixelated}
+.rbm b{display:block;font:11px var(--px);color:#04221a;text-shadow:1px 1px 0 #ffffff70}.rbm small{display:block;font:13px var(--fn);color:#0a3a2a;margin-top:4px}
+.rbb{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-width:110px;padding:6px 8px;border:0;border-radius:0!important;cursor:pointer;color:#fff;
+ background:#0a0620c8;box-shadow:0 0 0 3px #0a0620,inset 0 0 0 2px #6cff8a60,5px 5px 0 #0009;flex-wrap:wrap}
+.rbb>span{font:8px var(--px);color:#b8f0d8;width:100%;text-align:center}
+.rbb i{display:inline-flex;align-items:center;font-style:normal}.rbb i img{width:22px;height:22px;image-rendering:pixelated}.rbb i b{font:8px var(--px);color:#fff6a0}
+.rbb small{font:12px var(--fn);opacity:.7}
+.bagw{max-width:620px!important}
+.bgl{display:flex;flex-direction:column;gap:6px;max-height:52vh;overflow:auto;padding:4px}
+.bgr{display:grid;grid-template-columns:36px 1fr auto;gap:10px;align-items:center;padding:6px 8px;background:#0a062080;box-shadow:0 0 0 2px #0a0620}
+.bgr.no{opacity:.45}.bgr img{width:32px;height:32px;image-rendering:pixelated}
+.bgr b{font:10px var(--px)}.bgr small{display:block;font:13px var(--fn);opacity:.85}
+.bgr .bgh{grid-column:2/4;font-size:11px;opacity:.6}
+.bgq{display:flex;align-items:center;gap:6px}.bgq em{font:11px var(--px);font-style:normal;min-width:16px;text-align:center}
+.bgq button{width:28px;height:28px;border:0;border-radius:0!important;cursor:pointer;color:#fff;font:12px var(--px);background:var(--dg-btn);box-shadow:0 0 0 2px #0a0620}
+.bgq button[disabled]{opacity:.35;cursor:default}
 </style></head><body>
 <canvas id="c"></canvas>
 <div id="hud" hidden>
@@ -1852,7 +1885,7 @@ function genChunk(cx,cy){const s=W.seed,x0=cx*CS,y0=cy*CS,G=new Uint8Array(GC*GC
    else if(bio<.35)v=q<.55?6:q<.8?5:0;
    else v=q<.4?0:q<.65?7:q<.85?5:2;
    ob.push({t:"tree",x:wx,y:wy,v,r:TREE_T[v].r,id});continue}
-  if(r>.986){ob.push({t:"crystal",x:wx,y:wy,v:h2(i,j,s+3)*3|0,r:6,id});continue}
+  if(r>.986){ob.push({t:"rock",x:wx,y:wy,v:h2(i,j,s+3)*3|0,r:8,id});continue}
   if(r>.965){ob.push({t:"rock",x:wx,y:wy,v:h2(i,j,s)*3|0,r:8,id});continue}
   if(r>.945){ob.push({t:"bush",x:wx,y:wy,v:0,r:7,id});continue}
   if(r>.93){ob.push({t:"fbush",x:wx,y:wy,v:h2(i,j,s+4)*4|0,r:7,id});continue}
@@ -2226,13 +2259,13 @@ function canopy(g,W,H,cl,P,seed,o={}){const M=new Int8Array(W*H).fill(-1);
   let l=-(nx*.6+ny*.8)*.95+(1-d)*.35;
   const cx2=x>>2,cy2=y>>2,cl2=h2(cx2,cy2,seed+77),lx=(x&3)-1.5,ly=(y&3)-1.5;l+=(cl2-.5)*.5-(lx+ly)*.06; // leaf clumps
   let behind=0;for(let i=0;i<own;i++){const[a,b,rr]=cl[i];if(Math.hypot(x+.5-a,(y+.5-b)*1.08)<rr){behind=1;break}}
-  if(behind&&d>.86)l-=.9; // clump separation shadow
+  if(behind&&d>.9&&(nx*.6+ny*.8)>0)l-=.45; // soft clump separation
   if(o.bottom&&y>o.bottom)l-=(y-o.bottom)/8;
   let v=clamp(Math.floor((l+1)*2.6+BAYER(x,y)*.95),1,P.length-1);
   if(h2(x,y,seed+5)<.04&&v>2)v=P.length-1;
   M[y*W+x]=v}
  for(let y=0;y<H;y++)for(let x=0;x<W;x++){let v=M[y*W+x];if(v<0)continue;
-  if(x==0||y==0||x==W-1||y==H-1||M[y*W+x-1]<0||M[y*W+x+1]<0||M[(y-1)*W+x]<0||M[(y+1)*W+x]<0)v=0;
+  if(x==0||y==0||x==W-1||y==H-1||M[y*W+x+1]<0||M[(y+1)*W+x]<0)v=0;else if(M[y*W+x-1]<0||M[(y-1)*W+x]<0)v=Math.max(1,Math.min(v,2));
   g.fillStyle=P[v];g.fillRect(x,y,1,1)}
  return M}
 function trunk(g,cx,top,bot,w0,w1,B,roots){for(let y=top;y<bot;y++){const u=(y-top)/(bot-top),hw=lerp(w0,w1,u*u)+(roots&&y>bot-4?(y-bot+4)*1.2:0);
@@ -3292,9 +3325,9 @@ function drawWorld(time,showP){const W2=VW/G/2+48,H2=VH/G/2+80;
  for(const p of pa)if(GRD(p))drawPart(p,time);
  for(const e of E)if(e.boss&&e.dash>.55){cx.fillStyle="#ff3a2a";for(let d=0;d<80;d+=6){if(((d/6)+((time*10)|0))%2)continue;cx.fillRect(Math.round(e.x+e.dx*d),Math.round(e.y+e.dy*d),2,2)}}
  // entity shadows
- for(const e of E){if(e.inW||Math.abs(e.x-RX)>W2||Math.abs(e.y-RY)>H2)continue;const w=Math.round(e.f.vw*e.px/G*.42);wDraw(pOval(w,Math.max(1,w*.36),SHC,1),e.x,e.y)}
- if(showP&&P&&!P.inW){const w=Math.round(P.f.vw*P.px/G*.42);wDraw(pOval(w,Math.max(1,w*.36),SHC,1),P.x,P.y)}
- if(NET.on&&showP)for(const k in NET.pl){const o=NET.pl[k];if(!o.f||o.inW)continue;const w=Math.round(o.f.vw*o.px/G*.42);wDraw(pOval(w,Math.max(1,w*.36),SHC,1),o.x,o.y)}
+ for(const e of E){if(e.inW||Math.abs(e.x-RX)>W2||Math.abs(e.y-RY)>H2)continue;const w=Math.round(e.f.vw*e.px/G*.42);wDraw(pOval(w,Math.max(1,w*.36),SHC,1),e.x,shY(e))}
+ if(showP&&P&&!P.inW){const w=Math.round(P.f.vw*P.px/G*.42);wDraw(pOval(w,Math.max(1,w*.36),SHC,1),P.x,shY(P))}
+ if(NET.on&&showP)for(const k in NET.pl){const o=NET.pl[k];if(!o.f||o.inW)continue;const w=Math.round(o.f.vw*o.px/G*.42);wDraw(pOval(w,Math.max(1,w*.36),SHC,1),o.x,shY(o))}
  for(const e of E)sortL.push(e);if(showP&&P)sortL.push(P);if(NET.on&&showP)for(const k in NET.pl)if(NET.pl[k].f)sortL.push(NET.pl[k]);
  sortL.sort((a,b)=>a.y-b.y);
  scrT();
@@ -5645,7 +5678,7 @@ let PDR=null;
 function drawMe(time){if(!P||P.dead||st=="menu"||st=="ranch")return;const k=NET.on?Math.max(.55,CROWD):CROWD;if(k<.12)return;
  if(PDR&&k>.2){scrT();cx.globalAlpha=.92;dsp(cx,P.f,PDR.kind,PDR.dir,PDR.ms,PDR.X,PDR.Y,P.px,{sink:PDR.sk,tint:PDR.ptint});cx.globalAlpha=1}
  worldT();
- cx.globalAlpha=.25+.45*k;wDraw(pRing(13,5,"#2a1400",1),P.x,P.y+1);cx.globalAlpha=.45+.55*k;wDraw(pRing(12,4,"#ffd23f",2),P.x,P.y+1);
+ cx.globalAlpha=.25+.45*k;wDraw(pRing(13,5,"#2a1400",1),P.x,shY(P)+1);cx.globalAlpha=.45+.55*k;wDraw(pRing(12,4,"#ffd23f",2),P.x,shY(P)+1);
  const bob=Math.round(Math.sin(time*4)*1.5),hy=Math.round(P.y-P.r*2.6-16+bob);cx.globalAlpha=Math.min(1,.5+k);cx.drawImage(MEARR,Math.round(P.x-9),hy,18,14);cx.globalAlpha=1}
 {const _r=render;render=function(time,dt){crowdTick();_r(time,dt);if(st!="menu"&&P)drawMe(time)}}
 
@@ -5871,8 +5904,8 @@ music.play=function(n){let m=n=="boss"&&MODE=="br"?"arena":n;
 {const _av=avol;avol=function(){_av();if(MP.el)MP.el.volume=mpVol()}}
 /* ---------- minuto 30: todo desaparece, Arceus te bendice y empieza la batalla legendaria ---------- */
 const CINE={on:0};
-function blessApply(){if(!P)return;P.bless=1;recalc(1);P.hp=P.mh;P.iv=3;hudBuild&&hudBuild()}
-{const _rc=recalc;recalc=function(k){_rc(k);if(P&&P.bless){P.mh=Math.round(P.mh*1.35);P.spd*=1.15;P.pw*=1.5;P.cdm*=.85;if(P.hp>P.mh)P.hp=P.mh}}}
+function blessApply(){if(!P)return;P.arc=1;recalc(1);P.hp=P.mh;P.iv=3;hudBuild&&hudBuild()}
+{const _rc=recalc;recalc=function(k){_rc(k);if(P&&P.arc){P.mh=Math.round(P.mh*1.35);P.spd*=1.15;P.pw*=1.5;P.cdm*=.85;if(P.hp>P.mh)P.hp=P.mh}}}
 function arceusCine(after){if(CINE.on)return;CINE.on=1;const prev=st;
  for(const e of E){if(!e.pvp){smoke(e.x,e.y,6,"#f4eeff");e.hp=-1e9;e.fled=1}}E.length=0;EB=[];HZ=[];Gm.forEach(g=>g.a=1);bossNow=null;hudBoss&&hudBoss();
  if(NH())netAll({t:"arc"});if(MP.el)mpFade(MP.el,mpVol()*.25,800);
@@ -5889,7 +5922,7 @@ function arceusCine(after){if(CINE.on)return;CINE.on=1;const prev=st;
 /* during the legendary gauntlet only legendaries fight you */
 {const _sp=spawn;spawn=function(kind,ff){if(kind=="mob"&&P&&P.finS&&!P.endless&&MODE!="br"&&!RIFT)return null;return _sp(kind,ff)}}
 /* golden aura while blessed */
-function blessAura(time){if(!P||!P.bless||P.dead||st=="menu")return;worldT();const k=(Math.sin(time*3)+1)/2;cx.globalAlpha=.35+.25*k;wDraw(pRing(14,6,"#ffd23f",2),P.x,P.y+1);cx.globalAlpha=.2;wDraw(pRing(17,7,"#fff6c0",1),P.x,P.y+1);cx.globalAlpha=1}
+function blessAura(time){if(!P||!P.arc||P.dead||st=="menu")return;worldT();const k=(Math.sin(time*3)+1)/2;cx.globalAlpha=.35+.25*k;wDraw(pRing(14,6,"#ffd23f",2),P.x,shY(P)+1);cx.globalAlpha=.2;wDraw(pRing(17,7,"#fff6c0",1),P.x,shY(P)+1);cx.globalAlpha=1}
 /* ---------- co-op: el juego se pausa mientras alguien elige cartas ---------- */
 let NETW=[],NWK="",NWT=0;
 const choosing=()=>st=="lv"||st=="item";
@@ -5910,8 +5943,8 @@ function rvGround(x,y,u,c1,c2,time){worldT();const n=24,on=Math.round(n*clamp(u,
  if(on>0){const q=-Math.PI/2+on/n*TAU,px=Math.round(x+Math.cos(q)*14),py=Math.round(y+Math.sin(q)*6),b=((time*6)|0)%2;cx.fillStyle="#fff";cx.fillRect(px-1,py-2,2,4);cx.fillRect(px-2,py-1,4,2);if(b){cx.fillStyle=c1;cx.fillRect(px,py,1,1)}}
  for(let k=0;k<3;k++){const ph=(time*.8+k/3)%1,sx=Math.round(x+Math.sin(k*2.1+time)*8),sy=Math.round(y-ph*20);cx.globalAlpha=(1-ph)*u;cx.fillStyle=c1;cx.fillRect(sx,sy-1,1,3);cx.fillRect(sx-1,sy,3,1);cx.globalAlpha=1}}
 function gfx0(time){if(st=="menu")return;blessAura(time);if(!NET.on||MODE=="br")return;
- if(P&&P.dead){const u=P.rvT>0?P.rvT/3:(P.srv||0)/RVS;rvGround(P.x,P.y+1,u,P.rvT>0?"#6cff8a":"#ffd23f",P.rvT>0?"#2ea838":"#e08a1a",time)}
- for(const k in NET.pl){const o=NET.pl[k];if(o.dead&&o.f)rvGround(o.x,o.y+1,(o.rv||0)/3,"#6cff8a","#2ea838",time)}}
+ if(P&&P.dead){const u=P.rvT>0?P.rvT/3:(P.srv||0)/RVS;rvGround(P.x,shY(P)+1,u,P.rvT>0?"#6cff8a":"#ffd23f",P.rvT>0?"#2ea838":"#e08a1a",time)}
+ for(const k in NET.pl){const o=NET.pl[k];if(o.dead&&o.f)rvGround(o.x,shY(o)+1,(o.rv||0)/3,"#6cff8a","#2ea838",time)}}
 rvRing=function(){};
 {const _nt=netTick;netTick=function(dt){if(P&&P.dead&&MODE!="br"&&st!="over"){P.dT=(P.dT||0)+dt;if(!(P.rvT>0)&&P.dT>RVA){P.srv=(P.srv||0)+dt;if(P.srv>=RVS){P.dead=0;P.hp=P.mh*.3;P.iv=2.5;P.rvT=0;P.srv=0;P.dT=0;toast("¡Te levantaste por tu cuenta!",1);SFX.mega();burst(P.x,P.y-P.r,"#ffd23f",24,80,{t:.7,up:30});netFx(["v",Math.round(P.x),Math.round(P.y)])}}}
  else if(P&&!P.dead){P.dT=0;P.srv=0}return _nt(dt)}}
@@ -6016,5 +6049,91 @@ function legendCine(x,done){const f=bform(x.d,x.sh),s=SPD[x.d],sh=x.sh;ld(f);con
   [4.8,()=>G.classList.add("s6")],[6.0,()=>{G.classList.add("s7");fin=1}]];
  const tickC=t=>{if(!G.isConnected)return;vt+=(t-lt)/1000*sp;lt=t;let ran=0;while(EV.length&&vt>=EV[0][0]){EV.shift()[1]();ran=1}if(ran&&sp!=1)G.getAnimations({subtree:true}).forEach(a=>a.playbackRate=sp);if(EV.length)requestAnimationFrame(tickC)};requestAnimationFrame(tickC);
  G.onclick=()=>{if(fin){ov.hidden=true;done&&done();return}sp=sp==1?2:1;G.querySelector(".lgsp").textContent="x"+sp;G.classList.toggle("fast",sp==2);G.getAnimations({subtree:true}).forEach(a=>a.playbackRate=sp)}}
+/* ================= v30 · MAPA (pixel arts nuevos, cristales solo en su cueva, sombras) Y BOLSA DE BAYAS DEL RANCHO ================= */
+/* ---------- crystals only grow in the Crystal Cave ---------- */
+{const _bo=bioObj;bioObj=function(ob,bio,...a){const n=ob.length;_bo(ob,bio,...a);if(bio!="crystal")for(let i=n;i<ob.length;i++)if(ob[i].t=="crystal"){ob[i].t="rock";ob[i].r=8}}}
+/* ---------- nuevos pixel arts: rocas facetadas, cristales prismáticos, arbustos frondosos ---------- */
+const RKP=["#22202e","#363446","#4e4e62","#6c6e82","#8e92a4","#b6bac8","#dfe2ea"];
+function rockArt2(v){const D=[[26,17],[32,21],[18,12]][v],W=D[0]+4,H=D[1]+4,c=cvs(W,H),g=c.getContext("2d"),s=v*97+11,cx0=W/2,base=H-2,M=new Int8Array(W*H).fill(-1),top=new Int16Array(W).fill(99);
+ for(let x=0;x<W;x++){const u=(x+.5-cx0)/(D[0]/2);if(Math.abs(u)>1)continue;const hh=D[1]*Math.pow(1-Math.pow(Math.abs(u),2.6),1/2.6)*(.9+h2(x>>2,v,s)*.16);top[x]=Math.round(base-hh);
+  for(let y=top[x];y<=base;y++){const band=Math.floor((u+1)*2+(h2(y>>2,x>>3,s)-.5)*.5),f=[4.4,3.8,3.0,2.2,1.5][clamp(band,0,4)],cap=y<top[x]+3+(u<.2?1:0)?1:0,low=(y-top[x])/(base-top[x]+1);
+   M[y*W+x]=clamp(Math.floor(f+cap*1.1-low*1.1+(h2(x>>1,y>>1,s)-.5)*.5+BAYER(x,y)*.9),1,6)}}
+ for(let y=0;y<H;y++)for(let x=0;x<W;x++){let q=M[y*W+x];if(q<0)continue;const e=(dx,dy)=>{const X=x+dx,Y=y+dy;return X<0||Y<0||X>=W||Y>=H||M[Y*W+X]<0};
+  if(e(1,0)||e(0,1)||y==base)q=0;else if(e(0,-1)||e(-1,0))q=Math.max(1,Math.min(q,3));g.fillStyle=RKP[q];g.fillRect(x,y,1,1)}
+ g.fillStyle=RKP[1];for(let i=0;i<2;i++){let x=cx0+(h2(i,v,s+8)-.2)*D[0]*.45|0,y=base-D[1]*.6|0;for(let k=0;k<6;k++){if(M[y*W+x]>1)g.fillRect(x,y,1,1);x+=h2(k,i,s)>.55?1:0;y++}}
+ for(let x=2;x<W-2;x++){if(top[x]>=99||(x-cx0)/(D[0]/2)>.45)continue;if(h2(x,v,s+4)<.55){const y=top[x];g.fillStyle="#2f6a2a";g.fillRect(x,y,1,2);g.fillStyle=h2(x,1,s)<.5?"#4f9a3a":"#6cb84a";g.fillRect(x,y-1,1,2)}}
+ g.fillStyle=RKP[2];g.fillRect(W-5,H-3,3,2);g.fillStyle=RKP[4];g.fillRect(W-5,H-3,2,1);g.fillStyle=RKP[2];g.fillRect(1,H-3,2,2);return c}
+const CRP=[["#1a1048","#3a24a0","#6a4ae8","#a08cff","#dcd2ff","#ffffff"],["#08304a","#126aa0","#22a8e8","#7ad8ff","#d4f4ff","#ffffff"],["#4a0c34","#a02068","#e8489a","#ff9acb","#ffe0f0","#ffffff"]];
+function crystalArt2(v){const C=CRP[v],W=28,H=36,c=cvs(W,H),g=c.getContext("2d"),s=v*53+5;
+ const P=(x,y,col)=>{g.fillStyle=col;g.fillRect(x,y,1,1)};
+ for(let y=H-7;y<H;y++)for(let x=3;x<W-3;x++){const d=Math.hypot((x-W/2)/(W/2-3),(y-(H-3))/4);if(d>1)continue;P(x,y,d>.82?"#14101e":y<H-4?"#4a4458":"#2c2838")}
+ const shard=(bx,by,h,w,tilt)=>{for(let y=0;y<h;y++){const u=y/h,cxs=bx+tilt*u*h*.25,tip=y<w*1.4,hw=tip?Math.max(.5,w*y/(w*1.4)):w;
+   for(let x=Math.floor(cxs-hw);x<=Math.ceil(cxs+hw);x++){const t=(x-(cxs-hw))/(2*hw+.01);let q=t<.34?4:t<.5?3:t<.72?2:1;if(tip&&t<.5)q++;if(x<=cxs-hw+.5||x>=cxs+hw-.5||y==h-1)q=0;P(x,by-h+y,C[clamp(q,0,5)])}}
+  for(let y=Math.round(w*1.4);y<h-2;y++){const u=y/h,x=Math.round(bx+tilt*u*h*.25-w*.32);if((y+s)%7<4)P(x,by-h+y,C[5])}};
+ shard(8,H-4,19,3,-1.2);shard(21,H-4,17,3,1.2);shard(14,H-3,28,4.2,0);shard(5,H-2,11,2.2,-1.6);shard(24,H-2,10,2,1.5);
+ for(let i=0;i<4;i++){const x=6+h2(i,v,s)*16|0,y=8+h2(i,v,s+1)*20|0;P(x,y,"#ffffff");}return c}
+function bushArt2(v){const W=30,H=24,c=cvs(W,H),g=c.getContext("2d"),s=v*41+3,P=["#123a1c","#1b5222","#286a2c","#3a8434","#55a043","#7cbf5a"];
+ const cl=[[15,13,9],[8,15,6.5],[22,15,6.5],[12,9,6],[19,9,6],[15,6,5]];canopy(g,W,H,cl,P,s,{bottom:17});
+ if(!v)for(let i=0;i<7;i++){const x=5+h2(i,1,s)*19|0,y=5+h2(i,2,s)*13|0;g.fillStyle="#141a44";g.fillRect(x,y,3,3);g.fillStyle="#3a6fe0";g.fillRect(x,y,2,2);g.fillStyle="#c9dcff";g.fillRect(x,y,1,1)}
+ else for(let i=0;i<5;i++){const x=5+h2(i,3,s)*19|0,y=4+h2(i,4,s)*11|0;g.fillStyle="#fff6c0";g.fillRect(x,y,1,1);g.fillRect(x-1,y+1,3,1);g.fillRect(x,y+2,1,1);g.fillStyle="#ffb03a";g.fillRect(x,y+1,1,1)}return c}
+{const _oa=oart;oart=function(t,v){const k="v30"+t+v;if(OA[k])return OA[k];if(t=="rock")return OA[k]=rockArt2(v);if(t=="crystal")return OA[k]=crystalArt2(v);if(t=="bush")return OA[k]=bushArt2(v);return _oa(t,v)}}
+/* ---------- bolsa de bayas del rancho: llévalas a la partida y úsalas con B ---------- */
+const BUSE={aranja:{d:"Recuperas el 25% de tus PS.",f:()=>bHeal(.25)},zidra:{d:"Recuperas el 45% de tus PS.",f:()=>bHeal(.45)},
+ meloc:{d:"+35% de velocidad durante 15 s.",f:()=>bBuff("spd",15)},zreza:{d:"Ataques −35% de recarga durante 15 s.",f:()=>bBuff("cd",15)},
+ frambu:{d:"Doble de experiencia durante 30 s.",f:()=>bBuff("xp",30)},safre:{d:"−40% de daño recibido durante 15 s.",f:()=>bBuff("df",15)},
+ perasi:{d:"Atraes toda la experiencia del mapa.",f:()=>{for(const g of Gm)g.a=1}},ziuela:{d:"Curación total, limpia estados y +25% de daño 15 s.",f:()=>{bHeal(1);P.pst=null;bBuff("dmg",15)}}};
+function bHeal(k){P.hp=Math.min(P.mh,P.hp+P.mh*k);SFX.heal();ft.push({x:P.x,y:P.y-P.r*3,v:"+PS",c:"#6cff8a",t:.9,txt:1})}
+function bBuff(k,t){P.bb=P.bb||{};P.bb[k]=T+t;recalc(1);setTimeout(()=>{if(P&&P.bb&&P.bb[k]&&T>=P.bb[k]-.1){delete P.bb[k];recalc(1)}},t*1000+80)}
+{const _rc=recalc;recalc=function(k){_rc(k);const b=P&&P.bb;if(!b)return;const on=x=>b[x]&&T<b[x];if(on("spd"))P.spd*=1.35;if(on("cd"))P.cdm*=.65;if(on("xp"))P.xpm*=2;if(on("df"))P.df*=.6;if(on("dmg")){P.phy*=1.25;P.spe*=1.25}}}
+const bIc=k=>{const b=BERRIES[k];return b?(RIC[b.ic]||IC[b.ic]||""):""};
+function bagGet(){const r=SV.rn;if(!r||!r.inv||!r.inv.b)return{};SV.bag=SV.bag||{};const B={};for(const k in SV.bag){const n=Math.min(SV.bag[k],r.inv.b[k]||0);if(n>0)B[k]=n}return B}
+function bagAuto(){const r=SV.rn;if(!r||!r.inv||!r.inv.b)return;if(SV.bag&&Object.keys(bagGet()).length)return;SV.bag={};let n=0;
+ for(const k of Object.keys(BERRIES).sort((a,b)=>BERRIES[b].sell-BERRIES[a].sell)){const have=r.inv.b[k]||0;if(!have||n>=6)continue;const t=Math.min(have,6-n,3);SV.bag[k]=t;n+=t}}
+/* at run start the berries leave the ranch, the ones you do not eat come back */
+{const _su=snackUse;snackUse=function(){_su();P.berry=null;if(MODE=="br"||!SV.rn||!SV.rn.inv)return;bagAuto();const B=bagGet(),inv=SV.rn.inv.b;if(!Object.keys(B).length)return;
+ for(const k in B){inv[k]-=B[k];if(inv[k]<=0)delete inv[k]}P.berry=B;P.bsel=Object.keys(B)[0];P.bcd=0;save();berryHud()}}
+function berryBack(){if(!P||!P.berry||!SV.rn||!SV.rn.inv)return;const inv=SV.rn.inv.b;for(const k in P.berry)if(P.berry[k]>0)inv[k]=(inv[k]||0)+P.berry[k];P.berry=null;save()}
+{const _en=end;end=function(w){berryBack();return _en(w)}}
+function berryUse(){if(!P||P.dead||!P.berry||st!="play")return;const k=P.bsel;if(!k||!(P.berry[k]>0)){const o=Object.keys(P.berry).find(x=>P.berry[x]>0);if(!o)return;P.bsel=o;return berryUse()}
+ if(T<(P.bcd||0)){SFX.err&&SFX.err();return}P.berry[k]--;P.bcd=T+6;BUSE[k].f();burst(P.x,P.y-P.r,BERRIES[k].c[1],18,70,{t:.6,up:30});toast(`${BERRIES[k].n}: ${BUSE[k].d}`);
+ if(P.berry[k]<=0){delete P.berry[k];P.bsel=Object.keys(P.berry)[0]||null}berryHud()}
+function berryNext(){if(!P||!P.berry)return;const L=Object.keys(P.berry);if(L.length<2)return;P.bsel=L[(L.indexOf(P.bsel)+1)%L.length];berryHud();SFX.ui()}
+function berryHud(){let b=$("#berryb");if(!b){b=document.createElement("button");b.id="berryb";b.title="Baya del rancho (B) · clic derecho: info · rueda o V: cambiar";const d=$("#dodgeb");if(!d)return;d.after(b);
+  b.onpointerdown=e=>{e.preventDefault();e.stopPropagation();if(e.button==0)berryUse()};b.onwheel=e=>{e.preventDefault();berryNext()}}
+ const k=P&&P.bsel;b.hidden=!(P&&P.berry&&k);if(b.hidden)return;b.innerHTML=`<img src="${bIc(k)}" alt=""><em>B</em><b>${P.berry[k]}</b>${Object.keys(P.berry).length>1?`<small>+${Object.keys(P.berry).length-1}</small>`:""}<i class="bcd"></i>`}
+setInterval(()=>{const b=$("#berryb");if(!b||b.hidden||!P)return;const u=clamp(((P.bcd||0)-T)/6,0,1);b.style.setProperty("--cd",u.toFixed(2))},120);
+addEventListener("keydown",e=>{if(st!="play"||e.repeat)return;if(e.code=="KeyB")berryUse();else if(e.code=="KeyV")berryNext()});
+/* bag editor (from the Ranch card or the partner panel) */
+function bagOpen(){const r=SV.rn;if(!r){toast("Visita el Rancho de Ditto para cultivar bayas");return}const inv=r.inv&&r.inv.b||{};SV.bag=SV.bag||{};
+ const tot=()=>Object.values(SV.bag).reduce((a,b)=>a+b,0);const rows=Object.keys(BERRIES).map(k=>{const have=inv[k]||0,n=Math.min(SV.bag[k]||0,have);return`<div class="bgr${have?"":" no"}"><img src="${bIc(k)}" alt=""><div><b>${BERRIES[k].n}</b><small>${BUSE[k].d}</small></div><span class="bgq"><button data-bg="-:${k}"${n?"":" disabled"}>−</button><em>${n}</em><button data-bg="+:${k}"${n<have&&tot()<6?"":" disabled"}>+</button></span><small class="bgh">${have} en el rancho</small></div>`}).join("");
+ ovs(`<div class="box bagw"><h2>${ico("sitrus-berry",28)} Bolsa de bayas</h2><p class="tip">Lleva hasta <b>6 bayas</b> del rancho a tu partida y cómelas con <b>B</b> (cambia con <b>V</b> o la rueda sobre el botón). Las que no comas vuelven al rancho.</p><div class="bgl">${rows}</div><div class="mb row"><button data-bg="auto">Llenar automáticamente</button><button data-bg="clear">Vaciar</button><button data-a="close">✓ Listo</button></div></div>`,"bagov")}
+ov.addEventListener("click",e=>{const b=e.target.closest("[data-bg]");if(!b)return;e.stopImmediatePropagation();SFX.ui();const[a,k]=b.dataset.bg.split(":");SV.bag=SV.bag||{};
+ if(a=="+")SV.bag[k]=(SV.bag[k]||0)+1;else if(a=="-"){SV.bag[k]=Math.max(0,(SV.bag[k]||0)-1);if(!SV.bag[k])delete SV.bag[k]}else if(a=="clear")SV.bag={};else if(a=="auto"){SV.bag={};bagAuto()}save();bagOpen();homeR&&homeR()},true);
+/* ---------- the Ranch is now a main card next to Play, showing what it gives you in battle ---------- */
+{const _hr=homeR;homeR=function(){_hr();const pw=$("#mnuL");if(!pw||!SV.u||!Object.keys(SV.u).length)return;bagAuto();const r=SV.rn,B=bagGet(),ready=r&&r.f?r.f.filter(p=>p&&p.c&&rnGrow(p)==4).length:0,nb=Object.values(B).reduce((a,b)=>a+b,0);
+ const box=document.createElement("div");box.className="rbag";box.innerHTML=`<button class="rbm" data-g="ranch" data-info="m:ranch"><span class="mi">${HICO("barn")}</span><span><b>Rancho de Ditto</b><small>${r?`${ready} bayas listas para cosechar`:"Cultiva bayas para tus partidas"}</small></span></button>
+ <button class="rbb" data-bagopen="1" title="Bayas que llevarás a la partida"><span>Bolsa</span>${nb?Object.keys(B).map(k=>`<i><img src="${bIc(k)}" alt=""><b>${B[k]}</b></i>`).join(""):`<small>vacía</small>`}</button>`;pw.prepend(box);
+ const L=$("#mnuL");if(L)L.querySelectorAll('.hcard[data-g="ranch"]').forEach(x=>x.remove())}}
+$("#home").addEventListener("click",e=>{if(e.target.closest("[data-bagopen]")){e.stopPropagation();ainit();SFX.ui();bagOpen()}},true);
+{const _if=infoFor;infoFor=function(t){if(t&&t.closest&&t.closest("#berryb")&&P&&P.bsel){const k=P.bsel;return{h:`<img src="${bIc(k)}" alt=""> ${BERRIES[k].n}`,c:BERRIES[k].c[1],b:`<p>${BUSE[k].d}</p><p>Te quedan <b>${P.berry[k]}</b>. Se usa con <b>B</b>; cambia de baya con <b>V</b>.</p>`}}return _if(t)}}
+
+{const _tm=toMenu;toMenu=function(s){berryBack();return _tm(s)}}
+/* ---------- sombras a los pies: cada hoja de animación (y cada dirección) coloca los pies a una altura distinta;
+   se mide una vez el borde inferior real del sprite y la sombra se dibuja justo ahí ---------- */
+const FTC=new Map();let DCUR=null;
+function feetOff(f,kind,dir){if(!f)return 0;let A=f.w,I=f.wi;if(kind==1)kind=0;
+ if(kind==1&&f.a&&f.ai&&f.ai.ok){A=f.a;I=f.ai}else if(kind==2&&f.h&&f.hi&&f.hi.ok){A=f.h;I=f.hi}else if(kind==3&&f.i&&f.ii&&f.ii.ok){A=f.i;I=f.ii}
+ if(!A||!I||!I.ok)return 0;const rows=Math.max(1,I.naturalHeight/A.fh|0),r=(dir|0)%rows,k=I.src+"|"+A.fw+"|"+A.fh+"|"+r+"|"+f.ft;let v=FTC.get(k);
+ if(v==null){v=0;try{const cols=Math.max(1,I.naturalWidth/A.fw|0),c=document.createElement("canvas");c.width=cols*A.fw;c.height=A.fh;const g=c.getContext("2d",{willReadFrequently:true});
+  g.drawImage(I,0,r*A.fh,cols*A.fw,A.fh,0,0,cols*A.fw,A.fh);const D=g.getImageData(0,0,c.width,c.height).data,B=[];
+  for(let fr=0;fr<cols;fr++){let bot=-1;for(let y=A.fh-1;y>=0&&bot<0;y--)for(let x=fr*A.fw;x<(fr+1)*A.fw;x++)if(D[(y*c.width+x)*4+3]>100){bot=y;break}if(bot>=0)B.push(bot)}
+  if(B.length)v=-f.ft-A.fh/2+Math.max(...B)+1}catch(e){v=0}FTC.set(k,v)}return v}
+/* (se usa el punto más bajo que alcanzan los pies: el fotograma en que tocan el suelo; al atacar el cuerpo se lanza pero el suelo no se mueve) */
+/* y del suelo bajo una entidad (en px de mundo), según la última animación que se le dibujó */
+function shY(o){if(!o||!o.f)return o?o.y:0;const px=o.px||(o===P?P.px:G),off=clamp(feetOff(o.f,o._sk|0,o._sd|0)*px/G,-18,6);return o.y+Math.round(off)}
+{const _ds=dsp;dsp=function(g,f,kind,dir){if(DCUR&&DCUR.f===f){DCUR._sk=kind;DCUR._sd=dir}return _ds.apply(this,arguments)}}
+{const _de=drawEnemy;drawEnemy=function(e,time){DCUR=e;try{return _de(e,time)}finally{DCUR=null}}}
+{const _dp=drawPlayer;drawPlayer=function(time){DCUR=P;try{return _dp(time)}finally{DCUR=null}}}
+
 rs();resetWorld(4242);music.play("menu");requestAnimationFrame(loop);accBoot();
 </script></body></html>
