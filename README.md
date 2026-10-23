@@ -14,5 +14,6 @@ Juego de navegador hecho en un solo archivo HTML: sobrevive oleadas con tu Poké
 - Sprites y retratos de Pokémon: [PMD SpriteCollab](https://sprites.pmdcollab.org/) (cargados en línea desde su repositorio).
 - Efectos de ataques: [The Spriters Resource](https://www.spriters-resource.com/ds_dsi/pokemonmysterydungeonexplorersoftimedarkness/) — *Poison/Dragon Attack Effects* de PMD Exploradores del Tiempo/Oscuridad (ripeados por redblueyellow) y el pack *Attack Effects* de PMD Exploradores del Cielo.
 - Iconos de objetos y cintas: [PokéAPI](https://pokeapi.co/) / [PokeSprite](https://github.com/msikma/pokesprite).
+- Rancho: lámina de árboles, casas, plaza y decoración aportada por el autor del juego; base de personaje humano estilo Gen 4 (caminar/correr) vestida por código; icono de semilla de la hoja *Pokémon Mystery Dungeon 2 Complete Items Sheet* (de Null, ripeada por redblueyellow).
 
 Proyecto de fans sin fines de lucro. Pokémon y todos sus nombres son marcas de Nintendo, Creatures Inc. y GAME FREAK inc.; este juego no está afiliado ni respaldado por ellos.
