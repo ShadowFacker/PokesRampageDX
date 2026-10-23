@@ -1345,6 +1345,33 @@ body:has(#dlg.on) #toasts{top:calc(158px + env(safe-area-inset-top,0px))}
 #intro{animation:ishake .32s steps(4) 1.05s}
 @keyframes ishake{25%{transform:translate(3px,-2px)}50%{transform:translate(-3px,2px)}75%{transform:translate(2px,1px)}}
 @media (max-width:900px){#pcard{min-width:0}#pcard small{display:none}#pcard .pav{width:48px;height:48px}#res .rg{height:46px!important}#bar #res .pi,#bar #res .ic{width:28px!important;height:28px!important}}
+
+/* ===== v28 · cinemática de Arceus, aviso de pausa co-op ===== */
+#cine{position:fixed;inset:0;z-index:900;pointer-events:none;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
+#cine .cbg{position:absolute;inset:0;background:repeating-conic-gradient(#0000 0 25%,#00000055 0 50%) 0 0/4px 4px,#0a0620c0;animation:cfade 1.2s ease-out both}
+#cine.out{animation:cout .6s ease-in forwards}
+@keyframes cfade{from{opacity:0}}@keyframes cout{to{opacity:0}}
+#cine .cbeam{position:absolute;left:50%;top:-10%;width:180px;height:80%;margin-left:-90px;image-rendering:pixelated;
+ background:linear-gradient(90deg,#0000 0 10%,#ffd23f30 10% 22%,#fff6c060 22% 40%,#ffffff90 40% 60%,#fff6c060 60% 78%,#ffd23f30 78% 90%,#0000 90%);animation:cbeam 1.6s cubic-bezier(.2,1,.3,1) .4s both}
+@keyframes cbeam{from{transform:scaleY(0);transform-origin:top}}
+#cine .carc{position:relative;filter:drop-shadow(0 0 0 #fff);animation:carc 2.4s cubic-bezier(.2,1,.3,1) .6s both}
+@keyframes carc{from{transform:translateY(-70vh)}70%{transform:translateY(8px)}}
+#cine .crings{position:absolute;left:50%;top:50%}
+#cine .crings i{position:absolute;left:0;top:0;width:84px;height:36px;margin:-18px 0 0 -42px;background:var(--rng) center/100% 100% no-repeat;opacity:0;image-rendering:pixelated}
+#dlg{z-index:950!important}
+#cine.bless .crings i{animation:cring 1.6s steps(12) infinite}
+#cine.bless .crings i:nth-child(2){animation-delay:.5s}#cine.bless .crings i:nth-child(3){animation-delay:1s}
+@keyframes cring{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(9,7)}}
+#cine .ctxt{position:relative;margin-top:24px;text-align:center;opacity:0}
+#cine.bless .ctxt{animation:ctx .7s cubic-bezier(.2,1.4,.4,1) both}
+@keyframes ctx{from{opacity:0;transform:scale(.6)}to{opacity:1}}
+#cine .ctxt b{display:block;font:clamp(18px,3.4vw,34px) var(--px);background:var(--dg-title);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(3px 3px 0 #6a1a5a) drop-shadow(3px 3px 0 #1a0a3a)}
+#cine .ctxt small{display:inline-block;margin-top:10px;font:12px var(--px);color:#fff6c0;background:#0a0620d0;padding:6px 10px;box-shadow:0 0 0 3px #0a0620}
+#nwait{position:fixed;left:50%;top:22%;transform:translateX(-50%);z-index:800;display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 18px;text-align:center;
+ font:12px var(--px);color:#fff;background:var(--dg-panel);box-shadow:0 0 0 3px #0a0620,inset 0 0 0 2px #62b9de,6px 6px 0 #000a;pointer-events:none}
+#nwait b{font-size:9px;color:#3a2000;background:var(--dg-gold);padding:3px 8px 2px}
+#nwait small{font:13px var(--fn);opacity:.75}
+#nwait[hidden]{display:none}
 </style></head><body>
 <canvas id="c"></canvas>
 <div id="hud" hidden>
@@ -1353,7 +1380,7 @@ body:has(#dlg.on) #toasts{top:calc(158px + env(safe-area-inset-top,0px))}
  <div class="tr"><span id="hco"></span><button id="pz" aria-label="Pausa">II</button></div>
  <div id="allies"></div>
  <div id="lb" class="nes-container is-rounded is-dark" hidden></div>
- <div id="lvq" hidden></div>
+ <div id="lvq" hidden></div><div id="nwait" hidden></div>
  <div id="boss" hidden><b id="bn"></b><div class="bar boss"><i id="bhp"></i></div></div>
  <div id="rift" hidden><b id="rnm"></b><span id="rtm"></span><small id="rwx"></small></div>
  <div id="stg" class="box" hidden></div>
@@ -2812,7 +2839,7 @@ function drawNetOverlay(time){if(!NET.on)return;
   if(MODE!="br"&&(X<0||Y<0||X>VW||Y>VH)){const a=Math.round(Math.atan2(Y-VH/2,X-VW/2)/(Math.PI/4))*(Math.PI/4),m=16*G,x=clamp(X,m,VW-m),y=clamp(Y,m+20*G,VH-m-30*G);
    cx.save();cx.translate(Math.round(x),Math.round(y));cx.rotate(a);cx.drawImage(MODE=="br"?ARROW:ARROWB,-4*G,-Math.round(3.5*G),8*G,7*G);cx.restore();pText(o.nm||"",x,y+13*G,o.dead?"#ff8a8a":"#9fe2ff")}}
  if(P.dead&&MODE=="br"){const s=Math.max(0,Math.ceil((BR.dieT+BR_RESP-performance.now())/1000));pText(BR.byN?`Te derrotó ${BR.byN} · reapareces en ${s}`:`Debilitado · reapareces en ${s}`,VW/2,VH*.3,"#ff8a8a")}
- else if(P.dead){rvRing(P.x,P.y-6,(P.rvT||0)/3);if(((time*2)|0)%2==0||P.rvT>0)pText(P.rvT>0?"¡Te están reanimando!":"Debilitado · espera a un compañero",VW/2,VH*.3,P.rvT>0?"#6cff8a":"#ff8a8a")}}
+ else if(P.dead){rvRing(P.x,P.y-6,(P.rvT||0)/3);if(((time*2)|0)%2==0||P.rvT>0)pText(P.rvT>0?"¡Te están reanimando!":(P.dT||0)>20?`Levantándote… ${Math.max(0,Math.ceil(15-(P.srv||0)))} s`:`Debilitado · un compañero puede reanimarte (o te levantas solo en ${Math.ceil(20-(P.dT||0))} s)`,VW/2,VH*.3,P.rvT>0?"#6cff8a":(P.dT||0)>20?"#ffd23f":"#ff8a8a")}}
 /* ---------- co-op menu ---------- */
 function coopMsg(t){const e=document.getElementById("cst");if(e)e.textContent=t;else coopHome(t)}
 function coopHome(msg){if(st!="menu")return;brReset();const d=SV.last&&SV.u[SV.last]?SV.last:Object.keys(SV.u)[0];if(!d)return;const f=formOf(d);SV.nm=SV.nm||("Entrenador"+(100+Math.random()*900|0));
@@ -3131,6 +3158,7 @@ function drawWorld(time,showP){const W2=VW/G/2+48,H2=VH/G/2+80;
  sortL.length=0;
  if(RIFT){for(const o of RIFT.obj)if(Math.abs(o.x-RX)<W2&&Math.abs(o.y-RY)<H2)sortL.push(o);if(RIFT.exit)sortL.push({t:"exit",x:RIFT.exit.x,y:RIFT.exit.y})}
  else{for(let cy2=r0;cy2<=r1;cy2++)for(let cx2=c0;cx2<=c1;cx2++){const c=chunk(cx2,cy2);if(!c)continue;for(const o of c.ob)if(Math.abs(o.x-RX)<W2&&Math.abs(o.y-RY)<H2)sortL.push(o)}if(PORT)sortL.push({t:"portal",x:PORT.x,y:PORT.y,tier:PORT.tier});if(EVT&&EVT.k=="cofre")sortL.push({t:"evchest",x:EVT.x,y:EVT.y})}
+ if(typeof gfx0=="function")gfx0(time);worldT();
  // object shadows (pixel ovals, sun from upper-left)
  for(const o of sortL){if(o.t=="tall"||o.t=="tuft"||o.t=="reed"||o.t=="stones"||o.t=="portal"||o.t=="exit"||o.t=="evchest")continue;const w=o.t=="tree"?Math.round(TREE_T[o.v].w*.33):o.t=="pillar"?11:o.t=="crystal"?8:o.t=="mush"?5:o.t=="log"?14:9;wDraw(pOval(w,Math.max(2,w*.38),SHC,1),o.x+4,o.y+1)}
  // gems + pickups
@@ -5703,5 +5731,74 @@ function introPlay(){if(document.getElementById("intro")||/[?&](bc|nointro)\b/.t
 {const _ab=accBoot;accBoot=function(){try{if(localStorage.pkr_sess||localStorage.pkr_intro)introPlay()}catch(e){}return _ab.apply(this,arguments)}}
 {const mark=()=>{try{localStorage.pkr_intro=1}catch(e){}};if(typeof accEnter=="function"){const _ae=accEnter;accEnter=async function(){const r=await _ae.apply(this,arguments);mark();return r}}
  if(typeof cloudEnter=="function"){const _ce=cloudEnter;cloudEnter=async function(){const r=await _ce.apply(this,arguments);mark();return r}}}
+/* ================= v28 · MÚSICA REAL, FINAL DEL MINUTO 30, PAUSA DE CARTAS EN CO-OP Y REANIMACIÓN ================= */
+/* ---------- música: pistas MP3 (carpeta music/ junto al juego); si no están, sigue la música sintetizada ---------- */
+const TRK={game:["music/combate1.mp3","music/combate2.mp3"],boss:["music/boss.mp3"],rift:["music/boss.mp3"],ranch:["music/granja.mp3"],final:["music/final.mp3"],giratina:["music/giratina.mp3"]};
+const MP={el:null,f:null,bad:{},gi:0,want:null};
+const mpVol=()=>clamp((SV.set.mus||0)*.75,0,1);
+function mpFade(a,to,ms,end){const v0=a.volume,t0=performance.now();clearInterval(a._fi);a._fi=setInterval(()=>{const u=Math.min(1,(performance.now()-t0)/ms);a.volume=clamp(v0+(to-v0)*u,0,1);if(u>=1){clearInterval(a._fi);end&&end()}},40)}
+function mpStop(){const a=MP.el;MP.el=null;MP.f=null;MP.want=null;if(a)mpFade(a,0,600,()=>{try{a.pause()}catch(e){}})}
+function mpPlay(name){const L=(TRK[name]||[]).filter(f=>!MP.bad[f]);if(!L.length)return false;let f=L[0];if(name=="game"){f=L[MP.gi%L.length];}
+ MP.want=name;if(MP.f==f&&MP.el)return true;const old=MP.el;if(old)mpFade(old,0,700,()=>{try{old.pause()}catch(e){}});
+ const a=new Audio(f);a.loop=true;a.volume=0;a.preload="auto";MP.el=a;MP.f=f;
+ a.onerror=()=>{MP.bad[f]=1;if(MP.el===a){MP.el=null;MP.f=null;const n=MP.want;MP.want=null;music.cur=null;_mplay.call(music,n)}};
+ const go=()=>a.play().then(()=>mpFade(a,mpVol(),900)).catch(()=>{const r=()=>{document.removeEventListener("pointerdown",r,true);if(MP.el===a)go()};document.addEventListener("pointerdown",r,true)});go();return true}
+const _mplay=music.play;
+music.play=function(n){let m=n=="boss"&&MODE=="br"?"arena":n;
+ if(P&&P.finS&&!P.endless&&st!="menu"&&st!="over"&&(m=="game"||m=="boss"))m=P.rush>=RUSH.length-1?"giratina":"final";
+ if(TRK[m]&&TRK[m].some(f=>!MP.bad[f])&&AU.ac){if(this.cur==m&&MP.el)return;if(m=="game"&&this.cur!="game")MP.gi++;
+  this.cur=m;MUS.want=m;if(MUS.src){const g=MUS.g,t=AU.ac.currentTime,o=MUS.src;g.gain.setValueAtTime(g.gain.value,t);g.gain.linearRampToValueAtTime(0,t+.5);setTimeout(()=>{try{o.stop()}catch(e){}},700);MUS.src=null;MUS.cur=null}
+  if(mpPlay(m))return}
+ if(MP.el)mpStop();return _mplay.call(this,n)};
+{const _av=avol;avol=function(){_av();if(MP.el)MP.el.volume=mpVol()}}
+/* ---------- minuto 30: todo desaparece, Arceus te bendice y empieza la batalla legendaria ---------- */
+const CINE={on:0};
+function blessApply(){if(!P)return;P.bless=1;recalc(1);P.hp=P.mh;P.iv=3;hudBuild&&hudBuild()}
+{const _rc=recalc;recalc=function(k){_rc(k);if(P&&P.bless){P.mh=Math.round(P.mh*1.35);P.spd*=1.15;P.pw*=1.5;P.cdm*=.85;if(P.hp>P.mh)P.hp=P.mh}}}
+function arceusCine(after){if(CINE.on)return;CINE.on=1;const prev=st;
+ for(const e of E){if(!e.pvp){smoke(e.x,e.y,6,"#f4eeff");e.hp=-1e9;e.fled=1}}E.length=0;EB=[];HZ=[];Gm.forEach(g=>g.a=1);bossNow=null;hudBoss&&hudBoss();
+ if(NH())netAll({t:"arc"});if(MP.el)mpFade(MP.el,mpVol()*.25,800);
+ st="cine";fire=0;ch=null;const d=document.createElement("div");d.id="cine";const af=bform("0493");ld(af);
+ d.innerHTML=`<div class="cbg"></div><div class="cbeam"></div><div class="crings"><i></i><i></i><i></i></div><div class="carc">${sheetCSS(af,230,1)}</div>
+ <div class="ctxt"><b>Bendición de Arceus</b><small>+50% daño · +35% PS · +15% velocidad · −15% recarga</small></div>`;
+ d.style.setProperty("--rng",`url(${pRing(21,9,"#ffd23f",2).toDataURL()})`);document.body.appendChild(d);try{SFX.portal();setTimeout(()=>SFX.mega(),2600);cry("0493",.5,1)}catch(e){}
+ dlgClear();dlgSay("arceus","Basta, Giratina. Este campeón ha resistido treinta minutos de tus oleadas.","Determined",{force:1,dur:3.2});
+ setTimeout(()=>dlgSay("arceus","Recibe mi bendición… y enfréntate a los legendarios. ¡Giratina te espera al final!","Inspired",{force:1,dur:3.4}),3400);
+ setTimeout(()=>{d.classList.add("bless");blessApply();flash=Math.max(flash,.3);try{SFX.lvl()}catch(e){}},2600);
+ setTimeout(()=>{d.classList.add("out");setTimeout(()=>d.remove(),600);CINE.on=0;if(st=="cine")st=prev=="cine"?"play":prev;music.cur=null;music.play("final");after&&after()},7600)}
+{const _rs=rushStart;rushStart=function(){if(NET.on&&NG())return _rs();arceusCine(()=>_rs())}}
+{const _rsp=rushSpawn;rushSpawn=function(){_rsp();if(P&&P.rush==RUSH.length-1&&!P.endless){music.cur=null;music.play("giratina")}}}
+/* during the legendary gauntlet only legendaries fight you */
+{const _sp=spawn;spawn=function(kind,ff){if(kind=="mob"&&P&&P.finS&&!P.endless&&MODE!="br"&&!RIFT)return null;return _sp(kind,ff)}}
+/* golden aura while blessed */
+function blessAura(time){if(!P||!P.bless||P.dead||st=="menu")return;worldT();const k=(Math.sin(time*3)+1)/2;cx.globalAlpha=.35+.25*k;wDraw(pRing(14,6,"#ffd23f",2),P.x,P.y+1);cx.globalAlpha=.2;wDraw(pRing(17,7,"#fff6c0",1),P.x,P.y+1);cx.globalAlpha=1}
+/* ---------- co-op: el juego se pausa mientras alguien elige cartas ---------- */
+let NETW=[],NWK="",NWT=0;
+const choosing=()=>st=="lv"||st=="item";
+function netWaitTick(){if(!NET.on||MODE=="br")return;const now=performance.now();
+ if(NET.role=="guest"){const c=choosing()?1:0;if(c!==NET.chs||now-(NET.chsT||0)>1000&&NETW.length){NET.chs=c;NET.chsT=now;netSend(NET.conns.h,{t:"chs",v:c})}}
+ else if(NET.role=="host"){const w=[];if(choosing())w.push(myName());for(const k in NET.pl){const o=NET.pl[k];if(o.chs)w.push(o.nm)}const key=w.join("|");if(key!=NWK||now-NWT>1000&&w.length){NWK=key;NWT=now;NETW=w;netAll({t:"npz",w})}}
+ const el=$("#nwait");if(el){const show=NETW.length&&!choosing()&&st!="menu"&&st!="over";el.hidden=!show;if(show)el.innerHTML=`<b>Pausa</b>Esperando a ${NETW.map(esc).join(", ")}…<small>eligiendo mejora</small>`}}
+setInterval(netWaitTick,200);
+{const _hr=hostRecv;hostRecv=function(c,m){if(m&&m.t=="chs"){const o=NET.pl[c._pid];if(o){o.chs=m.v?1:0;o.lt=performance.now()}return}return _hr(c,m)}}
+{const _gr=guestRecv;guestRecv=function(m){if(m&&m.t=="npz"){NETW=m.w||[];return}if(m&&m.t=="arc"){arceusCine(null);return}return _gr(m)}}
+{const _up=upd;upd=function(dt){if(NET.on&&MODE!="br"&&NETW.length&&!CINE.on){if(!P||st=="over")return _up(dt);hudUpd&&hudUpd();return}return _up(dt)}}
+/* ---------- reanimación: anillo pixel en el suelo (detrás) y auto-revivir ---------- */
+const RVA=20,RVS=15;
+function rvGround(x,y,u,c1,c2,time){worldT();const n=24,on=Math.round(n*clamp(u,0,1));
+ cx.globalAlpha=.55;wDraw(pOval(15,6,"rgba(10,6,32,.55)",1),x,y);cx.globalAlpha=1;
+ for(let i=0;i<n;i++){const q=-Math.PI/2+i/n*TAU,px=Math.round(x+Math.cos(q)*14),py=Math.round(y+Math.sin(q)*6);
+  cx.fillStyle="#0a0620";cx.fillRect(px-2,py-1,4,3);cx.fillStyle=i<on?(i%2?c2:c1):"#3a3458";cx.fillRect(px-1,py-1,3,2);if(i<on&&i%3==0){cx.fillStyle="#ffffffb0";cx.fillRect(px-1,py-1,1,1)}}
+ if(on>0){const q=-Math.PI/2+on/n*TAU,px=Math.round(x+Math.cos(q)*14),py=Math.round(y+Math.sin(q)*6),b=((time*6)|0)%2;cx.fillStyle="#fff";cx.fillRect(px-1,py-2,2,4);cx.fillRect(px-2,py-1,4,2);if(b){cx.fillStyle=c1;cx.fillRect(px,py,1,1)}}
+ for(let k=0;k<3;k++){const ph=(time*.8+k/3)%1,sx=Math.round(x+Math.sin(k*2.1+time)*8),sy=Math.round(y-ph*20);cx.globalAlpha=(1-ph)*u;cx.fillStyle=c1;cx.fillRect(sx,sy-1,1,3);cx.fillRect(sx-1,sy,3,1);cx.globalAlpha=1}}
+function gfx0(time){if(st=="menu")return;blessAura(time);if(!NET.on||MODE=="br")return;
+ if(P&&P.dead){const u=P.rvT>0?P.rvT/3:(P.srv||0)/RVS;rvGround(P.x,P.y+1,u,P.rvT>0?"#6cff8a":"#ffd23f",P.rvT>0?"#2ea838":"#e08a1a",time)}
+ for(const k in NET.pl){const o=NET.pl[k];if(o.dead&&o.f)rvGround(o.x,o.y+1,(o.rv||0)/3,"#6cff8a","#2ea838",time)}}
+rvRing=function(){};
+{const _nt=netTick;netTick=function(dt){if(P&&P.dead&&MODE!="br"&&st!="over"){P.dT=(P.dT||0)+dt;if(!(P.rvT>0)&&P.dT>RVA){P.srv=(P.srv||0)+dt;if(P.srv>=RVS){P.dead=0;P.hp=P.mh*.3;P.iv=2.5;P.rvT=0;P.srv=0;P.dT=0;toast("¡Te levantaste por tu cuenta!",1);SFX.mega();burst(P.x,P.y-P.r,"#ffd23f",24,80,{t:.7,up:30});netFx(["v",Math.round(P.x),Math.round(P.y)])}}}
+ else if(P&&!P.dead){P.dT=0;P.srv=0}return _nt(dt)}}
+{const _nf=netFaint;netFaint=function(){_nf();P.dT=0;P.srv=0}}
+/* send the self-revive progress too, so teammates see your ring fill */
+{const _ps=typeof plOf=="function"?plOf:null;if(_ps)plOf=function(p,pid){const me=p===P,a=_ps(p,pid);if(me&&P&&P.dead&&!(P.rvT>0)&&P.srv)a[11]=Math.round(P.srv/RVS*3*10)/10;return a}}
 rs();resetWorld(4242);music.play("menu");requestAnimationFrame(loop);accBoot();
 </script></body></html>

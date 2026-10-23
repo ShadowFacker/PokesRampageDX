@@ -7,7 +7,8 @@ Juego de navegador hecho en un solo archivo HTML: sobrevive oleadas con tu Poké
 ## Cómo actualizar el juego
 1. Entra a este repositorio en GitHub.
 2. Usa **Add file → Upload files** y sube el archivo nuevo con el nombre `PokesRampageDX.html` (reemplaza al anterior).
-3. Pulsa **Commit changes**. En 1–2 minutos la página ya tiene la versión nueva (si no la ves, recarga con Ctrl+F5).
+3. Si cambias la música, sube también la carpeta `music/` (combate1, combate2, boss, final, giratina y granja en MP3).
+4. Pulsa **Commit changes**. En 1–2 minutos la página ya tiene la versión nueva (si no la ves, recarga con Ctrl+F5).
 
 ## Créditos
 - Sprites y retratos de Pokémon: [PMD SpriteCollab](https://sprites.pmdcollab.org/) (cargados en línea desde su repositorio).
