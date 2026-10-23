@@ -1,6 +1,6 @@
 # PokesRampageDX
 
-Juego de navegador hecho en un solo archivo HTML: sobrevive oleadas con tu Pokémon, sube de nivel, evoluciona, megaevoluciona, pelea en Rampage.io y vive en el rancho de Ditto.
+Juego de navegador hecho en un solo archivo HTML: sobrevive oleadas con tu Pokémon, sube de nivel, evoluciona, megaevoluciona, pelea en Rampage.io, compite en la Clasificatoria 1vs1 (ligas Bronce, Plata, Oro, Amatista y Maestro) y vive en el rancho de Ditto.
 
 **Jugar:** https://shadowfacker.github.io/PokesRampageDX/
 
