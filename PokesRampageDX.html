@@ -1925,6 +1925,21 @@ html body .nk37f button.ok{background:#2f8a4a;border-color:#7fe0a0}
 html body .nk37f button:hover{filter:brightness(1.15)}
 #grid .nk37n{color:#ffe08a}
 .grc .nk37s{margin-top:-4px}
+/* co-op room: mastery badge under each player's Pokémon (same look as «Mis Pokémon») */
+.lob4 .lp .mbg{position:relative;align-self:stretch;margin:-10px -4px 4px;height:22px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px;background:var(--mst);box-shadow:inset 0 2px 0 #0007,inset 0 -2px 0 #0005}
+.lob4 .lp .mcr{position:absolute;left:-3px;bottom:-8px;width:52px;height:52px;background:no-repeat 0 0/52px 52px;image-rendering:pixelated;filter:drop-shadow(2px 2px 0 #0a0620);display:grid;place-items:center}
+.lob4 .lp .mcr b{font:9px var(--px);color:#fff;text-shadow:2px 2px 0 #0a0620,-1px -1px 0 #0a0620,1px -1px 0 #0a0620,-1px 1px 0 #0a0620;margin-top:10px;word-break:normal}
+.lob4 .lp .mpt{display:flex;align-items:center;gap:4px;font:9px var(--px);color:#fff;text-shadow:1px 1px 0 #0a0620}
+.lob4 .lp .mpt img{width:14px;height:auto;image-rendering:pixelated;filter:drop-shadow(1px 1px 0 #0a0620)}
+.lob4 .lp:has(.mbg){min-height:176px}
+/* one game per browser */
+#tab38{position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center;padding:16px;background:rgba(6,4,22,.86);backdrop-filter:blur(3px)}
+#tab38[hidden]{display:none}
+#tab38 .tab38b{max-width:440px;background:#16123a;border:3px solid #ffd23f;box-shadow:0 0 0 3px #000,8px 8px 0 #0008;padding:20px 22px;color:#fff;text-align:center;font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+#tab38 h2{font:14px var(--px,monospace);color:#ffd23f;margin:0 0 10px;text-shadow:2px 2px 0 #000}
+#tab38 p{margin:0 0 16px;opacity:.9}
+#tab38 button{font:12px var(--px,monospace);padding:10px 16px;border:0;background:#2f8a4a;color:#fff;box-shadow:0 0 0 2px #000,inset 0 -4px 0 #1d5a30;cursor:pointer}
+#tab38 button:disabled{opacity:.6}
 
 </style></head><body>
 <canvas id="c"></canvas>
@@ -2037,7 +2052,7 @@ if(SV.set.aim==null){SV.set.aim=1;if(!matchMedia("(pointer:coarse)").matches)SV.
 if(SV.mute!=null){if(SV.mute){SV.set.mus=0;SV.set.sfx=0}delete SV.mute}
 let MODE="surv";const BR_TS=330,TS=()=>MODE=="br"?BR_TS:T;
 const ACC={cl:null,cur:null,rec:null,dk:null,guest:0,t:null,busy:0,again:0};
-const save=()=>{if(ACC.cur||ACC.cl){clearTimeout(ACC.t);ACC.t=setTimeout(()=>accFlush(),700)}else try{localStorage[SK]=JSON.stringify(SV)}catch(e){}};
+const save=()=>{if(ACC.cur||ACC.cl){clearTimeout(ACC.t);ACC.t=setTimeout(()=>accFlush(),700)}else try{localStorage[SK]=(window.AC38S?AC38S.ser(SV):JSON.stringify(SV))}catch(e){}};
 
 /* ================= AUDIO ================= */
 const AU={ac:null,last:{}};
@@ -3082,7 +3097,7 @@ function riftAI(e,dt,dx,dy,d){const ty=e.t[0],ph2=e.hp<e.mh*.5;if(ph2&&!e.p2){e.
   if(pt=="spiral"){e.spT=ph2?3:2.4}
   else if(pt=="rings"){for(let r2=0;r2<(ph2?4:3);r2++)setTimeout(()=>{if(!RIFT||e.hp<=0)return;const n=20,gap=R()*n|0;for(let j=0;j<n;j++){if(Math.min(Math.abs(j-gap),n-Math.abs(j-gap))<3)continue;const a=j/n*TAU+r2*.15;EB.push({x:e.x,y:e.y-e.r,vx:Math.cos(a)*55,vy:Math.sin(a)*55,ty,dm:e.dm*.35,t:6,rb:1})}SFX.shoot(ty)},r2*450)}
   else if(pt=="meteor"){const n=ph2?10:7;for(let j=0;j<n;j++)HZ.push({k:"circ",x:TG.x+(j?(R()-.5)*120:0),y:TG.y+(j?(R()-.5)*80:0),r:22,t:.9+j*.13,T:.9+j*.13,ty,dm:e.dm*.9,sky:1,rb:1})}
-  else if(pt=="sweep"){const a0=Math.atan2(dy,dx);for(let j=-1;j<=1;j++)HZ.push({k:"line",x:e.x,y:e.y-e.r*.8,a:a0+j*.42,len:260,w:16,t:.7+(j+1)*.3,T:.7+(j+1)*.3,ty,dm:e.dm*1.1,rb:1})}
+  else if(pt=="sweep"){const a0=Math.atan2((TG.y-(TG.r||8))-(e.y-e.r*.8),TG.x-e.x);for(let j=-1;j<=1;j++)HZ.push({k:"line",x:e.x,y:e.y-e.r*.8,a:a0+j*.42,len:260,w:16,t:.7+(j+1)*.3,T:.7+(j+1)*.3,ty,dm:e.dm*1.1,rb:1})}
   else if(pt=="dash"){e.dash=.95;e.dx=dx/d;e.dy=dy/d}
   else if(pt=="summon"){const L=pool.filter(ready).concat(Object.values(FM).filter(f=>f.wi&&f.wi.ok&&!f.mega&&!LEG.has(f.d)&&e.t.some(t=>t&&SPD[f.d].t.includes(t))));if(L.length)for(let j=0;j<(ph2?6:4);j++){const m=spawn("mob",pick(L));if(m){const a=j/4*TAU;m.x=e.x+Math.cos(a)*30;m.y=e.y+Math.sin(a)*20;m.hp=m.mh=m.mh*2.5;burst(m.x,m.y,"#ffffff",8,40)}}}
   else if(pt=="nova")HZ.push({k:"circ",x:e.x,y:e.y,r:90,t:1.7,T:1.7,ty,dm:e.dm*1.4,rb:1})}
@@ -3134,10 +3149,10 @@ function drawPortal(o,time,exit){const tier=exit?RIFT.tier:o.tier,f=((time*10)|0
 /* ================= CO-OP ONLINE (WebRTC via PeerJS, host-authoritative world) =================
    Host simulates enemies, spawns, events, drops and rifts. Each player simulates their own Pokémon
    (movement, moves, level-ups, Mega) and reports hits/pickups to the host. XP is shared. */
-const BUILD="26.0",NETV="pkrdx-"+BUILD,NMAX=4;
+const BUILD="38.0",NETV="pkrdx-"+BUILD,NMAX=4;
 const NET={on:0,role:null,peer:null,conns:{},code:"",pl:{},me:"h",idx:0,np:1,thr:0,seed:0,seq:0,o:{h:[],gp:[],kp:[],bu:[],fx:[],pv:[]},
  em:new Map(),ei:new Map(),pd:new Map(),gpk:new Map(),kpk:new Map(),lob:0,lobL:null,last:0,sent:0,rdone:0,ended:0,bi:0,porT:0,allyK:"",
- bc:/[?&]bc\b/.test(location.search)};
+ bc:false};
 let RS=[],TP=null;
 const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>"&#"+c.charCodeAt(0)+";");
 const fkey=f=>!f?"":f.mega?f.d+"m"+mforms(f.d).indexOf(f):f.shiny?f.d+"s":f.d;
@@ -3556,7 +3571,7 @@ function eFire0(e,ux,uy,d){const m=e.mv,k=m.k,D=eDmg(e),c=TC[m.ty-1];e.at=T;SFX.
  if(k=="tail"||k=="ball"){const z=k=="ball"?1.5:1;EB.push({x:e.x,y:e.y-e.r,vx:ux*(k=="ball"?60:85),vy:uy*(k=="ball"?60:85),ty:m.ty,dm:D*(k=="ball"?1.3:1),t:4,z})}
  else if(k=="fan"){const n=e.boss?7:3,a0=Math.atan2(uy,ux);for(let i=0;i<n;i++){const a=a0+(i-(n-1)/2)*.32;EB.push({x:e.x,y:e.y-e.r,vx:Math.cos(a)*75,vy:Math.sin(a)*75,ty:m.ty,dm:D*.7,t:3.5})}}
  else if(k=="arc"){e.lng=.28;e.lx=ux;e.ly=uy;smoke(e.x,e.y,3)}
- else if(k=="stream")HZ.push({k:"line",x:e.x,y:e.y-e.r*.8,a:Math.atan2(uy,ux),len:115,w:10,t:.55,T:.55,ty:m.ty,dm:D*1.2})
+ else if(k=="stream")HZ.push({k:"line",x:e.x,y:e.y-e.r*.8,a:TP?Math.atan2((TP.y-(TP.r||8))-(e.y-e.r*.8),TP.x-e.x):Math.atan2(uy,ux),len:115,w:10,t:.55,T:.55,ty:m.ty,dm:D*1.2})
  else if(k=="ring")HZ.push({k:"circ",x:e.x,y:e.y,r:e.boss?70:46,t:.6,T:.6,ty:m.ty,dm:D})
  else{const n=k=="rain"?(e.boss?6:3):1;for(let i=0;i<n;i++)HZ.push({k:"circ",x:TP.x+(i?(R()-.5)*70:0),y:TP.y+(i?(R()-.5)*70:0),r:k=="rain"?20:26,t:.9+i*.12,T:.9+i*.12,ty:m.ty,dm:D*(k=="rain"?.8:1.3),sky:k!="blast"})}}
 function updHZ(dt){HZ=HZ.filter(h=>{h.t-=dt;if(h.t<=0&&!h.done){h.done=1;h.t2=.3;const c=TC[h.ty-1];
@@ -3591,11 +3606,11 @@ function upd(dt0){ax=CAM.x+(msx*DPR-VW/2)/G;ay=CAM.y+(msy*DPR-VH/2)/G;if(slowT>0
  if(!PORT&&RQ.length&&T>=RQ[0]){RQ.shift();spawnPortal()}
  if(PORT){PORT.t-=dt;if(PORT.t<=0){PORT=null;wtoast("El Ultraumbral se cerró")}else if(Math.hypot(P.x-PORT.x,P.y-PORT.y)<14&&!megaAnim){enterRift();return}}
  evTick(dt);if(!RQ.length&&P.endless&&!PORT)RQ.push(T+300);
- es-=dt;if(es<=0&&E.length<Math.min(NET.on?300:230,(40+T/7)*DIF().n*THR.n*(NET.on?1+.35*(NET.np-1):1))){es=Math.max(.45,1.65-T/1100)/DIF().n/THR.n/MPN();const n=1+(Math.min(T,2400)/600|0);for(let i=0;i<n;i++)spawn("mob")}
+ wv38Tick(dt);
  poolT+=dt;if(poolT>30){poolT=0;buildPool(3)}
  if(phase<3&&T>=PHT[phase]-8&&!P["pre"+phase]){P["pre"+phase]=1;pool.forEach(f=>{const n=evoOf(f.d);if(n)ld(bform(n))});bandSpecies(phase+1).sort(()=>R()-.5).slice(0,4).forEach(s=>ld(bform(s.d)))}
  if(phase<3&&T>=PHT[phase])evolveWave();
- swT-=dt;if(swT<=0){swT=150;horde()}
+ 
  if(T>=nb&&!bossNow){if(nb>=RUNLEN&&!P.endless&&!P.finS){P.finS=1;rushStart()}else spawn(P.endless&&R()<.4?"final":"boss");nb=P.endless?T+180:nb+BOSS_EVERY;if(!P.endless&&nb>RUNLEN&&!P.finS)nb=RUNLEN}
  if(T>=nb-8&&T-dt<nb-8&&!bossNow){wtoast(nb>=RUNLEN&&!P.endless?"¡El JEFE FINAL se acerca!":"¡Se acerca algo poderoso!",1,"warn");if(nb>=RUNLEN&&!P.endless)dlgSay("arceus","Has llegado lejos, campeón. Ahora… demuéstrame tu valía.","Determined");else dlgSay("giratina",pick(["Te envío a uno de mis guardianes. ¡Caerás!","¿Aún respiras? Mi guardián se encargará de ti.","Desde el Mundo Distorsión… ¡ataca, guardián!"]),"Angry")};}
  // enemies
@@ -3658,7 +3673,7 @@ function upd(dt0){ax=CAM.x+(msx*DPR-VW/2)/G;ay=CAM.y+(msy*DPR-VH/2)/G;if(slowT>0
   pa.push({x:e.x,y:e.y,t:.18,T:.18,k:"ghost",f:e.f,dir:e.dir,px:e.px});smoke(e.x,e.y-e.r*.6,e.boss?16:4);burst(e.x,e.y-e.r,TC[e.t[0]-1],e.boss?40:8,e.boss?140:60,{t:.5});
   if(e.rb)riftWin(e);else if(e.boss){bossK++;for(let i=0;i<10;i++){const a=R()*TAU,v=40+R()*70;PK.push({t:"coin",x:e.x,y:e.y,z:10,vz:60+R()*50,vx:Math.cos(a)*v,vy:Math.sin(a)*v*.6})}if(R()<.12){SV.cap++;save();toast("¡Un jefe soltó una Chapa! (sube IVs)",1)}boom(e.x,e.y,50,e.t[0],1);shake(.6);slow=.25;slowT=.5;cry(e.f.d,.5,1);PK.push({t:"chest",x:e.x,y:e.y,z:12,vz:60,bs:1});for(let i=0;i<10;i++)Gm.push({x:e.x+(R()-.5)*40,y:e.y+(R()-.5)*40,v:Math.ceil(P.nd/12),c:3});
    if(bossNow===e){bossNow=null;hudBoss();music.play("game")}emoEvent("win",2.2);P.mm=Math.min(1,P.mm+.35)}
-  else{Gm.push({x:e.x,y:e.y,v:(e.el?9:2.2)*(e.msh?1.5:1),c:e.el?1:phase>=2?2:0});const r=R();if(e.el&&r<.3)PK.push({t:"chest",x:e.x,y:e.y,z:8,vz:40});else if(r<.012)PK.push({t:"berry",x:e.x,y:e.y,z:6,vz:30});else if(r<.045)PK.push({t:"coin",x:e.x,y:e.y,z:6,vz:30});else if(r<.038)PK.push({t:"mag",x:e.x,y:e.y,z:6,vz:30})}
+  else{Gm.push({x:e.x,y:e.y,v:(e.el?9:2.2)*(e.msh?1.5:1),c:e.el?1:phase>=2?2:0});const r=R();if(e.el&&r<.3)PK.push({t:"chest",x:e.x,y:e.y,z:8,vz:40});else if(r<.012)PK.push({t:"berry",x:e.x,y:e.y,z:6,vz:30});else if(r<(e.wv?.028:.045))PK.push({t:"coin",x:e.x,y:e.y,z:6,vz:30});else if(r<.038)PK.push({t:"mag",x:e.x,y:e.y,z:6,vz:30})}
   if(P.stone&&!P.mega)P.mm=Math.min(1,P.mm+(e.el?1/40:1/350));if(e.fr&&!P.endless)rushDone(e);if(e.fin&&!P.endless)setTimeout(victoryChoice,1800);if(e.boss&&!e.fin&&!e.fr&&!e.rb&&MODE!="br")itRoll({bs:1});return 0});
  if(Gm.length>450&&!NG()){const a=Gm.splice(0,100);let v=0;for(const g of a)v+=g.v;Gm.push({x:P.x+(R()-.5)*200,y:P.y+(R()-.5)*200,v,c:2})}
  // gems
@@ -4294,7 +4309,7 @@ async function kdf(pw,salt,it){const b=await crypto.subtle.importKey("raw",tenc.
  return crypto.subtle.deriveKey({name:"PBKDF2",salt,iterations:it,hash:"SHA-256"},b,{name:"AES-GCM",length:256},false,["wrapKey","unwrapKey"])}
 async function wrapK(dk,kek){const iv=rnd(12);return b64(iv)+"."+b64(await crypto.subtle.wrapKey("raw",dk,kek,{name:"AES-GCM",iv}))}
 function unwrapK(s,kek,ext){const[a,b]=s.split(".");return crypto.subtle.unwrapKey("raw",ub64(b),kek,{name:"AES-GCM",iv:ub64(a)},{name:"AES-GCM",length:256},!!ext,["encrypt","decrypt"])}
-async function encJ(dk,o,L){const iv=rnd(12);return b64(iv)+"."+b64(await crypto.subtle.encrypt({name:"AES-GCM",iv,additionalData:tenc.encode(L)},dk,tenc.encode(JSON.stringify(o))))}
+async function encJ(dk,o,L){const iv=rnd(12);return b64(iv)+"."+b64(await crypto.subtle.encrypt({name:"AES-GCM",iv,additionalData:tenc.encode(L)},dk,tenc.encode(window.AC38S?AC38S.ser(o):JSON.stringify(o))))}
 async function decJ(dk,s,L){const[a,b]=s.split(".");return JSON.parse(tdec.decode(await crypto.subtle.decrypt({name:"AES-GCM",iv:ub64(a),additionalData:tenc.encode(L)},dk,ub64(b))))}
 async function lockK(dkx){return crypto.subtle.importKey("raw",await crypto.subtle.exportKey("raw",dkx),"AES-GCM",false,["encrypt","decrypt"])}
 const recCode=()=>{const A="ABCDEFGHJKLMNPQRSTUVWXYZ23456789",r=rnd(16);let s="";for(let i=0;i<16;i++){s+=A[r[i]&31];if(i%4==3&&i<15)s+="-"}return s};
@@ -4473,7 +4488,7 @@ async function cloudEnter(u){const c=await sb(),md=u.user_metadata||{},prov=(u.a
  authHide();go("home");if(Object.keys(SV.u).length)toast(`Conectado con ${provN(prov)}: ¡hola, ${ACC.cl.n}!`,1)}
 async function cloudFlush(){if(!ACC.cl)return;if(ACC.busy){ACC.again=1;return}ACC.busy=1;clearTimeout(ACC.t);const id=ACC.cl.id;
  try{localStorage["pkr_cl:"+id]=JSON.stringify({t:Date.now(),d:SV})}catch(e){}
- try{const c=await sb(),{error}=await c.from("saves").upsert({user_id:id,data:SV,updated_at:new Date().toISOString()});if(error)throw error;ACC.clErr=0}
+ try{const c=await sb(),{error}=await c.from("saves").upsert({user_id:id,data:JSON.parse(window.AC38S?AC38S.ser(SV):JSON.stringify(SV)),updated_at:new Date().toISOString()});if(error)throw error;ACC.clErr=0}
  catch(e){console.warn(e);if(!ACC.clErr){ACC.clErr=1;toast("No se pudo guardar en la nube. Se reintentará al seguir jugando.",1)}}
  ACC.busy=0;if(ACC.again){ACC.again=0;return cloudFlush()}}
 async function cloudLogout(){await cloudFlush();try{const c=await sb();await c.auth.signOut()}catch(e){}if(NET.role)netLeave();AUN="";ACC.cl=null;svLoad(svFresh());authShow("login","Sesión cerrada.")}
@@ -8479,6 +8494,362 @@ document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest
 {const _g=gResult;gResult=function(res){_g(res);if(res&&res.length==1&&res[0].isNew)nk37Deco($("#ov .grc .nm"),res[0].d)}}
 {const _p=rnPanel;rnPanel=function(k,a){_p(k,a);if(k=="corral")for(const s of $$("#ov .rhs")){const rm=s.querySelector('[data-r^="rm:"]'),b=s.querySelector(":scope > b");if(rm&&b)nk37Deco(b,rm.dataset.r.slice(3))}
   if(k=="gate"){const b=$("#ov .rgx b");if(b&&SV.last)nk37Deco(b,SV.last)}}}
+
+/* ---- 15_waves.js ---- */
+/* v38 · wave director for the normal (survival) mode.
+   Early game keeps the old pace. From ~4:00 the number of Pokémon on screen keeps growing and, when you kill them
+   faster than they arrive, the director refills the screen. From 6:00 there are big waves (rings, stampedes, swarms)
+   that get bigger and more frequent: around 30:00 the screen is packed. */
+const WV38={k:0,next:360,lastT:0,acc:0,ft:16,lf:0,cap:300,horde:240};
+function wv38Reset(){Object.assign(WV38,{k:0,next:360,lastT:0,acc:0,horde:240})}
+/* how many enemies the director wants alive at time t (seconds) */
+function wv38Target(t){const m=Math.min(t,3600)/60;
+ const n=m<4?40+m*3:m<12?52+(m-4)*7:m<22?108+(m-12)*8:m<30?188+(m-22)*9:260+(m-30)*3;
+ return n*DIF().n*THR.n*(NET.on?1+.35*(NET.np-1):1)}
+/* the old spawn rate (per second) is kept as the floor: 1..4 Pokémon every 1.65..0.45 s */
+function wv38Base(t){const iv=Math.max(.45,1.65-t/1100)/DIF().n/THR.n/MPN(),n=1+(Math.min(t,2400)/600|0);return n/iv}
+/* frame-time guard: on slow devices the ceiling goes down so the game stays smooth */
+function wv38Cap(){const now=performance.now(),d=WV38.lf?now-WV38.lf:16;WV38.lf=now;if(d<250)WV38.ft+=(d-WV38.ft)*.02;
+ const base=NET.on?340:300;return Math.round(base*(WV38.ft>34?.55:WV38.ft>26?.72:WV38.ft>21?.86:1))}
+function wv38Tick(dt){if(T<WV38.lastT-1)wv38Reset();WV38.lastT=T;const cap=WV38.cap=wv38Cap(),tgt=Math.min(cap,wv38Target(T)),n=E.length;
+ /* catch-up: the emptier the screen compared with the target, the faster it refills (only after 4:00) */
+ const k=T<240?0:.2*Math.pow(Math.min(1,(T-240)/1560),1.15),deficit=Math.max(0,tgt-n);
+ WV38.acc=Math.min(12,WV38.acc+dt*(wv38Base(T)+deficit*k));
+ let made=0;while(WV38.acc>=1&&E.length<tgt&&made<6){WV38.acc-=1;const e=spawn("mob");if(!e)break;made++}
+ if(E.length>=tgt)WV38.acc=Math.min(WV38.acc,1);
+ /* small hordes in the early game, as before */
+ if(T<WV38.next){WV38.horde-=dt;if(WV38.horde<=0){WV38.horde=150;horde()}}
+ /* big waves */
+ if(T>=WV38.next&&!(typeof RIFT!="undefined"&&RIFT)){
+  /* never on top of a boss arrival */
+  if(typeof nb=="number"&&nb-T<14&&nb-T>-6&&!bossNow){WV38.next=T+20;return}
+  wv38Big();WV38.next=T+Math.max(48,150-(T-360)/9.5)}}
+function wv38Size(){const m=T/60;return Math.round(Math.min(170,16+(m-6)*5.2+Math.max(0,m-20)*2.5)*DIF().n*MPN())}
+const WV38N=["Cerco","Estampida","Enjambre","Marea"];
+function wv38Big(){const L=pool.filter(ready);if(!L.length)return;const N=Math.min(wv38Size(),WV38.cap+60-E.length);if(N<8)return;WV38.k++;const k=WV38.k,o=anyP();
+ const kind=T>=1200&&k%4==0?3:(k-1)%3,R0=Math.min(VW,VH)/G*.62,sp1=pick(L),sp2=pick(L);let made=0;
+ const mk=(f,x,y,fast)=>{const e=spawn("mob",f);if(!e)return null;e.x=x;e.y=y;e.wv=1;if(fast){e.sp0=e.sp;e.sp*=fast;e.wvT=3.5}made++;return e};
+ if(kind==0){/* ring(s) closing in */const rings=N>60?2:1;for(let r=0;r<rings;r++){const n=Math.round(N/rings),rr=R0*(1+r*.4);for(let i=0;i<n;i++){const a=i/n*TAU+r*.13;mk(r?sp2:sp1,o.x+Math.cos(a)*rr,o.y+Math.sin(a)*rr*.85)}}}
+ else if(kind==1){/* stampede: a wide wall charging from one side */const a=R()*TAU,ca=Math.cos(a),sa=Math.sin(a),W=Math.max(VW,VH)/G*.9,rows=Math.max(2,Math.ceil(N/22));
+  for(let i=0;i<N;i++){const row=i%rows,col=Math.floor(i/rows),cols=Math.ceil(N/rows),off=(col/(Math.max(1,cols-1))-.5)*W,dist=R0*1.25+row*20;mk(i%3?sp1:sp2,o.x-ca*dist-sa*off,o.y-sa*dist+ca*off,1.7)}}
+ else if(kind==2){/* swarm: four packs from the corners */for(let i=0;i<N;i++){const q=i%4,a=q*TAU/4+TAU/8,d=R0*1.2+R()*40,j=(R()-.5)*60;mk(pick(L),o.x+Math.cos(a)*d+j,o.y+Math.sin(a)*d+(R()-.5)*60)}}
+ else{/* tide: ring + stampede together */const n1=Math.round(N*.55);for(let i=0;i<n1;i++){const a=i/n1*TAU;mk(sp1,o.x+Math.cos(a)*R0*1.15,o.y+Math.sin(a)*R0)}
+  const a=R()*TAU,ca=Math.cos(a),sa=Math.sin(a),W=Math.max(VW,VH)/G*.8;for(let i=n1;i<N;i++){const off=(R()-.5)*W,dist=R0*1.4+R()*40;mk(sp2,o.x-ca*dist-sa*off,o.y-sa*dist+ca*off,1.6)}}
+ if(!made)return;
+ const nm=WV38N[kind];wtoast(`¡Oleada ${k}! ${nm}: ${made} Pokémon`,1,"warn");shake(.25);
+ if(k%3==0&&T>600)dlgSay("giratina",pick(["¡Más! ¡Que no quede ni un rincón libre!","Mis sombras no se acaban nunca, campeón.","¿Cuánto aguantarás contra la marea?"]),"Angry")}
+/* stampede runners slow down to normal speed after a few seconds */
+function wv38Fast(dt){for(const e of E)if(e.wvT>0){e.wvT-=dt;if(e.wvT<=0&&e.sp0){e.sp=e.sp0;e.sp0=0}}}
+{const _u=upd;upd=function(dt){const r=_u(dt);if(st=="play"&&MODE!="br"&&E.length)wv38Fast(dt);return r}}
+
+/* ---- 16_beams.js ---- */
+/* v38 · beams (Hiperrayo, Rayo Solar, Rayo Hielo… and the bosses' rays)
+   - charge: energy gathers at the mouth, the aim line locks on and blinks faster before firing
+   - fire: the ray shoots out in a few frames, holds with a pulsing core and sparks, then thins out and fades
+   - aim: while charging, the ray follows its target (or the mouse); at the moment of firing it picks the line
+     that hits the most enemies near that target. Enemy rays aim at your body instead of your feet. */
+const BM38={FT:.46,EXT:.085};
+const bm38Ease=x=>1-Math.pow(1-Math.min(1,Math.max(0,x)),3);
+/* width envelope of a fired ray: quick swell, hold with a pulse, thin out at the end */
+function bm38Env(age,FT,time){if(age<.05)return .55+.85*(age/.05);if(age<.12)return 1.4-.4*((age-.05)/.07);const left=FT-age;if(left<.17)return Math.max(0,left/.17)*(.9+.1*Math.sin(time*60));return 1+.07*Math.sin(time*55)}
+/* the ray itself, pixel by pixel (2×2 cells, like the rest of the game) */
+function bm38Draw(ox,oy,a,len,wd,P4,age,FT,time,col){const ca=Math.cos(a),sa=Math.sin(a),ext=bm38Ease(age/BM38.EXT),L=len*ext,env=bm38Env(age,FT,time),fade=Math.min(1,(FT-age)/.1);
+ if(env<=0||L<2)return;const hw0=Math.max(1,wd/2*env);
+ /* soft outer glow */
+ lit();cx.globalAlpha=.22*fade;cx.fillStyle=P4[1];for(let d=0;d<L;d+=4){const tp=Math.min(1,.45+d/26),hw=(hw0+4)*tp;cx.fillRect(Math.round(ox+ca*d-hw),Math.round(oy+sa*d-hw),Math.round(hw*2),Math.round(hw*2))}nrm();
+ /* body: palette bands, a white-hot core and a ripple running outwards */
+ cx.globalAlpha=fade;for(let d=0;d<L;d+=2){const tp=Math.min(1,.5+d/20),hw=hw0*tp*(1+.12*Math.sin(d*.19-time*48));
+  for(let j=-hw;j<=hw;j+=2){const dd=Math.abs(j)/hw;cx.fillStyle=dd<.2?"#f8f8f0":P4[3-Math.min(3,(dd*3.2)|0)];cx.fillRect(Math.round((ox+ca*d-sa*j)/2)*2,Math.round((oy+sa*d+ca*j)/2)*2,2,2)}}
+ cx.globalAlpha=1;
+ /* bright head while it travels, mouth flash, end-point glow */
+ lit();const hr=Math.round(4+hw0*.9);
+ if(ext<1){cx.globalAlpha=.9;wDraw(pGlow(col,hr+4),ox+ca*L,oy+sa*L);wDraw(pGlow("#ffffff",Math.max(3,hr-1)),ox+ca*L,oy+sa*L)}
+ else{cx.globalAlpha=.55*fade;wDraw(pGlow(col,Math.round(hr*1.3)),ox+ca*L,oy+sa*L)}
+ cx.globalAlpha=(age<.12?.95:.6)*fade;wDraw(pGlow(col,Math.round(hr+3+(age<.1?6:0))),ox,oy);wDraw(pGlow("#ffffff",Math.max(3,hr-2)),ox,oy);nrm();
+ FLs.push({x:ox+ca*L*.5,y:oy+sa*L*.5,r:Math.min(L*.7,160),c:col})}
+/* little sparks flying off the edges and at the impact point */
+function bm38Sparks(ox,oy,a,len,wd,col,n){const ca=Math.cos(a),sa=Math.sin(a);for(let i=0;i<n;i++){const d=R()*len,s=R()<.5?-1:1,v=30+R()*60;
+  addP({x:ox+ca*d-sa*s*wd*.5,y:oy+sa*d+ca*s*wd*.5,vx:-sa*s*v+ca*20,vy:ca*s*v+sa*20,t:.25,T:.25,c:R()<.35?"#fff":col,s:1,dg:4})}}
+function bm38Impact(x,y,wd,ty,col){burst(x,y,col,10+wd*.6,90,{t:.35});pa.push({x,y,t:.3,T:.3,k:"ring",r:14+wd,c:col,thick:2});lights.push({x,y,r:30+wd,c:col,t:.15})}
+/* energy gathering into the mouth while charging */
+function bm38Gather(x,y,col,u){if(R()>.35+u*.6)return;const a=R()*TAU,r=16+R()*14*(1.2-u),v=55+u*70;addP({x:x+Math.cos(a)*r,y:y+Math.sin(a)*r*.8,vx:-Math.cos(a)*v,vy:-Math.sin(a)*v*.8,t:r/v,T:r/v,c:R()<.4?"#fff":col,s:1,dg:1})}
+
+/* ---------- aiming ---------- */
+/* how good a line is: enemies inside it (bosses and elites count more) */
+function bm38Score(ox,oy,a,len,wd){const ca=Math.cos(a),sa=Math.sin(a);let s=0;for(const e of TGT()){const ex=e.x-ox,ey=e.y-e.r*.6-oy,al=ex*ca+ey*sa;if(al>-e.r&&al<len+e.r&&Math.abs(-ex*sa+ey*ca)<wd/2+e.r)s+=e.boss?3:e.el?2:1}return s}
+/* best angle near "want": the wanted line, or a line through one of the nearby enemies if it hits more */
+function bm38Best(ox,oy,want,len,wd,spread){let best=want,bs=bm38Score(ox,oy,want,len,wd)+.5;const L=[];
+ for(const e of TGT()){const dx=e.x-ox,dy=e.y-e.r*.6-oy,d=Math.hypot(dx,dy);if(d>len+e.r||d<4)continue;let da=Math.atan2(dy,dx)-want;da=Math.atan2(Math.sin(da),Math.cos(da));if(Math.abs(da)<=spread)L.push([d,want+da])}
+ L.sort((p,q)=>p[0]-q[0]);for(const[,a]of L.slice(0,14)){const s=bm38Score(ox,oy,a,len,wd);if(s>bs){bs=s;best=a}}return best}
+const bm38Turn=(a,b,mx)=>{let d=Math.atan2(Math.sin(b-a),Math.cos(b-a));return a+Math.max(-mx,Math.min(mx,d))};
+let BM38G=0;
+function bm38AimMode(){return SV.set.auto?"auto":SV.set.aim?(mouse?"mouse":"assist"):"mouse"}
+function bm38Want(g,ox,oy){const md=bm38AimMode();
+ if(md=="mouse")return Math.atan2(ay-oy,ax-ox);
+ let t=g.tg;if(!t||t.hp<=0||E.indexOf(t)<0&&(!PVPE||PVPE.indexOf(t)<0)){t=null;let bd=1e9;for(const e of TGT()){const dx=e.x-ox,dy=e.y-e.r*.6-oy,d=Math.hypot(dx,dy);if(d>g.len+40)continue;let da=Math.abs(Math.atan2(Math.sin(Math.atan2(dy,dx)-g.a),Math.cos(Math.atan2(dy,dx)-g.a)));const sc=d*(1+da*1.5);if(sc<bd){bd=sc;t=e}}g.tg=t}
+ return t?Math.atan2(t.y-t.r*.6-oy,t.x-ox):g.a}
+
+/* ---------- player rays: tick ---------- */
+lzTick=function(dt){const ox=P.x,oy=P.y-P.r*.9;
+ /* group the beams of one cast (several beams fan out from one aim) */
+ const fresh=LZ.filter(z=>z.own&&!z.fired&&!z.g);if(fresh.length){const by={};for(const z of fresh){const k=z.i+"|"+z.mid;(by[k]=by[k]||[]).push(z)}
+  for(const k in by){const L=by[k],base=L.reduce((s,z)=>s+z.a,0)/L.length,g={a:base,len:L[0].len,wd:L[0].wd,tg:null,id:++BM38G};for(const z of L){z.g=g;z.off=z.a-base}}}
+ const groups=new Set();for(const z of LZ)if(z.g&&!z.fired&&z.own)groups.add(z.g);
+ for(const g of groups){const want=bm38Want(g,ox,oy);g.a=bm38Turn(g.a,want,dt*(bm38AimMode()=="mouse"?14:8))}
+ LZ=LZ.filter(z=>{z.t-=dt;if(z.own&&!z.fired&&P.dead)return 0;
+  if(z.own&&!z.fired&&z.g)z.a=z.g.a+z.off;
+  if(z.own&&!z.fired&&z.t>0){bm38Gather(ox+Math.cos(z.a)*6,oy+Math.sin(z.a)*6,z.p?z.p[1]:TC[z.ty-1],1-z.t/z.T);return 1}
+  if(!z.fired&&z.t<=0){z.fired=1;z.ft=z.FT=BM38.FT;z.x=ox;z.y=oy;
+   /* final aim: the line that hits the most around the target (the mouse keeps a gentle magnet only) */
+   if(z.own&&z.g&&!z.g.fin){const md=bm38AimMode();z.g.fin=bm38Best(ox,oy,z.g.a,z.len,z.wd,md=="mouse"?.1:.38)-z.g.a;}
+   if(z.own&&z.g)z.a=z.g.a+z.g.fin+z.off;
+   const ca=Math.cos(z.a),sa=Math.sin(z.a);z.len=rayBlock(ox,P.y,ca,sa,z.len);
+   if(z.own){let nf=0;for(const e of TGT()){const ex=e.x-ox,ey=e.y-e.r*.6-oy,al=ex*ca+ey*sa;if(al>-e.r&&al<z.len+e.r&&Math.abs(-ex*sa+ey*ca)<z.wd/2+e.r){hitE(e,z.D,z.ty,ca*.8,sa*.8,z.sc);if(z.mid&&nf++<3)mfx(z.mid,e.x,e.y-e.r*.6,{dl:nf*.05+.04,gap:0})}}if(z.mid&&!nf)mfx(z.mid,ox+ca*z.len,oy+sa*z.len,{gap:0,dl:.05});
+    for(let d=20;d<z.len;d+=40)hitBush(ox+ca*d,oy+sa*d,z.wd/2);netFx(["z",Math.round(ox),Math.round(oy),Math.round(z.a*100)/100,Math.round(z.len),Math.round(z.wd),z.ty])}
+   lights.push({x:ox+ca*z.len*.5,y:oy+sa*z.len*.5,r:Math.min(z.len,90),c:TC[z.ty-1],t:.3});SFX.mv(z.ty,"laser");shake(.12);flash=Math.max(flash,.03);
+   burst(ox+ca*8,oy+sa*8,"#ffffff",8,70,{t:.2})}
+  if(z.fired){if(!z.FT){z.FT=Math.max(z.ft||0,BM38.FT);z.ft=z.FT}z.ft-=dt;const age=z.FT-z.ft,c=z.p?z.p[1]:TC[z.ty-1];
+   if(!z.imp&&age>=BM38.EXT){z.imp=1;bm38Impact(z.x+Math.cos(z.a)*z.len,z.y+Math.sin(z.a)*z.len,z.wd,z.ty,c)}
+   if(age>BM38.EXT&&z.ft>.12&&CROWD<.7)bm38Sparks(z.x,z.y,z.a,z.len,z.wd,c,z.dim?1:2);
+   return z.ft>0}
+  return 1})};
+/* ---------- player rays: drawing ---------- */
+drawLasers=function(time){for(const z of LZ){const run=()=>bm38DrawZ(z,time);if(z.dim)withA(.4,run);else run()}};
+function bm38DrawZ(z,time){const P4=z.p||pal(z.ty),col=z.p?z.p[1]:TC[z.ty-1],ca=Math.cos(z.a),sa=Math.sin(z.a);
+ if(!z.fired){const ox=P.x,oy=P.y-P.r*.9,u=1-z.t/z.T,zl=rayBlock(P.x,P.y,ca,sa,z.len),fast=u>.75,blink=((time*(fast?16:6))|0)%2;
+  /* aim line: dashes that run towards the target, brighter and steadier as the shot locks on */
+  cx.globalAlpha=.25+u*.55;cx.fillStyle=blink?(z.p?z.p[2]:"#ffffff"):col;const off=((time*90)|0)%10;
+  for(let d=8+off;d<zl;d+=10){cx.fillRect(Math.round(ox+ca*d)-1,Math.round(oy+sa*d)-1,2,2);if(u>.5)cx.fillRect(Math.round(ox+ca*(d+3)),Math.round(oy+sa*(d+3)),1,1)}
+  if(u>.6){cx.globalAlpha=(u-.6)*1.2;cx.fillStyle="#ffffff";for(let d=8;d<zl;d+=2)cx.fillRect(Math.round(ox+ca*d),Math.round(oy+sa*d),1,1)}
+  cx.globalAlpha=1;
+  /* charge ball at the mouth: grows, with a ring that tightens */
+  lit();const r=Math.round(3+u*10),mx=ox+ca*6,my=oy+sa*6;cx.globalAlpha=.55+u*.45;wDraw(pGlow(col,r+3),mx,my);wDraw(pGlow("#ffffff",Math.max(2,Math.round(r*.55))),mx,my);nrm();
+  const rr=Math.round(22-u*16);if(rr>3)wDraw(pRing(rr,Math.round(rr*.8),blink?"#ffffff":col),mx,my);
+  return}
+ const age=(z.FT||BM38.FT)-z.ft;bm38Draw(z.x,z.y,z.a,z.len,z.wd,P4,age,z.FT||BM38.FT,time,col)}
+
+/* ---------- enemy and boss rays (line hazards) ---------- */
+{const _u=updHZ;updHZ=function(dt){_u(dt);
+  for(const h of HZ)if(h.k!="circ"&&h.done&&!h.T2){h.T2=.5;h.t2=.5;const c=TC[h.ty-1],ca=Math.cos(h.a),sa=Math.sin(h.a);
+   shake(h.rb?.18:.08);lights.push({x:h.x+ca*h.len*.5,y:h.y+sa*h.len*.5,r:Math.min(h.len,90),c,t:.25});burst(h.x+ca*6,h.y+sa*6,"#ffffff",6,60,{t:.2})}
+  for(const h of HZ)if(h.k!="circ"&&h.done&&h.T2){const age=h.T2-h.t2,c=TC[h.ty-1];if(!h.imp&&age>=BM38.EXT){h.imp=1;bm38Impact(h.x+Math.cos(h.a)*h.len,h.y+Math.sin(h.a)*h.len,h.w,h.ty,c)}if(age>BM38.EXT&&h.t2>.12&&CROWD<.7)bm38Sparks(h.x,h.y,h.a,h.len,h.w,c,1)}
+  /* telegraph: energy gathers at the mouth of the attacker */
+  for(const h of HZ)if(h.k!="circ"&&!h.done)bm38Gather(h.x+Math.cos(h.a)*4,h.y+Math.sin(h.a)*4,TC[h.ty-1],clamp(1-h.t/h.T,0,1))}}
+{const _d=drawHazards;drawHazards=function(time){const lines=HZ.filter(h=>h.k!="circ"),circs=HZ.filter(h=>h.k=="circ");
+  if(circs.length){const all=HZ;HZ=circs;try{_d(time)}finally{HZ=all}}
+  for(const h of lines){const c=TC[h.ty-1],P4=pal(h.ty),ca=Math.cos(h.a),sa=Math.sin(h.a);
+   if(!h.done){const u=clamp(1-h.t/h.T,0,1),fast=h.t<.22,bl=((time*(fast?20:10))|0)%2;
+    /* danger lane: edges + a centre line that fills in as the shot gets closer */
+    cx.globalAlpha=.12+u*.18;cx.fillStyle=fast&&bl?"#ff3a2a":c;const hw=h.w/2;
+    for(let i=0;i<h.len;i+=4)cx.fillRect(Math.round(h.x+ca*i-sa*hw*.6)-1,Math.round(h.y+sa*i+ca*hw*.6)-1,2,2),cx.fillRect(Math.round(h.x+ca*i+sa*hw*.6)-1,Math.round(h.y+sa*i-ca*hw*.6)-1,2,2);
+    cx.globalAlpha=1;for(let i=0;i<h.len;i+=2){if(((i>>2)+((time*14)|0))%2)continue;const x=h.x+ca*i,y=h.y+sa*i;cx.fillStyle=bl?"#ff3a2a":"#fff";cx.fillRect(Math.round(x-sa*hw),Math.round(y+ca*hw),2,2);cx.fillRect(Math.round(x+sa*hw),Math.round(y-ca*hw),2,2)}
+    const fill=h.len*u;cx.globalAlpha=.35+u*.5;cx.fillStyle=fast?"#ffffff":c;for(let i=4;i<fill;i+=2)cx.fillRect(Math.round(h.x+ca*i),Math.round(h.y+sa*i),1,1);cx.globalAlpha=1;
+    lit();const r=Math.round(3+u*(h.rb?12:8));cx.globalAlpha=.5+u*.5;wDraw(pGlow(c,r+3),h.x+ca*4,h.y+sa*4);wDraw(pGlow("#ffffff",Math.max(2,Math.round(r*.5))),h.x+ca*4,h.y+sa*4);nrm();continue}
+   const T2=h.T2||.3,age=T2-h.t2;bm38Draw(h.x,h.y,h.a,h.len,h.w,P4,age,T2,time,c)}}}
+
+/* ---- 17_coop_mastery.js ---- */
+/* v38 · co-op room: every player's Pokémon shows its mastery, the same badge as in «Mis Pokémon».
+   Guests send their mastery points with their «hi»; the host puts them in the room list it shares with everyone. */
+function mBadgeP(p){p=Math.max(0,+p||0);const l=mLv(p),k=p>=1e6?(p/1e6).toFixed(1).replace(".",",")+"M":p.toLocaleString("es");
+ return`<span class="mbg" style="--mst:${mStrip(l)}" title="Maestría ${l} · ${p.toLocaleString("es")} puntos"><span class="mcr" style="background-image:url(${mCrest(l)})"><b>${l}</b></span><span class="mpt"><img src="${MFLM}" alt="">${k}</span></span>`}
+{const _s=netSend;netSend=function(c,m){if(m&&m.t=="hi"&&SV.last)m.mp=Math.round(mPts(SV.last));return _s(c,m)}}
+{const _n=netLobList;netLobList=function(){const L=_n();for(const x of L)x[5]=x[0]=="h"?Math.round(mPts(SV.last)):Math.round((NET.pl[x[0]]&&NET.pl[x[0]].mp)||0);return L}}
+{const _h=hostRecv;hostRecv=function(c,m){const r=_h(c,m);if(m&&m.t=="hi"&&c._pid&&NET.pl[c._pid]){NET.pl[c._pid].mp=clamp(Math.round(+m.mp||0),0,5e7);if(st=="menu"&&NET.lob&&!NET.on)netLob()}return r}}
+{const _c=coopLobby;coopLobby=function(L){const r=_c(L);try{L=L||(NET.role=="host"?netLobList():NET.lobL||[]);const cards=$$("#ov .lob4 .lp");
+  cards.forEach((el,i)=>{const x=L[i];if(!x||el.classList.contains("emp")||el.querySelector(".mbg"))return;const cd=el.querySelector(".cd");if(cd)cd.insertAdjacentHTML("afterend",mBadgeP(x[5]))})}catch(e){}return r}}
+
+/* ---- 18_guard_net.js ---- */
+/* v38 · no more playing against yourself
+   1) One game per browser: a second tab (or window) with the game shows «ya está abierto» and can take over;
+      the old one stops and can no longer save (two tabs used to overwrite each other's progress too).
+   2) Online, every «hi» carries who you are: a random id for this browser, an id of this device and your account.
+      The host refuses a player who is itself (same browser, same account; in Clasificatoria and Rampage.io also
+      the same device, which catches incognito windows and second browsers), and the guest checks the host too.
+   3) Clasificatoria: beating the same rival again and again the same day gives less and less LP.
+   4) The local test mode (?bc, two tabs talking to each other) is gone. */
+const AC38={noSave:0,flags:[],soft:0,hard:0,why:"",until:0};
+const ID38=(()=>{const hex=n=>[...crypto.getRandomValues(new Uint8Array(n))].map(b=>b.toString(16).padStart(2,"0")).join("");let dv="";try{dv=localStorage.pkr_dev||""}catch(e){}
+ if(!/^[a-f0-9]{24}$/.test(dv)){dv=hex(12);try{localStorage.pkr_dev=dv}catch(e){}}return{dv,fp:"",tab:hex(8)}})();
+/* small fast hash (two 32-bit lanes) */
+function h38(s){let a=0xdeadbeef^s.length,b=0x41c6ce57^s.length;for(let i=0;i<s.length;i++){const c=s.charCodeAt(i);a=Math.imul(a^c,2654435761);b=Math.imul(b^c,1597334677)}
+ a=Math.imul(a^(a>>>16),2246822507)^Math.imul(b^(b>>>13),3266489909);b=Math.imul(b^(b>>>16),2246822507)^Math.imul(a^(a>>>13),3266489909);return(b>>>0).toString(16).padStart(8,"0")+(a>>>0).toString(16).padStart(8,"0")}
+/* device fingerprint: the same in a normal and an incognito window of the same computer */
+function fp38(){const P=[];try{const n=navigator;P.push(n.userAgent,n.platform,n.language,(n.languages||[]).join(","),n.hardwareConcurrency,n.deviceMemory,n.maxTouchPoints)}catch(e){}
+ try{P.push(screen.width+"x"+screen.height,screen.colorDepth,devicePixelRatio,Intl.DateTimeFormat().resolvedOptions().timeZone)}catch(e){}
+ try{const c=document.createElement("canvas"),g=c.getContext("webgl")||c.getContext("experimental-webgl");if(g){const x=g.getExtension("WEBGL_debug_renderer_info");P.push(g.getParameter(x?x.UNMASKED_VENDOR_WEBGL:g.VENDOR),g.getParameter(x?x.UNMASKED_RENDERER_WEBGL:g.RENDERER),g.getParameter(g.MAX_TEXTURE_SIZE))}}catch(e){}
+ try{const c=document.createElement("canvas");c.width=220;c.height=40;const g=c.getContext("2d");g.textBaseline="top";g.font="16px Arial";g.fillStyle="#f60";g.fillRect(100,1,62,20);g.fillStyle="#069";g.fillText("PokesRampage ✦ 38 ☺",2,4);g.fillStyle="rgba(102,204,0,.7)";g.fillText("PokesRampage ✦ 38 ☺",4,8);P.push(c.toDataURL().slice(-120))}catch(e){}
+ return h38(P.join("|"))}
+try{ID38.fp=fp38()}catch(e){ID38.fp=""}
+const ac38Acc=()=>ACC.cl?h38("cl:"+ACC.cl.id):ACC.cur?h38("loc:"+ACC.cur+":"+((ACC.rec&&ACC.rec.c)||"")):"";
+function ix38(){return{dv:ID38.dv,fp:ID38.fp,ac:ac38Acc(),tp:AC38.hard?2:AC38.soft?1:0}}
+/* is that player me? strict = also the same device (Clasificatoria and Rampage.io) */
+function self38(ix,strict){if(!ix||typeof ix!="object")return 0;if(ix.dv&&ix.dv===ID38.dv)return 1;const a=ac38Acc();if(a&&ix.ac&&ix.ac===a)return 1;if(strict&&ix.fp&&ix.fp===ID38.fp)return 1;return 0}
+const net38Mode=()=>typeof RD!="undefined"&&RD.on?"rd":MODE=="br"?"br":"coop";
+{const _s=netSend;netSend=function(c,m){if(m&&(m.t=="hi"||m.t=="you"))m.ix=ix38();if(m&&m.t=="u")m._ts=Math.round(performance.now());return _s(c,m)}}
+{const _h=hostRecv;hostRecv=function(c,m){if(m&&m.t=="hi"){const md=net38Mode(),me=self38(m.ix,md!="coop");
+   if(me||!m.ix){if(md=="rd")return netSend(c,{t:"rdfull"});if(md=="br")return netSend(c,{t:"self38"});
+    return netSend(c,{t:"no",m:me?"No puedes unirte a una sala creada desde tu mismo navegador o con tu misma cuenta.":"Versión distinta del juego: actualiza la página."})}
+   if(md=="rd"&&m.ix.tp>=2)return netSend(c,{t:"rdfull"});
+   const r=_h(c,m);if(c._pid&&NET.pl[c._pid])NET.pl[c._pid].ix={dv:String(m.ix.dv||"").slice(0,32),fp:String(m.ix.fp||"").slice(0,32),tp:m.ix.tp|0};return r}
+  if(m&&m.t=="u"&&c._pid&&NET.pl[c._pid])spd38(NET.pl[c._pid],c,m);
+  return _h(c,m)}}
+{const _g=guestRecv;guestRecv=function(m){if(m&&m.t=="you"){const md=net38Mode();NET.hix=m.ix||null;
+   if(!m.ix||self38(m.ix,md!="coop")||(md=="rd"&&m.ix.tp>=2)){net38Bail(md,m.ix?"self":"old");return}}
+  if(m&&m.t=="self38"){net38Bail("br","self");return}
+  return _g(m)}}
+/* guest side: leave that room and keep looking (Clasificatoria / Rampage.io) or explain why (co-op) */
+function net38Bail(md,why){try{netSend(NET.conns.h,{t:"bye"})}catch(e){}try{NET.conns.h&&NET.conns.h.close()}catch(e){}NET.conns={};NET.me="?";
+ if(md=="rd"){if(RD.ph=="q")setTimeout(()=>rdTry(RD.sh+1),150);return}
+ if(md=="br"){const sh=+(String(ARENA.id).match(/ARENA-(\d+)$/)||[])[1]||1;setTimeout(()=>arenaTry(sh+1),150);return}
+ netReset();coopHome(why=="self"?"No puedes unirte a una sala creada desde tu mismo navegador o con tu misma cuenta.":"El anfitrión usa una versión distinta del juego.")}
+/* host: a guest whose game clock runs much faster than real time (speed hacks) is removed */
+function spd38(o,c,m){const ts=+m._ts;if(!(ts>0))return;const now=performance.now();if(!o.s38){o.s38={t0:now,ts0:ts,bad:0};return}const s=o.s38,dl=now-s.t0;if(dl<10000)return;
+ const r=(ts-s.ts0)/dl;s.t0=now;s.ts0=ts;if(r>1.4&&r<50){s.bad++;if(s.bad>=3){netSend(c,{t:"no",m:"Se detectó un acelerador de velocidad: no puedes seguir en esta partida."});toast(`${o.nm} fue expulsado: velocidad del juego alterada`,1);setTimeout(()=>{try{netDrop(c)}catch(e){}},200)}}else s.bad=Math.max(0,s.bad-1)}
+
+/* ---------- Clasificatoria: the same rival over and over gives less LP ---------- */
+{const _i=rdIntro;rdIntro=function(){try{const ix=NET.role=="host"?((NET.pl[RD.opp&&RD.opp.pid]||{}).ix):NET.hix;RD.okey=ix?h38((ix.dv||"")+"|"+(ix.fp||"")):""}catch(e){RD.okey=""}return _i()}}
+{const _d=rdDelta;rdDelta=function(win,my,opp){let v=_d(win,my,opp);const S=rdSV(),now=Date.now(),k=RD.okey;if(!k)return v;
+  const L=(S.op||[]).filter(x=>x&&now-x.t<20*3600e3);const n=L.filter(x=>x.k==k).length;
+  if(win&&n>=1){const m=n>=4?0:n>=3?.25:n>=2?.5:.75;v=Math.round(v*m);setTimeout(()=>toast(n>=4?"Ya ganaste muchas veces a este rival hoy: esta victoria no da LP":"Ya te enfrentaste a este rival hoy: la victoria da menos LP",1),900)}
+  L.push({k,t:now});S.op=L.slice(-40);return v}}
+
+/* ---------- one game per browser ---------- */
+const TAB38={on:0,seen:0,ch:null,took:0};
+function tab38Active(){TAB38.on=1;AC38.noSave=0}
+function tab38Block(why){TAB38.on=0;AC38.noSave=1;try{if(NET.role)netLeave()}catch(e){}try{if(st!="menu")toMenu()}catch(e){}try{if(AU.ac){AU.sfx.gain.value=0;AU.mus.gain.value=0}}catch(e){}
+ let d=$("#tab38");if(!d){d=document.createElement("div");d.id="tab38";document.body.appendChild(d)}
+ d.innerHTML=`<div class="tab38b"><h2>${why=="other"?"Sigues jugando en otra pestaña":"El juego ya está abierto"}</h2><p>${why=="other"?"Abriste PokesRampage en otra pestaña o ventana y ahora se juega allí. Esta se ha pausado para que no se pisen las partidas guardadas.":"PokesRampage ya está abierto en otra pestaña o ventana de este navegador. Solo puede haber uno a la vez para que no se pisen las partidas guardadas ni puedas jugar contra ti mismo."}</p><button type="button" id="tab38go">Jugar en esta pestaña</button></div>`;
+ d.hidden=false;$("#tab38go").onclick=tab38Take;try{keys={}}catch(e){}}
+function tab38Take(){const b=$("#tab38go");if(b){b.disabled=true;b.textContent="Cambiando…"}TAB38.took=0;try{TAB38.ch.postMessage({t:"take",id:ID38.tab})}catch(e){}
+ const t0=Date.now(),wait=()=>{if(TAB38.took||Date.now()-t0>1500)location.reload();else setTimeout(wait,60)};wait()}
+(function tab38Init(){let ch;try{ch=TAB38.ch=new BroadcastChannel("pkr-tab38-"+SK)}catch(e){tab38Active();return}
+ ch.onmessage=ev=>{const m=ev.data||{};if(!m.id||m.id===ID38.tab)return;
+  if(m.t=="ping"&&TAB38.on)ch.postMessage({t:"pong",id:ID38.tab,to:m.id});
+  else if(m.t=="pong"&&m.to===ID38.tab)TAB38.seen=1;
+  else if(m.t=="hb"&&TAB38.on&&m.id<ID38.tab)tab38Block("other");
+  else if(m.t=="take"&&TAB38.on){try{save()}catch(e){}try{accFlush()}catch(e){}tab38Block("other");setTimeout(()=>ch.postMessage({t:"took",id:ID38.tab,to:m.id}),250)}
+  else if(m.t=="took"&&m.to===ID38.tab)TAB38.took=1};
+ ch.postMessage({t:"ping",id:ID38.tab});setTimeout(()=>{if(TAB38.seen)tab38Block("first");else tab38Active()},400);
+ setInterval(()=>{if(TAB38.on)try{ch.postMessage({t:"hb",id:ID38.tab})}catch(e){}},3000)})();
+
+/* ---- 99_anticheat.js ---- */
+/* v38 · anti-trampas (protección del lado del jugador)
+   Without a server nothing is 100% safe, but this closes the easy ways:
+   - the save is signed: editing it in localStorage / DevTools is detected on load (online blocked 48 h)
+   - coins, tickets, caps, Pokémon, mastery, candies, LP, EVs/IVs… cannot be changed from the console,
+     bookmarklets or userscripts (Tampermonkey & co.): the write is refused and online is blocked for the session
+   - replacing game functions (god mode, damage hacks…) is undone and blocks online for the session
+   - speed hacks: the game clock is compared with the real clock (and the host compares every guest's clock)
+   - replacing the whole save object, injected scripts and patched timers/random are detected too
+   Everything lives inside a closure so it cannot be switched off by overwriting a global. */
+(()=>{
+ const NErr=Error,NJS=JSON.stringify,NJP=JSON.parse,NST=window.setTimeout,NSI=window.setInterval,NRAF=window.requestAnimationFrame,NQM=window.queueMicrotask,
+  NAEL=EventTarget.prototype.addEventListener,NTHEN=Promise.prototype.then,NPN=performance.now.bind(performance),NDN=Date.now,NOK=Object.keys,NDP=Object.defineProperty,
+  RXE=RegExp.prototype.exec,SRP=String.prototype.replace,SSP=String.prototype.split,H=h38,GUARDED=new WeakSet();
+ const rx=(re,s)=>RXE.call(re,s)!==null;
+ const LOOP=typeof loop=="function"?loop:null;
+ const S={taint:0,loading:0,hard:0,soft:0,why:"",flags:[],denyT:0,sv:null,marked:{},spd:{t:0,d:0,bad:0},chip:0};
+ const PAGE=SSP.call(String(location.href),/[?#]/)[0];
+ const CDN=/^https:\/\/(cdn\.jsdelivr\.net|unpkg\.com|cdnjs\.cloudflare\.com)\//;
+ /* other browser extensions are tolerated (some wrap timers or listeners); userscript managers and the console are not */
+ const FOREIGN=/<anonymous>:\d+:\d+|\bat eval \(|\beval at\b|> eval\b|debugger eval code|userscript|user-script:|\.user\.js|> injectedScript|> Function|\bblob:|data:text\/javascript|javascript:|^\s*(global code|eval code)@\s*$/im;
+ const URLRX=/(?:https?|file):\/\/[^\s()"'@]+/g;
+ /* ---------- who is calling? (page code, or something from outside: console, userscript, extension, eval…) ---------- */
+ function stack(){const L=NErr.stackTraceLimit,ps=NErr.prepareStackTrace;let ok=true;try{NErr.stackTraceLimit=60}catch(e){}
+  if(ps!==undefined){try{NErr.prepareStackTrace=undefined}catch(e){}ok=NErr.prepareStackTrace===undefined}
+  let s="";try{s=String(new NErr().stack||"")}catch(e){}finally{try{NErr.stackTraceLimit=L}catch(e){}if(ps!==undefined)try{NErr.prepareStackTrace=ps}catch(e){}}
+  return ok?s:null}
+ function legit(){/*AC38DEV*/if(S.taint>0)return false;const s=stack();if(s===null)return false;if(rx(FOREIGN,s))return false;
+  URLRX.lastIndex=0;let m;while((m=RXE.call(URLRX,s))!==null){const u=SSP.call(SRP.call(m[0],/(:\d+){1,2}$/,""),/[?#]/)[0];if(u!==PAGE&&!rx(CDN,u))return false}return true}
+ /* ---------- flags ---------- */
+ const reasons={firma:"la partida guardada se modificó fuera del juego",escritura:"un script externo intentó cambiar tu partida",funcion:"se reemplazaron funciones del juego",velocidad:"el reloj del juego va más rápido que el real (acelerador)",sv:"se intentó reemplazar la partida desde fuera",sinfirma:"la partida guardada perdió su firma",script:"se inyectó un script en la página",nativo:"una extensión modifica temporizadores o números aleatorios"};
+ function flag(k,hard,detail){const now=NDN();if(S.flags.length<40)S.flags.push({k,t:now,d:String(detail||"").slice(0,80)});
+  if(hard){if(!S.hard)S.why=reasons[k]||k;S.hard=1;try{const v=sv();if(v){v.acf=(v.acf||0)+1;v.acl=(v.acl||[]).concat([[k,now]]).slice(-6)}}catch(e){}chip();toastOnce(k)}
+  else{S.soft=1;try{console.warn("[anti-trampas]",reasons[k]||k,detail||"")}catch(e){}}}
+ const told={};function toastOnce(k){if(told[k])return;told[k]=1;try{toast("Anti-trampas: "+(reasons[k]||k)+". El modo online queda bloqueado.",1)}catch(e){}}
+ const sv=()=>S.sv;
+ /* ---------- protected fields ---------- */
+ const PRIM=["c","tk","cap","k","runs","acf","acb"],OBJ=["u","sy","mu","mast","cd","w","rd","up","evs","ivs","nat","best","acl"],SIGF=PRIM.concat(OBJ,["main","last"]);
+ const P2R=new WeakMap(),R2P=new WeakMap();
+ const unwrap=v=>(v&&typeof v=="object"&&P2R.get(v))||v;
+ function deny(what){if(!S.denyT||NDN()-S.denyT>3000){S.denyT=NDN();flag("escritura",1,what)}}
+ function wrap(v){if(!v||typeof v!="object")return v;if(P2R.has(v))return v;let p=R2P.get(v);if(p)return p;
+  p=new Proxy(v,{get(t,k){const x=t[k];return x&&typeof x=="object"?wrap(x):x},
+   set(t,k,val){if(!legit()){deny("set "+String(k));return true}t[k]=unwrap(val);return true},
+   deleteProperty(t,k){if(!legit()){deny("del "+String(k));return true}delete t[k];return true},
+   defineProperty(t,k,d){if(!legit()){deny("def "+String(k));return true}return Reflect.defineProperty(t,k,d)}});
+  R2P.set(v,p);P2R.set(p,v);return p}
+ function canon(v){v=unwrap(v);if(v===null||typeof v!="object")return typeof v=="number"&&!isFinite(v)?"null":NJS(v===undefined?null:v);
+  if(Array.isArray(v))return"["+v.map(canon).join(",")+"]";return"{"+NOK(v).filter(k=>v[k]!==undefined).sort().map(k=>NJS(k)+":"+canon(v[k])).join(",")+"}"}
+ const SALT=["pkr","dx",String.fromCharCode(51,56),"m4str","Δ","ranch"].join("·");
+ function sig(o){let s=SALT;for(const k of SIGF)s+="|"+k+"="+(o[k]===undefined?"~":canon(o[k]));return H(s)+H(s.split("").reverse().join(""))}
+ const skey=()=>ACC.cl?"c:"+ACC.cl.id:ACC.cur?"l:"+ACC.cur:"g:"+SK;
+ function markSigned(){const k=skey();if(S.marked[k])return;S.marked[k]=1;try{localStorage["pkr_acs:"+k]="1"}catch(e){}}
+ function guard(o){if(!o||typeof o!="object")return o;
+  if(!GUARDED.has(o)){GUARDED.add(o);for(const k of PRIM.concat(OBJ)){let val=unwrap(o[k]);delete o[k];const isO=OBJ.includes(k);
+    NDP(o,k,{enumerable:true,configurable:false,get(){return isO?wrap(val):val},set(v){if(!legit()){deny("SV."+k);return}val=unwrap(v)}})}
+   NDP(o,"toJSON",{enumerable:false,configurable:false,writable:false,value:function(){if(AC38.noSave)throw new NErr("pkr38: esta pestaña está en pausa");const r={};for(const k of NOK(this))r[k]=unwrap(this[k]);delete r._sig;r._ac=38;r._sig=sig(r);markSigned();return r}})}
+  S.sv=o;return o}
+ /* ---------- online is closed while something is wrong ---------- */
+ const blocked=()=>S.hard||((sv()&&sv().acb)||0)>NDN();
+ function why(){const v=sv(),u=(v&&v.acb)||0;if(S.hard)return`Se detectó que ${S.why}. Recarga la página sin extensiones ni scripts que modifiquen el juego.`;
+  if(u>NDN()){const h=Math.ceil((u-NDN())/3600e3);return`Tu partida guardada se modificó fuera del juego. El modo online vuelve en ${h} h.`}return""}
+ function gate(fn,name){return function(...a){if(blocked()){const m="Modo online bloqueado. "+why();try{if(name=="rd")toast(m,1);else coopMsg(m)}catch(e){try{toast(m,1)}catch(x){}}chip();return}return fn.apply(this,a)}}
+ function chip(){if(!blocked())return;let c=document.getElementById("ac38");if(!c){c=document.createElement("button");c.id="ac38";c.type="button";document.body.appendChild(c);
+   c.onclick=()=>{try{ovs(`<div class="box abox"><h3>Protección anti-trampas</h3><p class="tip">${why()}</p><p class="tip">Puedes seguir jugando solo; la clasificatoria, Rampage.io y el cooperativo se reactivan cuando todo vuelve a estar en orden.</p><div class="mb row"><button data-a="close">Entendido</button></div></div>`,"svov")}catch(e){}}}
+  c.textContent="⚠ Online bloqueado";c.title=why();c.hidden=false}
+ /* ---------- checking a save before it is loaded ---------- */
+ function check(raw,key,importing){if(!raw||typeof raw!="object")return 0;const has=raw.u&&NOK(raw.u).length>0;if(!has)return 0;
+  if(raw._sig)return raw._sig===sig(raw)?0:"firma";if(raw._ac)return"firma";
+  let was=0;try{was=localStorage["pkr_acs:"+key]=="1"}catch(e){}return was&&!importing?"sinfirma":0}
+ function applyCheck(r){if(!r)return;if(r=="firma"){const v=sv();try{v.acb=NDN()+48*3600e3;v.acf=(v.acf||0)+1;v.acl=(v.acl||[]).concat([["firma",NDN()]]).slice(-6)}catch(e){}
+  S.flags.push({k:"firma",t:NDN(),d:""});NST.call(window,()=>{chip();toastOnce("firma")},1500)}else flag(r,0)}
+ /* the save the game already loaded at start-up (guest save) */
+ let boot=0;try{boot=check(NJP(localStorage[SK]||"{}"),"g:"+SK)}catch(e){}
+ guard(SV);applyCheck(boot);
+ /* every later load (accounts, cloud, import, reset) */
+ {const _sl=svLoad;svLoad=function(o){const r=check(o,skey(),S.importing);S.loading=1;try{_sl(o)}finally{S.loading=0}guard(SV);applyCheck(r);if(blocked())chip()}}
+ {const _ai=accImport;accImport=function(f){S.importing=1;NST(()=>{S.importing=0},20000);return _ai(f)}}
+ /* ---------- the one way the game writes the save ---------- */
+ const SER={ser(o){if(AC38.noSave)throw new NErr("pkr38: esta pestaña está en pausa");
+   if(o===SV&&SV!==S.sv){if(S.loading)guard(SV);else{flag("sv",1);SV=S.sv;o=S.sv}}return NJS(o)}};
+ NDP(window,"AC38S",{value:Object.freeze(SER),writable:false,configurable:false});
+ rdQueue=gate(rdQueue,"rd");brEnter0=gate(brEnter0,"br");netHost=gate(netHost,"co");netJoin=gate(netJoin,"co");
+ /* ---------- callbacks scheduled from outside run "tainted": they cannot touch the save ---------- */
+ const taint=fn=>function(...a){S.taint++;try{return fn.apply(this,a)}finally{S.taint--}};
+ const W={setTimeout(fn,...r){if(typeof fn=="string"){flag("script",0,"setTimeout(string)");return 0}if(typeof fn=="function"&&!legit())fn=taint(fn);return NST.call(window,fn,...r)},
+  setInterval(fn,...r){if(typeof fn=="string"){flag("script",0,"setInterval(string)");return 0}if(typeof fn=="function"&&!legit())fn=taint(fn);return NSI.call(window,fn,...r)},
+  requestAnimationFrame(fn){if(typeof fn=="function"&&fn!==LOOP&&!legit())fn=taint(fn);return NRAF.call(window,fn)},
+  queueMicrotask(fn){if(typeof fn=="function"&&!legit())fn=taint(fn);return NQM.call(window,fn)}};
+ for(const k in W)window[k]=W[k];
+ const AEL=function(t,fn,o){if(typeof fn=="function"&&!legit())fn=taint(fn);return NAEL.call(this,t,fn,o)};EventTarget.prototype.addEventListener=AEL;
+ const THEN=function(a,b){if((typeof a=="function"||typeof b=="function")&&!legit()){if(typeof a=="function")a=taint(a);if(typeof b=="function")b=taint(b)}return NTHEN.call(this,a,b)};Promise.prototype.then=THEN;
+ /* ---------- watchdog: game functions, the save object, natives, speed ---------- */
+ const WATCH="hurtP hitE dmgE mGain spawn upd loop fireOne fireMove moveDmg eDmg eFire eFire0 brKill rdEnd rdDelta rdQueue brEnter0 netHost netJoin end histAdd keepSpec rollSpec lzTick updHZ area hostRecv guestRecv netSend netRecv hostU svLoad svNorm mastSubmit gResult slotPull resolvePend wv38Tick tLv applyStatus kbE itTick accImport self38 ix38 spd38 h38".split(" ").filter(n=>typeof window[n]=="function");
+ const REF={};for(const n of WATCH)REF[n]=window[n];
+ const NAT={setTimeout:W.setTimeout,setInterval:W.setInterval,requestAnimationFrame:W.requestAnimationFrame,queueMicrotask:W.queueMicrotask};
+ const isNative=f=>{try{return/\{\s*\[native code\]\s*\}\s*$/.test(Function.prototype.toString.call(f))}catch(e){return false}};
+ if(![performance.now,Date.now,Math.random,JSON.stringify,JSON.parse].every(isNative))flag("nativo",0,"al iniciar");
+ const NPerf=performance.now,NDate=Date.now,NRand=Math.random;
+ function tick(){
+  for(const n of WATCH)if(window[n]!==REF[n]){flag("funcion",1,n);try{window[n]=REF[n]}catch(e){}}
+  for(const k in NAT)if(window[k]!==NAT[k]){flag("nativo",0,k);try{window[k]=NAT[k]}catch(e){}}
+  if(EventTarget.prototype.addEventListener!==AEL){flag("nativo",0,"addEventListener");try{EventTarget.prototype.addEventListener=AEL}catch(e){}}
+  if(Promise.prototype.then!==THEN){flag("nativo",0,"then");try{Promise.prototype.then=THEN}catch(e){}}
+  if(performance.now!==NPerf||Date.now!==NDate||Math.random!==NRand){flag("nativo",0,"tiempo/azar");try{performance.now=NPerf;Date.now=NDate;Math.random=NRand}catch(e){}}
+  if(SV!==S.sv&&!S.loading){flag("sv",1);SV=S.sv}
+  /* speed: game clock vs wall clock, 5 s windows (sleep and clock changes are ignored) */
+  const p=NPN(),d=NDN(),sp=S.spd;if(!sp.t){sp.t=p;sp.d=d}else if(d-sp.d>=5000){const dp=p-sp.t,dd=d-sp.d;sp.t=p;sp.d=d;
+   if(dd>0&&dd<15000){const r=dp/dd;if(r>1.3){if(++sp.bad>=3)flag("velocidad",1,r.toFixed(2))}else sp.bad=0}}
+  if(blocked())chip()}
+ NSI.call(window,tick,1000);
+ /* scripts added to the page after start-up (only the game's own CDN libraries are expected) */
+ try{new MutationObserver(L=>{for(const m of L)for(const n of m.addedNodes)if(n&&n.tagName=="SCRIPT"){const s=n.src||"";if(!s||!(CDN.test(s)||s.startsWith(PAGE)))flag("script",0,s||"inline")}}).observe(document.documentElement,{childList:true,subtree:true})}catch(e){}
+ /* read-only view for the rest of the game (the online «hi» tells the others if this game was flagged) */
+ NDP(AC38,"hard",{get:()=>blocked()?1:0,configurable:false});NDP(AC38,"soft",{get:()=>S.soft?1:0,configurable:false});NDP(AC38,"why",{get:why,configurable:false});
+ NDP(AC38,"flags",{get:()=>S.flags.slice(),configurable:false});
+ if(blocked())NST.call(window,chip,1200);
+})();
 
 /*V37E*/
 rs();resetWorld(4242);music.play("menu");requestAnimationFrame(loop);accBoot();
